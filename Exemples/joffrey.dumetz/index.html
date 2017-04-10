@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+<div id="commande">
+    <input id="recherche" type="text" placeholder="Rechercher ..."/>
+    <button onclick="rechercher()">Rechercher</button>
+    <button onclick="affichage_initial()">Affichage initial</button>
+</div>
+<div class="panel panel-default">
+    <div class=panel-heading>Liste des Etudiants</div>
+    <table class=table>
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>UE 41</th>
+            <th>UE 42</th>
+            <th>Moyenne</th>
+            <th>Semestre validé</th>
+        </tr>
+        </thead>
+        <tbody id="liste des étudiants">
+        <!--<tr>
+            <td>1974_1</td>
+            <td>Gaston</td>
+            <td>Lagaffe</td>
+            <td>15.9</td>
+        </tr>
+        <tr>
+            <td>2007_1</td>
+            <td>Bart</td>
+            <td>Simpson</td>
+            <td>7.99</td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="ajaxCC2.js"></script>
+</body>
+</html>

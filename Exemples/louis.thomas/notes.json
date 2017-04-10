@@ -1,0 +1,24 @@
+{
+	"composition" : [
+		{
+			"nom" : "BISSON",
+			"prenom" : "Julien",
+			"participation" : "25"
+		},
+		{
+			"nom" : "SCHILLER",
+			"prenom" : "Dylan",
+			"participation" : "20"
+		},
+		{
+			"nom" : "CLEROT",
+			"prenom" : "Jéremy",
+			"participation" : "20"
+		},
+		{
+			"nom" : "THOMAS",
+			"prenom" : "Louis",
+			"participation" : "35"
+		}
+	]
+}

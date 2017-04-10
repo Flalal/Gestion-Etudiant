@@ -1,0 +1,1898 @@
+{
+  "bigard_s": {
+    "nom": "bigard",
+    "prenom": "samuel",
+    "numero": "2017_1",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          7.8
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          14.8
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          13
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          15.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          17.6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          16.8
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          10.8
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          14.2
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          8.4
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          17.6
+        ]
+      }
+    }
+  },
+  "bonte_n": {
+    "nom": "bonte",
+    "prenom": "nicolas",
+    "numero": "2017_2",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          15.4
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          16
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          15.6
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          15.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          7.2
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          8.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          16.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          9.6
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          15
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          7.4
+        ]
+      }
+    }
+  },
+  "boulnois_l": {
+    "nom": "boulnois",
+    "prenom": "louis",
+    "numero": "2017_3",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          12.4
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          16
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          16.4
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          11.2
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          14.6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          13.2
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          12.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          17.6
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          12.4
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          9.4
+        ]
+      }
+    }
+  },
+  "chatelet_h": {
+    "nom": "chatelet",
+    "prenom": "hadrien",
+    "numero": "2017_4",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          8.8
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          6.6
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          11.2
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          12.6
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          11.4
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          16.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          14
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          17
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          8.4
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          13.2
+        ]
+      }
+    }
+  },
+  "clerot_j": {
+    "nom": "clerot",
+    "prenom": "j\u00e9r\u00e9my",
+    "numero": "2017_5",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          14.8
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          10.6
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          13.6
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          13.2
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          7
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          16
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          10.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          11.4
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          8.8
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          18
+        ]
+      }
+    }
+  },
+  "cornu_b": {
+    "nom": "cornu",
+    "prenom": "bastien",
+    "numero": "2017_6",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          7
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          20
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          8
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          12
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          5
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          10
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          10
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          12
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          10.8
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          11.6
+        ]
+      }
+    }
+  },
+  "dumetz_j": {
+    "nom": "dumetz",
+    "prenom": "joffrey",
+    "numero": "2017_7",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          11
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          16
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          7.8
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          13.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          9.2
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          7
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          11.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          9
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          10.4
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          15
+        ]
+      }
+    }
+  },
+  "fevrier_t": {
+    "nom": "fevrier",
+    "prenom": "tennessee",
+    "numero": "2017_8",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          10
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          5
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          11.4
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          12
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          11.8
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          10.2
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          9
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          14.4
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          11.6
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          15.8
+        ]
+      }
+    }
+  },
+  "froissart_m": {
+    "nom": "froissart",
+    "prenom": "marie",
+    "numero": "2017_9",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          10
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          14
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          14.2
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          10.2
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          10.2
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          11.8
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          15.6
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          9.2
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          10
+        ]
+      }
+    }
+  },
+  "geeraert_q": {
+    "nom": "geeraert",
+    "prenom": "quentin",
+    "numero": "2017_10",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          9.2
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          8
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          10
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          17.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          14
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          12.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          14.2
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          7.2
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          7.2
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          10.8
+        ]
+      }
+    }
+  },
+  "le foll_c": {
+    "nom": "le foll",
+    "prenom": "coralie",
+    "numero": "2017_11",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          0
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          14.2
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          7
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          3
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          5
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          7.2
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          15.2
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          12.8
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          7.2
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          17
+        ]
+      }
+    }
+  },
+  "lefait_r": {
+    "nom": "lefait",
+    "prenom": "romain",
+    "numero": "2017_12",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          9
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          2
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          13.8
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          9.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          12.8
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          16.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          11.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          0
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          6.2
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          16.6
+        ]
+      }
+    }
+  },
+  "legru_f": {
+    "nom": "legru",
+    "prenom": "florent",
+    "numero": "2017_13",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          8.2
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          1
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          15
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          6.6
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          16.8
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          13.6
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          11
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          7
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          9.2
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          2
+        ]
+      }
+    }
+  },
+  "lemaitre_v": {
+    "nom": "lemaitre",
+    "prenom": "valentin",
+    "numero": "2017_14",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          6.8
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          15.2
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          8.6
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          6.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          7.6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          6.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          3
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          9.6
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          9
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          12.2
+        ]
+      }
+    }
+  },
+  "lesaffre_r": {
+    "nom": "lesaffre",
+    "prenom": "romain",
+    "numero": "2017_15",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          10
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          9.6
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          7.4
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          16
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          4
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          8.6
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          9.6
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          10
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          12.4
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          15.6
+        ]
+      }
+    }
+  },
+  "loope_g": {
+    "nom": "loope",
+    "prenom": "giovanni",
+    "numero": "2017_16",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          9.6
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          6.2
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          6
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          16.8
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          14.2
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          7.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          12.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          15.2
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          15.8
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          6.6
+        ]
+      }
+    }
+  },
+  "merlin_a": {
+    "nom": "merlin",
+    "prenom": "anthony",
+    "numero": "2017_17",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          8.6
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          10.8
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          9.2
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          6.8
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          7.6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          11.8
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          14.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          14
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          15.8
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          10.4
+        ]
+      }
+    }
+  },
+  "suret_k": {
+    "nom": "suret",
+    "prenom": "k\u00e9vin",
+    "numero": "2017_18",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          17.6
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          12.2
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          17
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          7.8
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          16.6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          9.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          12
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          13.8
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          11.4
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          12.8
+        ]
+      }
+    }
+  },
+  "szkaradek_t": {
+    "nom": "szkaradek",
+    "prenom": "thibaud",
+    "numero": "2017_19",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          13
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          6.2
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          12.4
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          14.4
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          9
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          16.2
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          12.8
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          14.4
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          13.8
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          8.4
+        ]
+      }
+    }
+  },
+  "tang_f": {
+    "nom": "tang",
+    "prenom": "fr\u00e9d\u00e9ric",
+    "numero": "2017_20",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          6.8
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          13.6
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          8.4
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          10
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          18
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          8.6
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          17.2
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          16.4
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          17.2
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          15.8
+        ]
+      }
+    }
+  },
+  "therage_l": {
+    "nom": "therage",
+    "prenom": "lucas",
+    "numero": "2017_21",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          13.6
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          10.6
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          6.2
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          14
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          17.2
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          8.4
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          10.6
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          13
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          7
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          8.6
+        ]
+      }
+    }
+  },
+  "vanroy_j": {
+    "nom": "vanroy",
+    "prenom": "julien",
+    "numero": "2017_22",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          15.6
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          14
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          14.2
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          8.2
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          6.8
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          15.6
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          14
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          16.8
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          9
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          10.4
+        ]
+      }
+    }
+  },
+  "vella_e": {
+    "nom": "vella",
+    "prenom": "emanuele",
+    "numero": "2017_23",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          5
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          8.4
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          10.8
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          10.8
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          14.4
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          2.8
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          6.6
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          8.6
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          10
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          10.4
+        ]
+      }
+    }
+  },
+  "verpoest_s": {
+    "nom": "verpoest",
+    "prenom": "sylvain",
+    "numero": "2017_24",
+    "ue41": {
+      "Pweb2": {
+        "intitule": "Pweb2",
+        "coefficient": 1.5,
+        "notes": [
+          10.8
+        ]
+      },
+      "AdmSR": {
+        "intitule": "AdmSR",
+        "coefficient": 1.5,
+        "notes": [
+          12.6
+        ]
+      },
+      "ProgMobile": {
+        "intitule": "ProgMobile",
+        "coefficient": 1.5,
+        "notes": [
+          10.2
+        ]
+      },
+      "ProgRep": {
+        "intitule": "ProgRep",
+        "coefficient": 1.5,
+        "notes": [
+          15
+        ]
+      },
+      "CompInfo": {
+        "intitule": "CompInfo",
+        "coefficient": 1.5,
+        "notes": [
+          6
+        ]
+      },
+      "Projet": {
+        "intitule": "Projet",
+        "coefficient": 2.5,
+        "notes": [
+          15.8
+        ]
+      }
+    },
+    "ue42": {
+      "Atelier": {
+        "intitule": "Atelier",
+        "coefficient": 2,
+        "notes": [
+          14.4
+        ]
+      },
+      "RO": {
+        "intitule": "RO",
+        "coefficient": 2,
+        "notes": [
+          9.4
+        ]
+      },
+      "COM": {
+        "intitule": "COM",
+        "coefficient": 2,
+        "notes": [
+          15.6
+        ]
+      },
+      "Ang": {
+        "intitule": "Ang",
+        "coefficient": 2,
+        "notes": [
+          13
+        ]
+      }
+    }
+  }
+}
