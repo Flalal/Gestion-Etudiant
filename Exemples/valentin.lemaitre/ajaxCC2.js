@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 $(document).ready(function(){
 
@@ -27,7 +27,6 @@ function ajouterEtudiant (etudiant) {
     var nodeEtudiant = document.createElement("tr");
     var keys =  ["numero","nom","prenom"];
     for (var i in keys) {
-
         var element = document.createElement("td");
         var attribut = "etudiant."+keys[i];
         element.innerHTML = eval(attribut);
