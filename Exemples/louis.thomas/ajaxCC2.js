@@ -24,7 +24,7 @@ function afficheImage(){
 	var nouvelleimage=document.createElement("IMG");
 	nouvelleimage.getAttribute("src");
 	document.getElementById('liste des étudiants').appendChild(nouvelleimage);
-	document.getElementById('liste des étudiants').lastChild.setAttribute('src','avatar-big.png');
+	document.getElementById('liste des étudiants').lastChild.setAttribute('src','images.jpg');
 	//console.log("Photo");
 }
 
@@ -45,21 +45,22 @@ function execute() {
 		var index= 0;
 		
 		//moyenne de l'UE41 promo
-		var moyProm41=0;
-		var coef1 = 0;
-		
+		var moyProm41=0
+		var coef1=0;
+
 		// moyenne de l'UE42 promo
 		var moyProm42=0;
-		var coef2 = 0;
+		var coef2=0;
+		
+		var nbEtudiant=1;
 		
 		var moyGenPromo=0;
-		
+
 		for (x in data) {
 			
+			nbEtudiant++;
 			//~ console.log(x);
 			//~ console.log(data[x]);
-			var node = document.createElement("td");
-			var nodeEtudiant = document.createElement("td");
 			var elementPhoto = document.createElement("td");
 			
 			//Ajoute chaque étudiant dans la table
@@ -67,13 +68,13 @@ function execute() {
 			//afficheImage();
 			
 			//le bouton pour afficher la photo de l'etudiant x 
-			var myImg = new Image();
-			myImg.src = 'images.jpg';
-	
+			/*var myImg = new Image();
+			myImg.src = 'images.jpg';*/
+			
 			var butPhoto = document.createElement("button");
 			    
-			var value= "Photo de l'Étudiant(e)";
-			var detail="Voici la photo";  
+			var value= "Photo de l'étudiant";
+			var detail="Voici la Fiche";  
 			  
 			butPhoto.setAttribute("type","text");
 			butPhoto.setAttribute("data-toggle","popover");
@@ -85,9 +86,9 @@ function execute() {
 			butPhoto.innerHTML = value;
 			
 			elementPhoto.appendChild(butPhoto);			
-			liste.appendChild(elementPhoto);
+			liste.appendChild(butPhoto);
 			
-			butPhoto.addEventListener('click',afficheImage());
+			//butPhoto.addEventListener('click',afficheImage());
 			//initEventHandlers(butPhoto,'click',function(){afficheImage()});
 			
 			// valeur html
@@ -108,12 +109,13 @@ function execute() {
 				rowue41 += "<tr><td>" + data[x].ue41[a].intitule + "</td><td>" + data[x].ue41[a].coefficient + "</td><td>" + data[x].ue41[a].notes[0] + "</td></tr>";
 				MoyUe41 += data[x].ue41[a].notes[0] * data[x].ue41[a].coefficient; // somme des calculs (notes * coefs)
 				cpt1+= data[x].ue41[a].coefficient; // somme des coefs
-
+				
 				coef1++; 
 			}
 			// calcul moy ue41
 			MoyUe41 = MoyUe41 / cpt1;
-
+	
+			moyProm41+=MoyUe41;
 			// Parcourt l'ue2 de l'etudiant x
 			for (a in data[x].ue42) {
 				//~ console.log(data[x].ue42[a].intitule);
@@ -125,9 +127,7 @@ function execute() {
 			}
 			// calcul moy ue42
 			MoyUe42 = MoyUe42 / cpt2;
-			
-			moyProm41+=MoyUe41;
-			moyProm42+=MoyUe42;
+			moyProm42+=MoyUe42;		
 			
 			// moyenne générale pour un etudiant x, de l'u41 et de l'u42
 			var moyGenEtu=0;
@@ -191,19 +191,19 @@ function execute() {
 						"<td>UE41</td>" +
 						"<td>" + cpt1 + "</td>" +
 						"<td>" + MoyUe41.toFixed(2) + "</td>" +
-						"<td>" + moyProm41.toFixed(2) + "</td>" +
+						"<td name='promoUE41'>" + moyProm41.toFixed(2) + "</td>" +
 					"</tr>" +
 					"<tr>" +
 						"<td>UE42</td>" +
 						"<td>" + cpt2 + "</td>" +
 						"<td>" + MoyUe42.toFixed(2) + "</td>" +
-						"<td>" + moyProm42.toFixed(2) + "</td>" +
+						"<td name='promoUE42'>" + moyProm42.toFixed(2) + "</td>" +
 					"</tr>" +
 					"<tr>" +
 						"<th>Genérale</th>" +
 						"<th>" + (cpt2+cpt1) + "</th>" +
 						"<th>" + moyGenEtu.toFixed(2) + "</th>" +
-						"<th>" + moyGenPromo.toFixed(2) + "</th>" +
+						"<th name='promoMoy'>" + moyGenPromo.toFixed(2) + "</th>" +
 					"</tr>" +
 				   "</tbody>"+
 				  "</table>"+
@@ -216,8 +216,26 @@ function execute() {
 			
 			index++;
 		}
+		var promo=document.getElementsByName('promoUE42');
+
+		for (var i=0;i<promo.length;i++){
+			promo[i].innerHTML= (moyProm42/nbEtudiant).toFixed(2) ;
+		}
 		
+		var promo=document.getElementsByName('promoUE41');
+
+		for (var i=0;i<promo.length;i++){
+			promo[i].innerHTML= (moyProm41/nbEtudiant).toFixed(2) ;
+		}
+		
+		var promo=document.getElementsByName('promoMoy');
+
+		for (var i=0;i<promo.length;i++){
+			promo[i].innerHTML= (moyGenPromo/nbEtudiant).toFixed(2);
+		}
 	});
+	
+
 
 }
 
