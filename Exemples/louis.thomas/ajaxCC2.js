@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({ html : true });
+});
+
 function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
@@ -21,8 +25,7 @@ function afficheImage(){
 	nouvelleimage.getAttribute("src");
 	document.getElementById('liste des étudiants').appendChild(nouvelleimage);
 	document.getElementById('liste des étudiants').lastChild.setAttribute('src','avatar-big.png');
-
-	//alert("coucou");
+	//console.log("Photo");
 }
 
 function execute() {
@@ -32,8 +35,6 @@ function execute() {
 		var liste = document.getElementById('liste des étudiants');
 		var modal = document.getElementById('listemodal');
 
-		
-		
 		// Vide les différentes DIV
 		while (liste.hasChildNodes()) {
 			liste.removeChild(liste.firstChild);
@@ -42,59 +43,64 @@ function execute() {
 			modal.removeChild(modal.firstChild);
 		}	
 		var index= 0;
+		
+		//moyenne de l'UE41 promo
+		var moyProm41=0;
+		var coef1 = 0;
+		
+		// moyenne de l'UE42 promo
+		var moyProm42=0;
+		var coef2 = 0;
+		
+		var moyGenPromo=0;
+		
 		for (x in data) {
+			
 			//~ console.log(x);
 			//~ console.log(data[x]);
+			var node = document.createElement("td");
+			var nodeEtudiant = document.createElement("td");
+			var elementPhoto = document.createElement("td");
 			
 			//Ajoute chaque étudiant dans la table
 			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
 			//afficheImage();
 			
-			// valeur html
-			var rowue41 = "";
-			var rowue42 = "";
-			
-			// moyenne de chaque UE
-			var MoyUe41 = 0;
-			var MoyUe42 = 0;
-			
-			// somme des moyennes de toute la promo 
-			var somMoy41=0;
-			var somMoy42=0;
-
-			// moyenne pour la promo
-			var moyGen41=0;
-			var moyGen42=0;
-			
-			// Somme des coefs par UE
-			var cpt1 = 0;
-			var cpt2 = 0;
-			
-			// Somme des coefs par UE
-			var coef1 = 0;
-			var coef2 = 0;
-	
-			// creer le bouton pour afficher la photo de l'etudiant x 
+			//le bouton pour afficher la photo de l'etudiant x 
 			var myImg = new Image();
 			myImg.src = 'images.jpg';
 	
 			var butPhoto = document.createElement("button");
 			    
-			var value="voici la photo";  
+			var value= "Photo de l'Étudiant(e)";
+			var detail="Voici la photo";  
 			  
 			butPhoto.setAttribute("type","text");
 			butPhoto.setAttribute("data-toggle","popover");
-			butPhoto.setAttribute("title",data[x].nom);
-			butPhoto.setAttribute("data-content",value);
+			butPhoto.setAttribute("title",data[x].nom+" "+data[x].prenom);
+			butPhoto.setAttribute("data-content",detail);
 			butPhoto.setAttribute("data-placement","right");
 			butPhoto.setAttribute("class","btn btn-success btn-block");
 			
-			butPhoto.innerHTML = "Photo de l'Étudiant(e)";
+			butPhoto.innerHTML = value;
 			
-			liste.appendChild(butPhoto);
+			elementPhoto.appendChild(butPhoto);			
+			liste.appendChild(elementPhoto);
 			
-			//butPhoto.addEventListener("click",afficheImage());
+			butPhoto.addEventListener('click',afficheImage());
 			//initEventHandlers(butPhoto,'click',function(){afficheImage()});
+			
+			// valeur html
+			var rowue41 = "";
+			var rowue42 = "";
+		
+			// valeur moyenne pour l'etudiant x
+			var MoyUe41=0;
+			var MoyUe42=0;
+			
+			// valeur pour coef
+			var cpt1=0;
+			var cpt2=0;
 			
 			// Parcourt l'ue1 de l'etudiant x
 			for (a in data[x].ue41) {
@@ -103,42 +109,33 @@ function execute() {
 				MoyUe41 += data[x].ue41[a].notes[0] * data[x].ue41[a].coefficient; // somme des calculs (notes * coefs)
 				cpt1+= data[x].ue41[a].coefficient; // somme des coefs
 
-				coef1 += cpt1; // somme des coefs pour la promo
+				coef1++; 
 			}
 			// calcul moy ue41
 			MoyUe41 = MoyUe41 / cpt1;
-			
-			//somme des calculs pour la promo
-			somMoy41 += MoyUe41; 
-			
-			// calcul moy ue41 pour la promo
-			moyGen41 = somMoy41 ;
-			
+
 			// Parcourt l'ue2 de l'etudiant x
 			for (a in data[x].ue42) {
 				//~ console.log(data[x].ue42[a].intitule);
 				rowue42 += "<tr><td>" + data[x].ue42[a].intitule + "</td><td>" + data[x].ue42[a].coefficient + "</td><td>" + data[x].ue42[a].notes[0] + "</td></tr>";
 				MoyUe42 += data[x].ue42[a].notes[0] * data[x].ue42[a].coefficient; // somme des calculs (notes * coefs)
 				cpt2+= data[x].ue42[a].coefficient; // somme des coefs
-				
-				
-				coef2 += cpt2; // somme des coefs pour la promo
+
+				coef2 ++;
 			}
 			// calcul moy ue42
 			MoyUe42 = MoyUe42 / cpt2;
-			//somme des calculs pour la promo
-			somMoy42 += MoyUe42; 
-			// calcul moy ue42 pour la promo
-			moyGen42 += somMoy42 ;
+			
+			moyProm41+=MoyUe41;
+			moyProm42+=MoyUe42;
 			
 			// moyenne générale pour un etudiant x, de l'u41 et de l'u42
 			var moyGenEtu=0;
 			moyGenEtu=(((cpt1*MoyUe41)+(cpt2*MoyUe42))/(cpt2+cpt1));
 			
-			// moyenne pour tout la promo au total, de l'u41 et de l'u42
-			var moyGenPromo=0;
-			moyGenPromo=(((coef1*moyGen41)+(moyGen42*coef2))/(coef1+coef2));
-		
+			// moyenne générale pour Promo, de l'u41 et de l'u42
+			moyGenPromo=(((cpt1*moyProm41)+(cpt2*moyProm42))/(cpt2+cpt1));
+
 			//~ console.log(MoyUe42);		
 			modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
 			  "<div class='modal-dialog modal-lg' role='document'>" +
@@ -194,13 +191,13 @@ function execute() {
 						"<td>UE41</td>" +
 						"<td>" + cpt1 + "</td>" +
 						"<td>" + MoyUe41.toFixed(2) + "</td>" +
-						"<td>" + moyGen41.toFixed(2) + "</td>" +
+						"<td>" + moyProm41.toFixed(2) + "</td>" +
 					"</tr>" +
 					"<tr>" +
 						"<td>UE42</td>" +
 						"<td>" + cpt2 + "</td>" +
 						"<td>" + MoyUe42.toFixed(2) + "</td>" +
-						"<td>" + moyGen42.toFixed(2) + "</td>" +
+						"<td>" + moyProm42.toFixed(2) + "</td>" +
 					"</tr>" +
 					"<tr>" +
 						"<th>Genérale</th>" +
@@ -217,10 +214,9 @@ function execute() {
 			  "</div>"+
 			"</div>"
 			
-			
 			index++;
 		}
-
+		
 	});
 
 }
@@ -233,6 +229,6 @@ function initEventHandlers(element, event, fx) {
     if (element.addEventListener)
         element.addEventListener(event, fx, false);
     else if (element.attachEvent)
-        element.attachEvent('on' + event, fx);
+        element.attachEvent('on' + event, fx);        
 } 
 initEventHandlers(window, 'load', initButton);
