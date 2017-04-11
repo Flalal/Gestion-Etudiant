@@ -34,7 +34,7 @@ function execute() {
 		// récupere les elements interressants
 		var liste = document.getElementById('liste des étudiants');
 		var modal = document.getElementById('listemodal');
-
+		
 		// Vide les différentes DIV
 		while (liste.hasChildNodes()) {
 			liste.removeChild(liste.firstChild);
@@ -61,29 +61,25 @@ function execute() {
 			nbEtudiant++;
 			//~ console.log(x);
 			//~ console.log(data[x]);
-			var nodeEtudiant = document.createElement("tr");
+			var nodeEtudiant = document.createElement("td");
 			var elementPhoto = document.createElement("td");
 			var elementTexte = document.createElement("td");
 			
 			//Ajoute chaque étudiant dans la table
 			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
-
-	
-			//le bouton pour afficher la photo de l'etudiant x 
 			
+			//le bouton pour afficher la photo de l'etudiant x 
 			var imgEtu = document.createElement("button");
 			    
 			var valuePhoto="Photo de l'étudiant(e): "+data[x].nom+" "+data[x].prenom;
-			var detailPhoto="Voici la photo de: "+data[x].nom+" "+data[x].prenom;  
-			  
+			var detailPhoto="Photo de: "+data[x].nom+" "+data[x].prenom;  
+					  
 			imgEtu.setAttribute("type","text");
 			imgEtu.setAttribute("data-toggle","popover");
 			imgEtu.setAttribute("title",data[x].nom+" "+data[x].prenom);
 			imgEtu.setAttribute("data-content",detailPhoto);
 			imgEtu.setAttribute("data-placement","right");
 			imgEtu.setAttribute("class","btn btn-success btn-block");
-			imgEtu.onclick=function(){console.log("mettre du texte!")};
-
 			imgEtu.innerHTML = valuePhoto;
 			
 			elementPhoto.appendChild(imgEtu);
@@ -110,8 +106,7 @@ function execute() {
 			
 			liste.appendChild(nodeEtudiant);
 			
-			//butPhoto.addEventListener('click',afficheImage());
-			//initEventHandlers(butPhoto,'click',function(){afficheImage()});
+			//initEventHandlers(imgEtu,'click',function(){afficheImage()});
 			
 			// valeur html
 			var rowue41 = "";
@@ -259,6 +254,7 @@ function execute() {
 function initButton() {
     var bouton = document.getElementById('button');
     initEventHandlers(bouton, 'click', function() { execute();});
+  		
 }    
 function initEventHandlers(element, event, fx) {
     if (element.addEventListener)
