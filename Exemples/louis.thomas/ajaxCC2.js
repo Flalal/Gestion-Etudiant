@@ -61,32 +61,54 @@ function execute() {
 			nbEtudiant++;
 			//~ console.log(x);
 			//~ console.log(data[x]);
+			var nodeEtudiant = document.createElement("tr");
 			var elementPhoto = document.createElement("td");
+			var elementTexte = document.createElement("td");
 			
 			//Ajoute chaque étudiant dans la table
 			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
-			//afficheImage();
-			
+
+	
 			//le bouton pour afficher la photo de l'etudiant x 
-			/*var myImg = new Image();
-			myImg.src = 'images.jpg';*/
 			
-			var butPhoto = document.createElement("button");
+			var imgEtu = document.createElement("button");
 			    
-			var value= "Photo de l'étudiant";
-			var detail="Voici la Fiche";  
+			var valuePhoto="Photo de l'étudiant(e): "+data[x].nom+" "+data[x].prenom;
+			var detailPhoto="Voici la photo de: "+data[x].nom+" "+data[x].prenom;  
 			  
-			butPhoto.setAttribute("type","text");
-			butPhoto.setAttribute("data-toggle","popover");
-			butPhoto.setAttribute("title",data[x].nom+" "+data[x].prenom);
-			butPhoto.setAttribute("data-content",detail);
-			butPhoto.setAttribute("data-placement","right");
-			butPhoto.setAttribute("class","btn btn-success btn-block");
+			imgEtu.setAttribute("type","text");
+			imgEtu.setAttribute("data-toggle","popover");
+			imgEtu.setAttribute("title",data[x].nom+" "+data[x].prenom);
+			imgEtu.setAttribute("data-content",detailPhoto);
+			imgEtu.setAttribute("data-placement","right");
+			imgEtu.setAttribute("class","btn btn-success btn-block");
+			imgEtu.onclick=function(){console.log("mettre du texte!")};
+
+			imgEtu.innerHTML = valuePhoto;
 			
-			butPhoto.innerHTML = value;
+			elementPhoto.appendChild(imgEtu);
+			nodeEtudiant.appendChild(elementPhoto);
 			
-			elementPhoto.appendChild(butPhoto);			
-			liste.appendChild(butPhoto);
+			//le bouton pour afficher la fiche de l'etudiant x 
+			
+			var ficheEtudiant = document.createElement("button");
+			    
+			var value= "Fiche de l'étudiant(e): "+data[x].nom+" "+data[x].prenom;
+			var detail="Voici la Fiche: "+data[x].nom+" "+data[x].prenom; 
+			
+			ficheEtudiant.setAttribute("type","text");
+			ficheEtudiant.setAttribute("data-toggle","popover");
+			ficheEtudiant.setAttribute("title",data[x].nom+" "+data[x].prenom);
+			ficheEtudiant.setAttribute("data-content",detail);
+			ficheEtudiant.setAttribute("data-placement","right");
+			ficheEtudiant.setAttribute("class","btn btn-success btn-block");
+			
+			ficheEtudiant.innerHTML = value;
+			
+			elementTexte.appendChild(ficheEtudiant);
+			nodeEtudiant.appendChild(elementTexte);
+			
+			liste.appendChild(nodeEtudiant);
 			
 			//butPhoto.addEventListener('click',afficheImage());
 			//initEventHandlers(butPhoto,'click',function(){afficheImage()});
@@ -217,25 +239,20 @@ function execute() {
 			index++;
 		}
 		var promo=document.getElementsByName('promoUE42');
-
 		for (var i=0;i<promo.length;i++){
 			promo[i].innerHTML= (moyProm42/nbEtudiant).toFixed(2) ;
 		}
 		
 		var promo=document.getElementsByName('promoUE41');
-
 		for (var i=0;i<promo.length;i++){
 			promo[i].innerHTML= (moyProm41/nbEtudiant).toFixed(2) ;
 		}
 		
 		var promo=document.getElementsByName('promoMoy');
-
 		for (var i=0;i<promo.length;i++){
 			promo[i].innerHTML= (moyGenPromo/nbEtudiant).toFixed(2);
 		}
 	});
-	
-
 
 }
 
@@ -247,6 +264,6 @@ function initEventHandlers(element, event, fx) {
     if (element.addEventListener)
         element.addEventListener(event, fx, false);
     else if (element.attachEvent)
-        element.attachEvent('on' + event, fx);        
+        element.attachEvent('on' + event, fx);     
 } 
 initEventHandlers(window, 'load', initButton);
