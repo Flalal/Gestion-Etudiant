@@ -60,10 +60,13 @@ function ajouterEtudiant (etudiant,num) {
     var root = document.getElementById("liste des étudiants");
     var modal = document.getElementById('listemodal');
 
-    var keys =  ["numero","nom","prenom","ue"];
+    var keys =  ["numero","nom","prenom","ue","departement","dateNaissance","bac"];
+    var bac;
+    var dateN;
+    var dept;
 
-    var nom="";
-    var prenom="";
+    var nom;
+    var prenom;
     var numero;
 // creation des ue et du semestre
     var semestre=new Semestre(4,2017);
@@ -84,6 +87,10 @@ function ajouterEtudiant (etudiant,num) {
         if(i == 0){numero=eval("etudiant."+keys[i]);}
         if(i == 1) {nom=eval("etudiant."+keys[i]);}
         if(i == 2) {prenom=eval("etudiant."+keys[i]);}
+        if(i == 4) {dept=eval("etudiant."+keys[i]);}
+        if(i == 5) {dateN=eval("etudiant."+keys[i]);}
+        if(i == 6) {bac=eval("etudiant."+keys[i]);}
+        //if(i == 7) {avatar=eval("etudiant."+keys[i]);}
 
         var attribut = "etudiant."+keys[i];
 
@@ -141,7 +148,7 @@ function ajouterEtudiant (etudiant,num) {
 
     }
 
-    var test=new Etudiant(numero,nom,prenom,'INFO');
+    var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     test.ajouterSemestre(semestre);
 
     moyPromoG+=semestre.getMoyenneSem();
@@ -161,6 +168,9 @@ function ajouterEtudiant (etudiant,num) {
         "<h1 class='text-center'>" +
          test.getNom() + " " + test.getPrenom() +
         "</h1>" +
+        "<p> infomation complementaire: </p>"+
+        "<ul> <li> Diplôme : "+ test.getBac()+"</li>"+
+        "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
         "<h2>UE41</h2>" +
 
         "<table class='table'>" +
@@ -249,7 +259,6 @@ function affichePromo() {
 
     var tmp3=document.getElementsByName('PromoG');
     for(var  x=0;x<tmp3.length;x++) {
-        console.log(moyPromoG);
         tmp3[x].innerHTML = (moyPromoG / index).toFixed(2);
     }
 }
@@ -262,6 +271,11 @@ function viderListe () {
 function decodeJson(text) {
     var liste = JSON.parse(text);
     viderListe();
+    index=0;
+    moyPromoUE41=0;
+    moyPromoUE42=0;
+    moyPromoG=0;
+
     var i =0;
     for (var id in liste)  {
         ajouterEtudiant(liste[id],i);

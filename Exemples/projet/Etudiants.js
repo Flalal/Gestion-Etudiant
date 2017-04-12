@@ -5,9 +5,9 @@
 
 var TabDepartement=['INFO','MMI','GEA','TC'];
 
-function Etudiant (numero, nom, prenom,  dept) {
+function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 
-    if (arguments.length < 4 ) throw new Error("Nombre arguments insuffisants");
+    if (arguments.length < 6) throw new Error("Nombre arguments insuffisants");
     this.nom = nom.toLowerCase();
     this.prenom = prenom.toLowerCase();
     var tmp=false;
@@ -21,12 +21,36 @@ function Etudiant (numero, nom, prenom,  dept) {
     if (!tmp)throw  new Error("problement sur nom du département");
     this.departatement=dept;
 
+    this.avatar=this.prenom+"_"+this.nom+".jpg";
+    this.bac=bac;
+    this.dateNaissance=new Date(dateN);
+
+
+
 
 
     if (0 < numero )
         this.numero = numero;
     else this.numero = -1;
 
+
+    this.getAvatar=function () {
+        return this.avatar;
+
+    };
+
+    this.getDateNaissance=function () {
+      return  this.dateNaissance.toLocaleDateString();
+
+    };
+
+    this.getDepartement=function () {
+      return this.departatement;
+    };
+
+    this.getBac=function () {
+        return this.bac;
+    };
     this.setRedoubler=function () {
         this.redoubler=true;
 

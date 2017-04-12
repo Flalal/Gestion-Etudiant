@@ -3,6 +3,10 @@
     "nom":"bisson",
     "prenom":"julien",
     "numero":"2017_1",
+    "departement":"INFO",
+    "dateNaissance":"12/03/1998",
+    "bac":"S_2015",
+    "avatar":"julien_bisson.jpg",
     "ue":{
     "ue41":{
       "Pweb2":{
@@ -86,6 +90,10 @@
     "nom":"dachy",
     "prenom":"remy",
     "numero":"2017_2",
+    "departement":"INFO",
+    "dateNaissance":"3/03/1998",
+    "bac":"S_2015",
+    "avatar":"remy_dachier.jpg",
     "ue":{
     "ue41": {
       "Pweb2": {
@@ -167,6 +175,10 @@
     "nom": "dangleterre",
     "prenom": "thomas",
     "numero": "2017_3",
+    "departement":"INFO",
+    "dateNaissance":"12/12/1997",
+    "bac":"STI2D_2015",
+    "avatar":"thomas_dangletterre.jpg",
     "ue": {
       "ue41": {
         "Pweb2": {
