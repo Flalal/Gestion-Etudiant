@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover({ html : true });
 });
 
+var imgMise=false;
 
 function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
@@ -17,24 +18,38 @@ function fetchJSONFile(path, callback) {
     httpRequest.send(); 
 }
 
-function afficheBouton(){
-	/*var myImg = new Image();
-	myImg.src = 'images.jpg';
-	document.body.appendChild(myImg);*/
-	
-	var nouvelleimage=document.createElement("IMG");
-	nouvelleimage.getAttribute("src");
-	document.getElementById('liste des étudiants').appendChild(nouvelleimage);
-	document.getElementById('liste des étudiants').lastChild.setAttribute('src','images.jpg');
-	//console.log("Photo");
+function afficheBouton(insertion,ind){
+	for(var i=0;i<ind;i++){
+		if(!imgMise){
+			var myImg = new Image();
+			myImg.src = 'images.jpg';
+			
+			var contenuImage=!imgMise ? myImg.src : ""; //en fonction de afficher on met l'image ou non
+			//var contenuBouton=imgMise ? "**" : "Afficher l'image" ; //On met un texte correspondant
+			
+			var photo = document.getElementById(etudiantPhoto);
+			//photo.innerHTML=contenuBouton;
+			photo.appendChild(myImg);
+			
+			imgMise=true;
+
+		}else{
+			console.log('Photo deja mise');	
+		}
+	}
 }
 
-function execute() {
+function execute(){
 	fetchJSONFile('listeIPI1.json', function(data){		
 		//~ console.log(data);
 		// récupere les elements interressants
 		var liste = document.getElementById('liste des étudiants');
 		var modal = document.getElementById('listemodal');
+		
+		var listeBouton=document.getElementById('liste des étudiants');
+		
+		//infoEudiant creer dans html
+		var modalInfo=document.getElementById('infoEudiant');
 		
 		// Vide les différentes DIV
 		while (liste.hasChildNodes()) {
@@ -42,8 +57,12 @@ function execute() {
 		}
 		while (modal.hasChildNodes()) {
 			modal.removeChild(modal.firstChild);
-		}	
-		var index= 0;
+		}
+		/*while (listeBouton.hasChildNodes()) {
+			listeBouton.removeChild(modal.firstChild);
+		}*/
+	
+		var index= 1;
 		
 		//moyenne de l'UE41 promo
 		var moyProm41=0
@@ -53,21 +72,27 @@ function execute() {
 		var moyProm42=0;
 		var coef2=0;
 		
-		var nbEtudiant=1;
+		var nbEtudiant=0;
 		
 		var moyGenPromo=0;
 
 		for (x in data) {
 			
 			nbEtudiant++;
+			
 			//~ console.log(x);
 			//~ console.log(data[x]);
-			var nodeEtudiant = document.createElement("tr");
+			
+			//Ajoute chaque étudiant dans la table 
+			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
+			
+			listeBouton.innerHTML+="<tr class='etudiantPhoto' data-toggle='popover' data-target='.bs-example-modal-lg" + index + "'><td>" + nbEtudiant+"</td><td>" + "</td><td>" +"</td></tr>";
+			
+			//var ajoutPhoto=document.createElement('tr');
+			//liste.appendChild(ajoutPhoto);
+			/*var nodeEtudiant = document.createElement("tr");
 			var elementPhoto = document.createElement("td");
 			var elementTexte = document.createElement("td");
-			
-			//Ajoute chaque étudiant dans la table
-			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
 			
 			//le bouton pour afficher la photo de l'etudiant x 
 			var imgEtu = document.createElement("button");
@@ -75,7 +100,7 @@ function execute() {
 			var valuePhoto="Photo de l'étudiant(e)";
 			var detailPhoto="Photo de: "+data[x].nom+" "+data[x].prenom;  
 					  
-			imgEtu.setAttribute("type","text");
+			imgEtu.setAttribute("type","button");
 			imgEtu.setAttribute("data-toggle","popover");
 			imgEtu.setAttribute("title",data[x].nom+" "+data[x].prenom);
 			imgEtu.setAttribute("data-content",detailPhoto);
@@ -92,7 +117,6 @@ function execute() {
 			    
 			var value= "Fiche de l'étudiant(e)";
 			var detail="Voici la Fiche: "+data[x].nom+" "+data[x].prenom; 
-			
 			ficheEtudiant.setAttribute("type","text");
 			ficheEtudiant.setAttribute("data-toggle","popover");
 			ficheEtudiant.setAttribute("title",data[x].nom+" "+data[x].prenom);
@@ -104,10 +128,8 @@ function execute() {
 			
 			elementTexte.appendChild(ficheEtudiant);
 			nodeEtudiant.appendChild(elementTexte);
-			
-			liste.appendChild(nodeEtudiant);
-			
-			
+
+			liste.appendChild(nodeEtudiant);*/
 			
 			// valeur html
 			var rowue41 = "";
@@ -231,6 +253,25 @@ function execute() {
 				"</div>"+
 			  "</div>"+
 			"</div>"
+			
+			infoEudiant.innerHTML+="<div class='modal fade' id='myModal' role='dialog'>"+
+						"<div class='modal-dialog modal-sm'>"+
+							"<div class='modal-content'>"+
+								"<div class='modal-header'>"+
+									 "<button type='button' class='close' data-dismiss='modal'>&times;</button>"+
+										 "<h4 class='modal-title'>Information "+data[x].nom + " " + data[x].prenom +"</h4>"+
+									"</div>"+
+									"<div class='modal-body'>"+
+									 "<p>Detail sur "+data[x].nom + " " + data[x].prenom +"</p>"+
+									"</div>"+
+									"<div class='modal-footer'>"+
+									"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"+
+									"</div>"+
+								"</div>"+
+							"</div>"+
+						"</div>"+
+					"</div>"+
+				"</div> "
 			
 			index++;
 		}

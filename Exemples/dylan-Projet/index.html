@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- script a avoir-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	
  <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -32,41 +35,68 @@
    <INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
 -->
 <div class="panel panel-default"> 
-<div class="panel-heading text-center">
+	<div class="panel-heading text-center">
 
-Liste des Etudiants
-<br>
-<INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
+	Liste des Etudiants
+	<br>
+		<INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
+	</div>
+	<table class="table"> 
+		<thead>
+		  <tr> 
+			<th>Numéro</th>
+			<th>Nom</th> 
+			<th>Prénom</th>
+		  </tr> 
+		</thead> 
+    
+		<tbody id="liste des étudiants">
+		  <tr>       
+			<td>1974_1</td>
+			<td>Gaston</td>
+			<td>Lagaffe</td>
+		  </tr>
+		 <!-- <tbody id="photo etudiant">
+			  <tr>
+				<td>
+					<button onclick="afficheBouton()">Photo</button>
+				</td>
+			  </tr>
+		  </tbody> -->
+		  <tr>   
+			<td>2007_1</td>
+			<td>Bart</td>
+			<td>Simpson</td>
+		  </tr>
 
-</div>
-  <table class="table"> 
-    <thead>
-	  <tr> 
-        <th>Numéro</th>
-        <th>Nom</th> 
-        <th>Prénom</th>
-      </tr> 
-    </thead> 
-    <tbody id="liste des étudiants">
-      <tr> 
-        <td>1974_1</td>
-        <td>Gaston</td>
-        <td>Lagaffe</td>
-      </tr>
-      <tr> 
-        <td>2007_1</td>
-        <td>Bart</td>
-        <td>Simpson</td>
-      </tr> 
-   </tbody> 
-  </table>
+	   </tbody> 
+	</table>	
 </div> 
+<!-- Modal pour texte etudiante-->
+
+<div id="infoEudiant">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Photo</button>
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal">&times;</button>
+						  <h4 class="modal-title">INFORMATION</h4>
+					</div>
+					<div class="modal-body">
+					 <p>quelque details sur l'etudiant</p>
+					</div>
+					<div class="modal-footer">
+					 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div> 
-<!-- Large modal -->
+<!-- Large modal pour afficher les notes + moyennes-->
 <div id="listemodal">
-	
 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Exemple d'affichage</button>
-
 	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	  <div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
@@ -131,5 +161,6 @@ Liste des Etudiants
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!--<script src="bootstrap.min.js"></script>-->
 	<script src="ajaxCC2.js"></script>
+	
 </body>
 </html>
