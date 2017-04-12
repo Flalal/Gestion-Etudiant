@@ -168,6 +168,7 @@ function ajouterEtudiant (etudiant,num) {
         "<h1 class='text-center'>" +
          test.getNom() + " " + test.getPrenom() +
         "</h1>" +
+            "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
         "<p> infomation complementaire: </p>"+
         "<ul> <li> Diplôme : "+ test.getBac()+"</li>"+
         "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
