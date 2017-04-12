@@ -18,24 +18,22 @@ function fetchJSONFile(path, callback) {
     httpRequest.send(); 
 }
 
-function afficheBouton(insertion,ind){
-	for(var i=0;i<ind;i++){
-		if(!imgMise){
+function affichePhoto(){
+	if(!imgMise){
 			var myImg = new Image();
 			myImg.src = 'images.jpg';
 			
 			var contenuImage=!imgMise ? myImg.src : ""; //en fonction de afficher on met l'image ou non
 			//var contenuBouton=imgMise ? "**" : "Afficher l'image" ; //On met un texte correspondant
 			
-			var photo = document.getElementById(etudiantPhoto);
+			var photo = document.getElementById('liste des étudiants');
 			//photo.innerHTML=contenuBouton;
 			photo.appendChild(myImg);
 			
 			imgMise=true;
 
-		}else{
-			console.log('Photo deja mise');	
-		}
+	}else{
+			alert('Photo deja mise');
 	}
 }
 
@@ -47,9 +45,7 @@ function execute(){
 		var modal = document.getElementById('listemodal');
 		
 		var listeBouton=document.getElementById('liste des étudiants');
-		
-		//infoEudiant creer dans html
-		var modalInfo=document.getElementById('infoEudiant');
+		var bouton=document.getElementById('infoEudiant');
 		
 		// Vide les différentes DIV
 		while (liste.hasChildNodes()) {
@@ -58,10 +54,6 @@ function execute(){
 		while (modal.hasChildNodes()) {
 			modal.removeChild(modal.firstChild);
 		}
-		/*while (listeBouton.hasChildNodes()) {
-			listeBouton.removeChild(modal.firstChild);
-		}*/
-	
 		var index= 1;
 		
 		//moyenne de l'UE41 promo
@@ -86,7 +78,7 @@ function execute(){
 			//Ajoute chaque étudiant dans la table 
 			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
 			
-			listeBouton.innerHTML+="<tr class='etudiantPhoto' data-toggle='popover' data-target='.bs-example-modal-lg" + index + "'><td>" + nbEtudiant+"</td><td>" + "</td><td>" +"</td></tr>";
+			listeBouton.innerHTML+="<tr class='infoEudiant' data-toggle='collapse'" + index + "'><td>" +index +"</td><td>" + "</td><td>" +"</td></tr>";
 			
 			//var ajoutPhoto=document.createElement('tr');
 			//liste.appendChild(ajoutPhoto);
@@ -176,8 +168,14 @@ function execute(){
 			// moyenne générale pour Promo, de l'u41 et de l'u42
 			moyGenPromo=(((cpt1*moyProm41)+(cpt2*moyProm42))/(cpt2+cpt1));
 
-			//~ console.log(MoyUe42);		
-			modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
+			//~ console.log(MoyUe42);
+			bouton.innerHTML+="<div class='collapse' id='collapseExample'>"+
+					"<div class='well'>"+
+						data[x].nom + " " +data[x].prenom+
+					"</div>"+
+				"</div>"
+				
+			modal.innerHTML+= "<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Photo</button>"+"<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
 			  "<div class='modal-dialog modal-lg' role='document'>" +
 				"<div class='modal-content'>" +
 					"<div class='container'>" +
@@ -253,25 +251,6 @@ function execute(){
 				"</div>"+
 			  "</div>"+
 			"</div>"
-			
-			infoEudiant.innerHTML+="<div class='modal fade' id='myModal' role='dialog'>"+
-						"<div class='modal-dialog modal-sm'>"+
-							"<div class='modal-content'>"+
-								"<div class='modal-header'>"+
-									 "<button type='button' class='close' data-dismiss='modal'>&times;</button>"+
-										 "<h4 class='modal-title'>Information "+data[x].nom + " " + data[x].prenom +"</h4>"+
-									"</div>"+
-									"<div class='modal-body'>"+
-									 "<p>Detail sur "+data[x].nom + " " + data[x].prenom +"</p>"+
-									"</div>"+
-									"<div class='modal-footer'>"+
-									"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"+
-									"</div>"+
-								"</div>"+
-							"</div>"+
-						"</div>"+
-					"</div>"+
-				"</div> "
 			
 			index++;
 		}
