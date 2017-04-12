@@ -31,6 +31,8 @@ function rechercher(){
     var prenom = document.getElementsByName("prenom");
     var lignes = document.getElementsByName("etudiant");
 
+
+
     for(var i = 0; i<nom.length; i++){
         if((nom[i].innerHTML + prenom[i].innerHTML).toUpperCase().indexOf(mot.toUpperCase()) == -1){
             lignes[i].style.display = "none";
@@ -53,21 +55,14 @@ function affichage_initial() {
 
 function ajouterEtudiant (etudiant,num) {
     var root = document.getElementById("liste des étudiants");
-    var nodeEtudiant = document.createElement("tr");
-    nodeEtudiant.setAttribute("class","etudiant");
-    nodeEtudiant.setAttribute("name","etudiant");
-    nodeEtudiant.setAttribute("data-toggle","model");
-    nodeEtudiant.setAttribute("data-target",".bs-example-modal-lg"+ index );
+    var modal = document.getElementById('listemodal');
 
-    $(document).ready(function(){
-        $("etudiant" ).click(function(){
-            $(".bs-example-modal-lg"+ index ).modal();
-        });
-    });
+
     var keys =  ["numero","nom","prenom","ue41","ue42"];
 
     var nom="";
     var prenom="";
+    var numero;
 
     var rowue41 = "";
     var rowue42 = "";
@@ -85,26 +80,20 @@ function ajouterEtudiant (etudiant,num) {
     var ue42 = false;
 
     for (var i in keys) {
-        var element = document.createElement("td");
 
         if(i == 0){
-            element.setAttribute("name","numero");
-            nodeEtudiant.appendChild(element);
+            numero=eval("etudiant."+keys[i]);
         }
         if(i == 1) {
-            element.setAttribute("name", "nom");
-            nodeEtudiant.appendChild(element);
+
             nom=eval("etudiant."+keys[i]);
         }
         if(i == 2) {
-            element.setAttribute("name", "prenom");
-            nodeEtudiant.appendChild(element);
             prenom=eval("etudiant."+keys[i]);
 
         }
 
         var attribut = "etudiant."+keys[i];
-        element.innerHTML = eval(attribut);
 
 
 
@@ -147,6 +136,7 @@ function ajouterEtudiant (etudiant,num) {
 
 
             }
+            cpt1=total_coeff;
             MoyUe41 /= total_coeff;
             if(MoyUe41 >= 8)
                 ue41 = true;
@@ -184,6 +174,7 @@ function ajouterEtudiant (etudiant,num) {
                 total_coeff += coefficient;
                 MoyUe42 += (total * coefficient);
             }
+            cpt2=total_coeff;
             MoyUe42 /= total_coeff;
             if(MoyUe42 >= 8)
                 ue42 = true;
@@ -192,9 +183,10 @@ function ajouterEtudiant (etudiant,num) {
 
 
     }
-    root.appendChild(nodeEtudiant);
+    root.innerHTML+="<tr class='etudiant' name='etudiantx' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td name='numero'>" + numero + "</td><td name='nom'>" + nom + "</td><td name='prenom'>" +prenom + "</td></tr>";
+    documen
 
-  modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
+    modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
         "<div class='modal-dialog modal-lg' role='document'>" +
         "<div class='modal-content'>" +
         "<div class='container'>" +
