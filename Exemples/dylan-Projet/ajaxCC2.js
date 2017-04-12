@@ -1,3 +1,8 @@
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({ html : true });
+});
+
+
 function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
@@ -10,6 +15,18 @@ function fetchJSONFile(path, callback) {
     };
     httpRequest.open('GET', path);
     httpRequest.send(); 
+}
+
+function afficheBouton(){
+	/*var myImg = new Image();
+	myImg.src = 'images.jpg';
+	document.body.appendChild(myImg);*/
+	
+	var nouvelleimage=document.createElement("IMG");
+	nouvelleimage.getAttribute("src");
+	document.getElementById('liste des étudiants').appendChild(nouvelleimage);
+	document.getElementById('liste des étudiants').lastChild.setAttribute('src','images.jpg');
+	//console.log("Photo");
 }
 
 function execute() {
@@ -45,9 +62,51 @@ function execute() {
 			nbEtudiant++;
 			//~ console.log(x);
 			//~ console.log(data[x]);
+			var nodeEtudiant = document.createElement("tr");
+			var elementPhoto = document.createElement("td");
+			var elementTexte = document.createElement("td");
 			
 			//Ajoute chaque étudiant dans la table
 			liste.innerHTML+="<tr class='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td>" + data[x].numero + "</td><td>" + data[x].nom + "</td><td>" + data[x].prenom + "</td></tr>";
+			
+			//le bouton pour afficher la photo de l'etudiant x 
+			var imgEtu = document.createElement("button");
+			    
+			var valuePhoto="Photo de l'étudiant(e)";
+			var detailPhoto="Photo de: "+data[x].nom+" "+data[x].prenom;  
+					  
+			imgEtu.setAttribute("type","text");
+			imgEtu.setAttribute("data-toggle","popover");
+			imgEtu.setAttribute("title",data[x].nom+" "+data[x].prenom);
+			imgEtu.setAttribute("data-content",detailPhoto);
+			imgEtu.setAttribute("data-placement","right");
+			imgEtu.setAttribute("class","btn btn-default");
+			imgEtu.innerHTML = valuePhoto;
+			
+			elementPhoto.appendChild(imgEtu);
+			nodeEtudiant.appendChild(elementPhoto);
+			
+			//le bouton pour afficher la fiche de l'etudiant x 
+			
+			var ficheEtudiant = document.createElement("button");
+			    
+			var value= "Fiche de l'étudiant(e)";
+			var detail="Voici la Fiche: "+data[x].nom+" "+data[x].prenom; 
+			
+			ficheEtudiant.setAttribute("type","text");
+			ficheEtudiant.setAttribute("data-toggle","popover");
+			ficheEtudiant.setAttribute("title",data[x].nom+" "+data[x].prenom);
+			ficheEtudiant.setAttribute("data-content",detail);
+			ficheEtudiant.setAttribute("data-placement","right");
+			ficheEtudiant.setAttribute("class","btn btn-default");
+			
+			ficheEtudiant.innerHTML = value;
+			
+			elementTexte.appendChild(ficheEtudiant);
+			nodeEtudiant.appendChild(elementTexte);
+			
+			liste.appendChild(nodeEtudiant);
+			
 			
 			
 			// valeur html
