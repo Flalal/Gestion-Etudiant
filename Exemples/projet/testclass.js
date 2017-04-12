@@ -2,6 +2,9 @@
 
 
 var index=0;
+var moyPromoUE41=0;
+var moyPromoUE42=0;
+var moyPromoG=0;
 
 
 function createXhrObject(){
@@ -84,8 +87,6 @@ function ajouterEtudiant (etudiant,num) {
 
         var attribut = "etudiant."+keys[i];
 
-
-
         if(i == 3) {
             for (var x in eval(attribut)) {
                 if (x == 'ue41') {
@@ -98,7 +99,6 @@ function ajouterEtudiant (etudiant,num) {
                         var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"));
                         var notes = eval(attribut2 + ".notes");
                         for (var n in notes) {
-                            console.log('Nom matiere : '+ matiere.getIntitule() + "  notes:"+ notes[n]);
                             matiere.ajouterNotes(notes[n]);
 
                         }
@@ -123,8 +123,6 @@ function ajouterEtudiant (etudiant,num) {
                         var mat = eval(attribut2);
                         var notes = eval(attribut2 + ".notes");
                         for (var n in notes) {
-
-                            console.log('Nom matiere : '+ matiere.getIntitule() + "  notes:"+ notes[n]);
                             matiere.ajouterNotes(notes[n]);
                         }
                         ue42class.ajouterMatiere(matiere);
@@ -146,7 +144,14 @@ function ajouterEtudiant (etudiant,num) {
     var test=new Etudiant(numero,nom,prenom,'INFO');
     test.ajouterSemestre(semestre);
 
-    root.innerHTML+="<tr class='etudiant' name='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td name='numero'>" + numero + "</td><td name='nom'>" + nom + "</td><td name='prenom'>" +prenom + "</td></tr>";
+    moyPromoG+=semestre.getMoyenneSem();
+    moyPromoUE41+=ue41class.getMoyenneUE();
+    moyPromoUE42+=ue42class.getMoyenneUE();
+
+    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
+        + "</td> <td name='nom'>" + nom
+        + "</td><td name='prenom'>" +prenom + "</td> "
+        +"<td ><button class='btn btn-success '>photo</button></td> <td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>fiche étudiant</button> </td></tr>";
 
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
@@ -195,6 +200,7 @@ function ajouterEtudiant (etudiant,num) {
         "<th>UE</th>" +
         "<th>Coef</th>" +
         "<th>Résultat</th>" +
+        "<th>Résultat de la Promo</th>" +
         "</tr>" +
         "</thead>" +
         "<tbody>" +
@@ -202,16 +208,19 @@ function ajouterEtudiant (etudiant,num) {
         "<td>UE41</td>" +
         "<td>" + ue41class.getCoefficientUE()+ "</td>" +
         "<td>" + ue41class.getMoyenneUE().toFixed(2) + "</td>" +
+        "<td name='promoUe41'> </td>" +
         "</tr>" +
         "<tr>" +
         "<td>UE42</td>" +
         "<td>" + ue42class.getCoefficientUE()+ "</td>" +
         "<td>" + ue42class.getMoyenneUE().toFixed(2) + "</td>" +
+        "<td name='promoUe42'> </td>" +
         "</tr>" +
         "<tr>" +
         "<th>Genérale</th>" +
         "<th>" + semestre.getCoefficientSem()+ "</th>" +
         "<th>" + semestre.getMoyenneSem().toFixed(2)+ "</th>" +
+        "<th name='PromoG'></th>" +
         "</tr>" +
         "</tbody>"+
         "</table>"+
@@ -224,8 +233,26 @@ function ajouterEtudiant (etudiant,num) {
 
 
     index++;
+    affichePromo();
 }
 
+
+function affichePromo() {
+    var tmp=document.getElementsByName('promoUe41');
+
+    for(var i=0;i<tmp.length;i++)
+        tmp[i].innerHTML=(moyPromoUE41/index).toFixed(2);
+
+    var tmp2=document.getElementsByName('promoUe42');
+    for(var j=0;j<tmp2.length;j++)
+        tmp2[j].innerHTML=(moyPromoUE42/index).toFixed(2);
+
+    var tmp3=document.getElementsByName('PromoG');
+    for(var  x=0;x<tmp3.length;x++) {
+        console.log(moyPromoG);
+        tmp3[x].innerHTML = (moyPromoG / index).toFixed(2);
+    }
+}
 
 function viderListe () {
     var rootListe = document.getElementById("liste des étudiants");
