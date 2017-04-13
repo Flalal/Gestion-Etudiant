@@ -59,6 +59,7 @@ function affichage_initial() {
 function ajouterEtudiant (etudiant,num) {
     var root = document.getElementById("liste des étudiants");
     var modal = document.getElementById('listemodal');
+    var photo = document.getElementById('mettrePhoto');
 
     var keys =  ["numero","nom","prenom","ue","departement","dateNaissance","bac"];
     var bac;
@@ -158,8 +159,15 @@ function ajouterEtudiant (etudiant,num) {
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
         + "</td><td name='prenom'>" +prenom + "</td> "
-        +"<td ><button class='btn btn-success '>photo</button></td> <td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>fiche étudiant</button> </td></tr>";
+        +"<td ><button class='btn btn-success' data-toggle='modal' data-target='.bs-example-modal-sm" + index + "'>Photo étudiant</button></td><td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>Fiche étudiant</button> </td></tr>";
 
+	photo.innerHTML+="<div class='modal fade bs-example-modal-sm" + index + "' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>"+ 
+				"<div class='modal-dialog modal-sm' role='document'>"+
+	   				" <div class='modal-content'>"+
+	    					 "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
+	   "				 </div>"+
+				" </div>"+
+			" </div>";
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
         "<div class='modal-dialog modal-lg' role='document'>" +
