@@ -58,7 +58,7 @@ function ajouterEtudiant (etudiant,num) {
     var modal = document.getElementById('listemodal');
 
 
-    var keys =  ["numero","nom","prenom","ue41","ue42"];
+    var keys =  ["numero","nom","prenom","ue"];
 
     var nom="";
     var prenom="";
@@ -97,94 +97,82 @@ function ajouterEtudiant (etudiant,num) {
 
 
 
-        if(i == 3){
-            var moyenne = 0;
-            var matieres = ["Pweb2","AdmSR","ProgMobile","ProgRep","CompInfo","Projet"];
-            var total_coeff = 0;
-            for(var j in matieres){
-                var attribut2 = attribut + "." + matieres[j];
-                var notes = eval(attribut2 + ".notes");
-                var total = 0;
-                for(var n in notes){
-                    total += notes[n];
-                }
-                total /= notes.length;
+        if(i == 3) {
+            for (var x in eval(attribut)) {
+                if (x == 'ue41') {
 
-                rowue41 += "<tr><td>" +matieres[j] + "</td><td>" + eval(attribut2 + ".coefficient") + "</td><td>" + total + "</td></tr>";
-               /* if(j == 0){
-                    pweb.push(total);
-                }
-                if(j == 1){
-                    admsr.push(total);
-                }
-                if(j == 2){
-                    pm.push(total);
-                }
-                if(j == 3){
-                    pr.push(total);
-                }
-                if(j == 4){
-                    ci.push(total);
-                }
-                if(j == 5){
-                    projet.push(total);
-                }*/
+                    var moyenne = 0;
+                    var matieres = ["Pweb2", "AdmSR", "ProgMobile", "ProgRep", "CompInfo", "Projet"];
+                    var total_coeff = 0;
+                    for (var j in matieres) {
+                        var attribut2 = attribut + "." + x + "." + matieres[j];
+                        var notes = eval(attribut2 + ".notes");
+                        var total = 0;
+                        for (var n in notes) {
+                            total += notes[n];
+                        }
+                        total /= notes.length;
 
-                var coefficient = eval(attribut2 + ".coefficient");
-                total_coeff += coefficient;
-                MoyUe41 += (total * coefficient);
+                        rowue41 += "<tr><td>" + matieres[j] + "</td><td>" + eval(attribut2 + ".coefficient") + "</td><td>" + total + "</td></tr>";
 
 
+                        var coefficient = eval(attribut2 + ".coefficient");
+                        total_coeff += coefficient;
+                        MoyUe41 += (total * coefficient);
+
+
+                    }
+                    cpt1 = total_coeff;
+                    MoyUe41 /= total_coeff;
+                    if (MoyUe41 >= 8)
+                        ue41 = true;
+                    moyenneTotal += MoyUe41;
+
+                }
+                else if (x == "ue42") {
+                    console.log("coucou");
+                    var matieres = ["Atelier", "RO", "COM", "Ang"];
+                    var total_coeff = 0;
+                    for (var j in matieres) {
+                        var attribut2 = attribut + "." + x + "." + matieres[j];
+                        var mat = eval(attribut2);
+                        var notes = eval(attribut2 + ".notes");
+                        var total = 0;
+                        for (var n in notes) {
+                            total += notes[n];
+                        }
+                        total /= notes.length;
+                        rowue42 += "<tr><td>" + matieres[j] + "</td><td>" + eval(attribut2 + ".coefficient") + "</td><td>" + total + "</td></tr>";
+
+                        /*  if(j == 0){
+                         atelier.push(total);
+                         }
+                         if(j == 1){
+                         ro.push(total);
+                         }
+                         if(j == 2){
+                         com.push(total);
+                         }
+                         if(j == 3){
+                         anglais.push(total);
+                         }*/
+                        var coefficient = eval(attribut2 + ".coefficient");
+                        total_coeff += coefficient;
+                        MoyUe42 += (total * coefficient);
+                    }
+                    cpt2 = total_coeff;
+                    MoyUe42 /= total_coeff;
+                    if (MoyUe42 >= 8)
+                        ue42 = true;
+                    moyenneTotal += MoyUe42;
+                }
             }
-            cpt1=total_coeff;
-            MoyUe41 /= total_coeff;
-            if(MoyUe41 >= 8)
-                ue41 = true;
-            moyenneTotal += MoyUe41;
-
-        }
-
-        if(i == 4){
-            var matieres = ["Atelier","RO","COM","Ang"];
-            var total_coeff = 0;
-            for(var j in matieres){
-                var attribut2 = attribut + "." + matieres[j];
-                var mat = eval(attribut2);
-                var notes = eval(attribut2 + ".notes");
-                var total = 0;
-                for(var n in notes){
-                    total += notes[n];
-                }
-                total /= notes.length;
-                rowue42 += "<tr><td>" +matieres[j] + "</td><td>" + eval(attribut2 + ".coefficient") + "</td><td>" + total + "</td></tr>";
-
-              /*  if(j == 0){
-                    atelier.push(total);
-                }
-                if(j == 1){
-                    ro.push(total);
-                }
-                if(j == 2){
-                    com.push(total);
-                }
-                if(j == 3){
-                    anglais.push(total);
-                }*/
-                var coefficient = eval(attribut2 + ".coefficient");
-                total_coeff += coefficient;
-                MoyUe42 += (total * coefficient);
-            }
-            cpt2=total_coeff;
-            MoyUe42 /= total_coeff;
-            if(MoyUe42 >= 8)
-                ue42 = true;
-            moyenneTotal += MoyUe42;
         }
 
 
     }
-    root.innerHTML+="<tr class='etudiant' name='etudiantx' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td name='numero'>" + numero + "</td><td name='nom'>" + nom + "</td><td name='prenom'>" +prenom + "</td></tr>";
-    documen
+    root.innerHTML+="<tr class='etudiant' name='etudiant' data-toggle='modal' data-target='.bs-example-modal-lg" + index + "'><td name='numero'>" + numero + "</td><td name='nom'>" + nom + "</td><td name='prenom'>" +prenom + "</td></tr>";
+
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
         "<div class='modal-dialog modal-lg' role='document'>" +
@@ -297,7 +285,7 @@ function submitForm(file) {
 
 function initButton() {
     var bouton = document.getElementById('button');
-    initEventHandlers(bouton, 'click', function() { submitForm("listeIPI1.json"); } );
+    initEventHandlers(bouton, 'click', function() { submitForm("liste.json"); } );
 }
 
 function initEventHandlers(element, event, fx) {
@@ -307,4 +295,6 @@ function initEventHandlers(element, event, fx) {
         element.attachEvent('on' + event, fx);
 }
 
-initEventHandlers(window, 'load', submitForm("listeIPI1.json"));
+initEventHandlers(window, 'load', submitForm("liste.json"));/**
+ * Created by Frederic on 11/04/2017.
+ */
