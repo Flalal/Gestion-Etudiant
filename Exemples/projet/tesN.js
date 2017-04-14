@@ -64,7 +64,7 @@ function ajouterEtudiant (etudiant,num) {
     var modal = document.getElementById('listemodal');
     var photo = document.getElementById('mettrePhoto');
 
-    var keys =  ["numero","nom","prenom","departement","dateNaissance","bac","ue"];
+    var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac", "ue"];
     var bac;
     var dateN;
     var dept;
@@ -73,45 +73,60 @@ function ajouterEtudiant (etudiant,num) {
     var prenom;
     var numero;
 // creation des ue et du semestre
-    var semestre=new Semestre(4,2017);
-    var ue41class=new ue(41);
-    var tabUe=new Array;
-    var ue42class=new ue(42);
+    var semestre = new Semestre(4, 2017);
+    var tabUe = new Array();
+    var tabSem = new Array();
+    for (var cpt = 0; cpt < 4; cpt++) {
+        tabSem.push(new Semestre(cpt+1, 2017));
+    }
 
 
     var rowue41 = "";
     var rowue42 = "";
     // intituler du tableau
 
-    var intituler="";
-    var moyenne="";
-    var coeff="";
-    var nbUE=0;
+
+    var intituler = "";
+    var moyenne = "";
+    var coeff = "";
+    var nbUE = 0;
 
     var ue41 = false;
     var ue42 = false;
 
     for (var i in keys) {
 
-        if(i == 0){numero=eval("etudiant."+keys[i]);}
-        if(i == 1) {nom=eval("etudiant."+keys[i]);}
-        if(i == 2) {prenom=eval("etudiant."+keys[i]);}
-        if(i == 3) {dept=eval("etudiant."+keys[i]);}
-        if(i == 4) {dateN=eval("etudiant."+keys[i]);}
-        if(i == 5) {bac=eval("etudiant."+keys[i]);}
+        if (i == 0) {
+            numero = eval("etudiant." + keys[i]);
+        }
+        if (i == 1) {
+            nom = eval("etudiant." + keys[i]);
+        }
+        if (i == 2) {
+            prenom = eval("etudiant." + keys[i]);
+        }
+        if (i == 3) {
+            dept = eval("etudiant." + keys[i]);
+        }
+        if (i == 4) {
+            dateN = eval("etudiant." + keys[i]);
+        }
+        if (i == 5) {
+            bac = eval("etudiant." + keys[i]);
+        }
         //if(i == 7) {avatar=eval("etudiant."+keys[i]);}
 
-        var attribut = "etudiant."+keys[i];
+        var attribut = "etudiant." + keys[i];
 
-        if(i == 6) {
-            for (var x in UEDEPT) {
-                for (var j in eval(attribut)){
-                    if (UEDEPT[x][0]==(dept+"_"+j)){
-                        intituler+="<th>"+j+"</th>";
-                        var numue=tabUe.push(new ue(parseInt(j.slice(2))));
+        if (i == 6) {
+
+            for (var x in UEDEPT) {/// parcours la constant qui reference tout les ue de chaque département;
+                for (var j in eval(attribut)) {// parcours dans les ue
+                    if (UEDEPT[x][0] == (dept + "_" + j)) {//condition si ue existe  dans le json
+                        var numSem = parseInt(j.slice(2)[0]) - 1;
+                        var numue = tabUe.push(new ue(parseInt(j.slice(2))));
                         nbUE++;
                         for (var matiere in UEDEPT[x][1]) {
-                            console.log(UEDEPT[x][1][matiere]);
                             var attribut2 = attribut + "." + j + "." + UEDEPT[x][1][matiere];
                             var matiereclass = new Matiere(UEDEPT[x][1][matiere], UEDEPT[x][1][matiere], eval(attribut2 + ".coefficient"));
                             var notes = eval(attribut2 + ".notes");
@@ -123,28 +138,40 @@ function ajouterEtudiant (etudiant,num) {
                             tabUe[numue - 1].ajouterMatiere(matiereclass);
 
                         }
-                        coeff+="<td>"+tabUe[numue-1].getCoefficientUE()+"</td>";
-                        moyenne+="<td>"+(tabUe[numue-1].getMoyenneUE()).toFixed(2)+"</td>";
-                        semestre.ajouterUe(tabUe[numue-1]);
+
+                        semestre.ajouterUe(tabUe[numue - 1]);
+                        tabSem[numSem].ajouterUe(tabUe[numue - 1]);
+                    }
+                }
+            }
+            for (var j in tabSem) {
+                if (tabSem[j].getToutUE().length != 0) {
+                    intituler+="<td>"+tabSem[j].getSemestre()+"</td>";
+                    moyenne+="<td>"+tabSem[j].getMoyenneSem().toFixed(2)+"</td>";
+                    coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
+                    for (var tmpUe in tabSem[j].getToutUE()) {
+                        intituler+="<td>"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</td>";
+                        moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
+                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
+
 
 
                     }
+
                 }
-
-
             }
+
 
         }
 
 
     }
 
+
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     test.ajouterSemestre(semestre);
 
     moyPromoG+=semestre.getMoyenneSem();
-    moyPromoUE41+=ue41class.getMoyenneUE();
-    moyPromoUE42+=ue42class.getMoyenneUE();
 
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
