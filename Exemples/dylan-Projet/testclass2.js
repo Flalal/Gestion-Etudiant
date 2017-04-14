@@ -163,6 +163,7 @@ function ajouterEtudiant (etudiant,num) {
     
     test.ajouterClassement(semestre.getMoyenneSem());
     
+    
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
         + "</td><td name='prenom'>" +prenom + "</td> "

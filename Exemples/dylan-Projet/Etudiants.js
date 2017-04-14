@@ -14,6 +14,7 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.redoubler=false;
     this.semestres=new Array();
     this.classement=classement;
+    var position=0;
     
     for (var i in TabDepartement){
         if (dept==TabDepartement[i])
@@ -90,20 +91,26 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
         
         var taille=this.classement.length;
 		console.log(taille);
+		console.log(this.classement);
 		for(var x in this.classement){
 			for(var i in this.classement){
 				if(i==x){
 					
 				}else{
-					console.log(x+" "+i);
-					if(this.classement[x]<this.classement[i]){
-						console.log(this.classement[x]+" "+this.classement[i]+" <");
-					}
-					if(this.classement[x]>this.classement[i]){
-						console.log(this.classement[x]+" "+this.classement[i]+" >");
-					}
-					if(this.classement[x]==this.classement[i]){
-						console.log(this.classement[x]+" "+this.classement[i]+" = ");
+					if(x<i){
+						console.log(x+" - "+i);
+						if(this.classement[x]<this.classement[i]){
+							console.log(this.classement[x]+" < "+this.classement[i]);
+							
+						}
+						if(this.classement[x]>this.classement[i]){
+							console.log(this.classement[x]+" > "+this.classement[i]);
+															
+						}
+						if(this.classement[x]==this.classement[i]){
+							console.log(this.classement[x]+" = "+this.classement[i]);
+											
+						}
 					}
 				}
 			}
