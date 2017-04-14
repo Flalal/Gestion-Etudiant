@@ -127,7 +127,7 @@ function ajouterEtudiant (etudiant,num) {
                     var total_coeff = 0;
                     for (var j in matieres) {
                         var attribut2 = attribut + "." + x + "." + matieres[j];
-                        var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"))
+                        var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"));
                         var mat = eval(attribut2);
                         var notes = eval(attribut2 + ".notes");
                         for (var n in notes) {
