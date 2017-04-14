@@ -4,6 +4,12 @@ var index=0;
 var moyPromoUE41=0;
 var moyPromoUE42=0;
 var moyPromoG=0;
+var tabClassement=new Array();
+
+$(".modal-wide").on("show.bs.modal", function() {
+  var height = $(window).height() + 100;
+  $(this).find(".modal-body").css("max-height", height);
+});
 
 function createXhrObject(){
     if (window.XMLHttpRequest)
@@ -48,6 +54,7 @@ function affichage_initial() {
 }
 
 function ajouterEtudiant (etudiant,num) {
+	
     var root = document.getElementById("liste des étudiants");
     var modal = document.getElementById('listemodal');
     var photo = document.getElementById('mettrePhoto');
@@ -65,13 +72,18 @@ function ajouterEtudiant (etudiant,num) {
     var semestre=new Semestre(4,2017);
     var ue41class=new ue(41);
     var ue42class=new ue(42);
+    
+    var moyGen=0;
+    var moyGen1=0;
+    var moyGen2=0;
 
     var rowue41 = "";
     var rowue42 = "";
 
 	var coefue1=0;
 	var coefue2=0;
-	var coefueTotal=0;
+	
+	var position=0;
 
     var ue41 = false;
     var ue42 = false;
@@ -91,8 +103,6 @@ function ajouterEtudiant (etudiant,num) {
         if(i == 3) {
             for (var x in eval(attribut)) {
                 if (x == 'ue41') {
-
-
                     var moyenne = 0;
                     var matieres = ["Pweb2", "AdmSR", "ProgMobile", "ProgRep", "CompInfo", "Projet"];
                     for (var j in matieres) {
@@ -135,13 +145,9 @@ function ajouterEtudiant (etudiant,num) {
                     if (ue42class.getMoyenneUE() >= 8)
                         ue42 = true;
 
-
                 }
-                coefueTotal=coefue1+coefue2;
             }
         }
-
-
     }
 
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
@@ -150,6 +156,8 @@ function ajouterEtudiant (etudiant,num) {
     moyPromoG+=semestre.getMoyenneSem();
     moyPromoUE41+=ue41class.getMoyenneUE();
     moyPromoUE42+=ue42class.getMoyenneUE();
+    
+    tabClassement.push(semestre.getMoyenneSem().toFixed(2));
 
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
@@ -162,7 +170,7 @@ function ajouterEtudiant (etudiant,num) {
 				"<div class='modal-dialog modal-sm' role='document'>"+
 	   				" <div class='modal-content'>"+
 	    					 "<img c src='img/"+ test.avatar+"' width='130px' height='150px' style='float: right;' alt='"+test.avatar +"'/>"+
-         "<ul> <li>"+test.getNom().toUpperCase() + " " + test.getPrenom()+ " </li><li>Diplome: " +test.getBac()+"</li><li>Né le: " +test.getDateNaissance()+"</li></ul>"+
+         "<ul> <li>"+test.getNom().toUpperCase() + " " + test.getPrenom()+"	/	Né le: " +test.getDateNaissance()+" </li><li>Diplome: " +test.getBac()+"</li></ul>"+
 					"</div>"+
 				" </div>"+
 			" </div>";
@@ -191,10 +199,10 @@ function ajouterEtudiant (etudiant,num) {
 				"<th>UE22</th>"+
 				"<th>UE23</th>"+
 				"</tr>"+
-				"<tr></tr><th>Coef</th>"+"<td>"+coefueTotal+"</td></tr>"+
-				 "<tr> <th>Moyenne</th></tr>"+
-				 "<tr> <th>Moyenne Promo</th></tr>"+
-				 "<tr> <th>Classement</th></tr>"+
+				"<tr></tr><th>Coef</th><td>"+semestre.getCoefficientSem()+" </td><td>"+coefue1+" </td><td>"+coefue2+"</td></tr>"+
+				 "<tr> <th>Moyenne</th><td>"+semestre.getMoyenneSem().toFixed(2)+"</td><td>"+ue41class.getMoyenneUE().toFixed(2)+"</td><td>"+ue42class.getMoyenneUE().toFixed(2)+"<td></tr>"+
+				 "<tr> <th>Moyenne Promo</th>"+"<td name='PromoG'> </td>" +"<td name='promoUe42'> </td>" +"<td name='promoUe41'></td></tr>"+
+				 "<tr> <th>Classement</th>"+"<td name='positionProm'></td>"+"<td name='positionInfo'></td>"+"<td name='positionGen'></td>"+"</tr>"+
 				 "<tr> <th>Taille Promo</th></tr>"+
 				 "<tr> </tr>"+
 			  "</tr>"+
@@ -250,7 +258,7 @@ function ajouterEtudiant (etudiant,num) {
         "<tr>" +
         "<td>UE41</td>" +
         "<td>" + ue41class.getCoefficientUE()+ "</td>" +
-        "<td>" + ue42class.getMoyenneUE().toFixed(2) + "</td>" +
+        "<td>" + ue41class.getMoyenneUE().toFixed(2) + "</td>" +
         "<td name='promoUe41'> </td>" +
         "</tr>" +
         "<tr>" +
@@ -276,8 +284,23 @@ function ajouterEtudiant (etudiant,num) {
 
     index++;
     affichePromo();
+    afficheClassement();
 }
 
+function afficheClassement(){
+	var tmp=document.getElementsByName('positionProm');
+	
+	for(var i=0;i<tmp.length;i++){
+		console.log(tmp[i].value);
+		if(tmp[i]>tmp[i+1]){
+			tmp[i].innerHTML=1;		
+		}
+		else if(tmp[i]==tmp[i+1])
+			tmp[i].innerHTML=2;
+		else
+			tmp[i].innerHTML=3;
+	}
+}
 
 function affichePromo() {
     var tmp=document.getElementsByName('promoUe41');

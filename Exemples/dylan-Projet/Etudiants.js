@@ -176,7 +176,7 @@ function ue (identifiant) {
         return this.moyenneUE/this.coefficientUE;
 
     };
-
+    
 }
 
 /**
@@ -232,4 +232,5 @@ function Matiere (intitule, abreviation, coefficient) {
         if (nbNotes <= 0) return 0;
         return this.somme/nbNotes;
     }
+    
 }
