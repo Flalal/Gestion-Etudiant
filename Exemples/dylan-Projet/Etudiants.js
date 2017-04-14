@@ -90,8 +90,13 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
         this.classement.push(moyenne);
         
         var taille=this.classement.length;
+        
 		console.log(taille);
 		console.log(this.classement);
+		
+		var posX=false;
+		var posI=false;
+		
 		for(var x in this.classement){
 			for(var i in this.classement){
 				if(i==x){
@@ -101,20 +106,33 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 						console.log(x+" - "+i);
 						if(this.classement[x]<this.classement[i]){
 							console.log(this.classement[x]+" < "+this.classement[i]);
-							
+							posX=false;
+							posI=true;
 						}
 						if(this.classement[x]>this.classement[i]){
 							console.log(this.classement[x]+" > "+this.classement[i]);
-															
+							posX=true;
+							posI=false;						
 						}
 						if(this.classement[x]==this.classement[i]){
 							console.log(this.classement[x]+" = "+this.classement[i]);
-											
+							posX=posI=true;				
 						}
 					}
 				}
+			}		
+			if(posX && posI){
+				console.log("tous les deux premier");
+			}else{
+				if(posX && !posI){
+					console.log("Premier x deuxieme i");
+				}if(!posX && posI){
+					console.log("Premier i deuxieme x");
+				}
 			}
 		}
+
+		
 	};
 	
 	

@@ -12,6 +12,8 @@ $(".modal-wide").on("show.bs.modal", function() {
   $(this).find(".modal-body").css("max-height", height);
 });
 
+var toutEtudiant=new Array();
+
 function createXhrObject(){
     if (window.XMLHttpRequest)
         return new XMLHttpRequest();
@@ -60,6 +62,8 @@ function ajouterEtudiant (etudiant,num) {
     var modal = document.getElementById('listemodal');
     var photo = document.getElementById('mettrePhoto');
     var modal2 = document.getElementById('diplome');
+    
+    var listeEtud= document.createElement('td');
 
     var keys =  ["numero","nom","prenom","ue","departement","dateNaissance","bac"];
     var bac;
@@ -161,9 +165,10 @@ function ajouterEtudiant (etudiant,num) {
     moyPromoUE41+=ue41class.getMoyenneUE();
     moyPromoUE42+=ue42class.getMoyenneUE();
     
-    test.ajouterClassement(semestre.getMoyenneSem());
+    toutEtudiant.push(test);
     
-    
+    //test.ajouterClassement(semestre.getMoyenneSem());
+
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
         + "</td><td name='prenom'>" +prenom + "</td> "
@@ -208,7 +213,7 @@ function ajouterEtudiant (etudiant,num) {
 				"<th>Coef</th><td>"+semestre.getCoefficientSem()+" </td><td>"+coefue1+" </td><td>"+coefue2+"</td></tr>"+
 				 "<tr> <th>Moyenne</th><td>"+semestre.getMoyenneSem().toFixed(2)+"</td><td>"+ue41class.getMoyenneUE().toFixed(2)+"</td><td>"+ue42class.getMoyenneUE().toFixed(2)+"<td></tr>"+
 				 "<tr> <th>Moyenne Promo</th>"+"<td name='PromoG'> </td>" +"<td name='promoUe42'> </td>" +"<td name='promoUe41'></td></tr>"+
-				 "<tr> <th>Classement</th>"+"<td></td>"+"<td></td>"+"<td></td>"+"</tr>"+
+				 "<tr> <th>Classement</th>"+"<td id='classPromo"+index+"'></td>"+"<td id='classInfo"+index+"'></td>"+"<td id='classGene"+index+"'></td>"+"</tr>"+
 				 "<tr> <th>Taille Promo</th><td name='taillePromo'></td>"+"<td></td>"+"<td></td>"+"</tr>"+
 				 "<tr> </tr>"+
 			  "</tr>"+
