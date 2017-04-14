@@ -75,13 +75,18 @@ function ajouterEtudiant (etudiant,num) {
 // creation des ue et du semestre
     var semestre=new Semestre(4,2017);
     var ue41class=new ue(41);
+    var tabUe=new Array;
     var ue42class=new ue(42);
+
 
     var rowue41 = "";
     var rowue42 = "";
-    // moyenne Ue
+    // intituler du tableau
 
-    // Somme des coefs par UE
+    var intituler="";
+    var moyenne="";
+    var coeff="";
+    var nbUE=0;
 
     var ue41 = false;
     var ue42 = false;
@@ -99,54 +104,36 @@ function ajouterEtudiant (etudiant,num) {
         var attribut = "etudiant."+keys[i];
 
         if(i == 6) {
-            for (var x in UEINFO) {
-                if (UEINFO[x] == 'ue41') {
+            for (var x in UEDEPT) {
+                for (var j in eval(attribut)){
+                    if (UEDEPT[x][0]==(dept+"_"+j)){
+                        intituler+="<th>"+j+"</th>";
+                        var numue=tabUe.push(new ue(parseInt(j.slice(2))));
+                        nbUE++;
+                        for (var matiere in UEDEPT[x][1]) {
+                            console.log(UEDEPT[x][1][matiere]);
+                            var attribut2 = attribut + "." + j + "." + UEDEPT[x][1][matiere];
+                            var matiereclass = new Matiere(UEDEPT[x][1][matiere], UEDEPT[x][1][matiere], eval(attribut2 + ".coefficient"));
+                            var notes = eval(attribut2 + ".notes");
+                            for (var n in notes) {
+                                matiereclass.ajouterNotes(notes[n]);
 
-
-                    var moyenne = 0;
-                    var matieres = ["Pweb2", "AdmSR", "ProgMobile", "ProgRep", "CompInfo", "Projet"];
-                    for (var j in matieres) {
-                        var attribut2 = attribut + "." + UEINFO[x] + "." + matieres[j];
-                        var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"));
-                        var notes = eval(attribut2 + ".notes");
-                        for (var n in notes) {
-                            matiere.ajouterNotes(notes[n]);
+                            }
+                            nbUE += numue;
+                            tabUe[numue - 1].ajouterMatiere(matiereclass);
 
                         }
-                        ue41class.ajouterMatiere(matiere);
-
-                        rowue41 += "<tr><td>" + matiere.getIntitule() + "</td><td>" + matiere.getCoefficient() + "</td><td>" + matiere.getMoyenne() + "</td></tr>";
+                        coeff+="<td>"+tabUe[numue-1].getCoefficientUE()+"</td>";
+                        moyenne+="<td>"+(tabUe[numue-1].getMoyenneUE()).toFixed(2)+"</td>";
+                        semestre.ajouterUe(tabUe[numue-1]);
 
 
                     }
-
-                    semestre.ajouterUe(ue41class);
-                    if (ue41class.getMoyenneUE() >= 8)
-                        ue41 = true;
-
                 }
-                else if (UEINFO[x]== "ue42") {
-                    var matieres = ["Atelier", "RO", "COM", "Ang"];
-                    var total_coeff = 0;
-                    for (var j in matieres) {
-                        var attribut2 = attribut + "." + UEINFO[x]+ "." + matieres[j];
-                        var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"))
-                        var mat = eval(attribut2);
-                        var notes = eval(attribut2 + ".notes");
-                        for (var n in notes) {
-                            matiere.ajouterNotes(notes[n]);
-                        }
-                        ue42class.ajouterMatiere(matiere);
-                        rowue42 += "<tr><td>" + matiere.getIntitule() + "</td><td>" + matiere.getCoefficient() + "</td><td>" + matiere.getMoyenne() + "</td></tr>";
-
-                    }
-                    semestre.ajouterUe(ue42class);
-                    if (ue42class.getMoyenneUE() >= 8)
-                        ue42 = true;
 
 
-                }
             }
+
         }
 
 
@@ -168,7 +155,7 @@ function ajouterEtudiant (etudiant,num) {
         "<div class='modal-dialog modal-sm' role='document'>"+
         " <div class='modal-content'>"+
         "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
-        "				 </div>"+
+        "</div>"+
         " </div>"+
         " </div>";
 
@@ -189,15 +176,17 @@ function ajouterEtudiant (etudiant,num) {
         "<thead>" +
         "<tr id='TittreTableau'>" +
         "<th></th>" +
+            intituler +
         "</tr>" +
         "</thead>" +
         "<tbody>" +
-        "<tr id='Coeff"+index+"'>  <td>Coefficent</td></tr>"+
-        "<tr id='Moyenne"+index+"'>  <td>Moyenne</td></tr>"+
+        "<tr id='Coeff"+index+"'>  <td>Coefficent</td>"+coeff+"</tr>"+
+        "<tr id='Moyenne"+index+"'>  <td>Moyenne</td> "+
+            moyenne+
+        "</tr>"+
         "<tr name='MoyennePromo'>  <td>Moyenne Promo</td></tr>"+
         "<tr id='Classement"+index+"'>  <td>Classement</td></tr>"+
         "<tr name='TaillePromo'>  <td>Taille Promo</td></tr>"+
-            rowue41+
         "</tbody>"+
         "</table>"+
 
