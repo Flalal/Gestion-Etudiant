@@ -118,7 +118,7 @@ function Semestre(num,annee) {
         return this.annee;
     };
     this.getSemestre=function () {
-        return this.id;
+        return "S"+this.id;
 
     };
 
