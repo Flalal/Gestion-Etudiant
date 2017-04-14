@@ -5,6 +5,7 @@ var moyPromoUE41=0;
 var moyPromoUE42=0;
 var moyPromoG=0;
 var nbEtudiant=0;
+var classement=new Array();
 
 $(".modal-wide").on("show.bs.modal", function() {
   var height = $(window).height() + 100;
@@ -160,7 +161,7 @@ function ajouterEtudiant (etudiant,num) {
     moyPromoUE41+=ue41class.getMoyenneUE();
     moyPromoUE42+=ue42class.getMoyenneUE();
     
-    test.ajouterClassement(ue41class.getMoyenneUE());
+    test.ajouterClassement(semestre.getMoyenneSem());
     
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
@@ -207,7 +208,7 @@ function ajouterEtudiant (etudiant,num) {
 				 "<tr> <th>Moyenne</th><td>"+semestre.getMoyenneSem().toFixed(2)+"</td><td>"+ue41class.getMoyenneUE().toFixed(2)+"</td><td>"+ue42class.getMoyenneUE().toFixed(2)+"<td></tr>"+
 				 "<tr> <th>Moyenne Promo</th>"+"<td name='PromoG'> </td>" +"<td name='promoUe42'> </td>" +"<td name='promoUe41'></td></tr>"+
 				 "<tr> <th>Classement</th>"+"<td></td>"+"<td></td>"+"<td></td>"+"</tr>"+
-				 "<tr> <th>Taille Promo</th><td name='taillePromo'></td>"+"<td name='taillePromo'></td>"+"<td name='taillePromo'></td>"+"</tr>"+
+				 "<tr> <th>Taille Promo</th><td name='taillePromo'></td>"+"<td></td>"+"<td></td>"+"</tr>"+
 				 "<tr> </tr>"+
 			  "</tr>"+
 			  "<tr>"+
@@ -290,8 +291,7 @@ function ajouterEtudiant (etudiant,num) {
     afficheTaillePromo();
 }
 function afficheTaillePromo(){
-	 var tmp=document.getElementsByName('taillePromo');
-
+	var tmp=document.getElementsByName('taillePromo');
 	for(var i=0;i<tmp.length;i++)
 		tmp[i].innerHTML=nbEtudiant;
 }

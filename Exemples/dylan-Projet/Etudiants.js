@@ -3,6 +3,7 @@
  */
 
 var TabDepartement=['INFO','MMI','GEA','TC'];
+var classement=new Array();
 
 function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 
@@ -12,8 +13,7 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     var tmp=false;
     this.redoubler=false;
     this.semestres=new Array();
-    this.classement=new Array();
-    position=0;
+    this.classement=classement;
     
     for (var i in TabDepartement){
         if (dept==TabDepartement[i])
@@ -71,14 +71,7 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.ajouterSemestre=function (semestre) {
         if (typeof semestre !== 'object')throw new Error("Type note invalide");
         this.semestres.push(semestre);
-
     };
-    
-    this.ajouterClassement=function(moyenne){
-		if (typeof moyenne !== 'number')throw new Error("Type Moyenne invalide");
-        this.classement.push(moyenne); 
-        //console.log(this.classement);
-	};
 
     this.getToutSemestre=function () {
         return this.semestres;
@@ -90,7 +83,34 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
         }throw Error("le semestre que vous demander n'existe pas")
     };
     
-    
+    this.ajouterClassement=function(moyenne){
+		if (typeof moyenne !== 'number')throw new Error("Type Moyenne invalide");
+		
+        this.classement.push(moyenne);
+        
+        var taille=this.classement.length;
+		console.log(taille);
+		for(var x in this.classement){
+			for(var i in this.classement){
+				if(i==x){
+					
+				}else{
+					console.log(x+" "+i);
+					if(this.classement[x]<this.classement[i]){
+						console.log(this.classement[x]+" "+this.classement[i]+" <");
+					}
+					if(this.classement[x]>this.classement[i]){
+						console.log(this.classement[x]+" "+this.classement[i]+" >");
+					}
+					if(this.classement[x]==this.classement[i]){
+						console.log(this.classement[x]+" "+this.classement[i]+" = ");
+					}
+				}
+			}
+		}
+	};
+	
+	
 }
 
 function Semestre(num,annee) {
