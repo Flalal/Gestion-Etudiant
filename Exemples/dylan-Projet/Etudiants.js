@@ -12,6 +12,9 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     var tmp=false;
     this.redoubler=false;
     this.semestres=new Array();
+    this.classement=new Array();
+    position=0;
+    
     for (var i in TabDepartement){
         if (dept==TabDepartement[i])
             tmp=true;
@@ -28,15 +31,12 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
         this.numero = numero;
     else this.numero = -1;
 
-
     this.getAvatar=function () {
         return this.avatar;
-
     };
 
     this.getDateNaissance=function () {
       return  this.dateNaissance.toLocaleDateString();
-
     };
 
     this.getDepartement=function () {
@@ -48,11 +48,9 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     };
     this.setRedoubler=function () {
         this.redoubler=true;
-
     };
     this.getRedoubler=function () {
         return this.redoubler;
-
     };
     
     this.getNom = function () {
@@ -73,7 +71,14 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.ajouterSemestre=function (semestre) {
         if (typeof semestre !== 'object')throw new Error("Type note invalide");
         this.semestres.push(semestre);
+
     };
+    
+    this.ajouterClassement=function(moyenne){
+		if (typeof moyenne !== 'number')throw new Error("Type Moyenne invalide");
+        this.classement.push(moyenne); 
+        //console.log(this.classement);
+	};
 
     this.getToutSemestre=function () {
         return this.semestres;
@@ -83,8 +88,9 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
             if (this.semestres[i].getSemestre()==numeroduSemestre)
                 return this.UE[i];
         }throw Error("le semestre que vous demander n'existe pas")
-
     };
+    
+    
 }
 
 function Semestre(num,annee) {
@@ -101,7 +107,6 @@ function Semestre(num,annee) {
     };
     this.getSemestre=function () {
         return this.id;
-
     };
 
     this.ajouterUe=function (uejenesaispas) {
@@ -120,17 +125,15 @@ function Semestre(num,annee) {
         for (var i in this.UE){
             if (this.UE[i].getIdUe()==quelUe)
                 return this.UE[i];
-        }throw Error("Ue que vous aviez demander n'existe pas")
+        }throw Error("UE que vous aviez demander n'existe pas")
     };
     this.getMoyenneSem=function () {
         return this.moyenneSem/this.UE.length;
-
     }
     this.getCoefficientSem=function () {
         return this.coefficientSem;
-
     }
-
+    
 }
 
 function ue (identifiant) {
@@ -169,12 +172,10 @@ function ue (identifiant) {
 
     this.getCoefficientUE=function () {
         return this.coefficientUE;
-
-    }
+    };
 
     this.getMoyenneUE=function () {
         return this.moyenneUE/this.coefficientUE;
-
     };
     
 }
