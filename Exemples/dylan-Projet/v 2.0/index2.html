@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+	<style>
+		.container {
+			width: 100%;
+		}
+		body {
+			padding: 20px;
+		}
+		.etudiant:hover {
+			background-color: #ccc;	
+		}
+		h1 {
+			text-transform : uppercase;
+		}
+		.modal-dialog{
+			width:700px;
+		}
+	</style>
+</head>
+<body>
+
+<div id="commande">
+	<input id="recherche" type="text" placeholder="Rechercher ..."/>
+	<button onclick="rechercher()" class="btn btn-primary">Rechercher</button>
+	<button onclick="affichage_initial()" class="btn btn-primary">Affichage initial</button>
+</div>
+<!--
+   <INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
+-->
+<div class="panel panel-default"> 
+<div class="panel-heading text-center">
+
+Liste des Etudiants
+<br>
+	<!--
+<input type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"/>
+-->
+</div>
+  <table class="table"> 
+    <thead>
+	  <tr> 
+        <th>Numéro</th>
+        <th>Nom</th> 
+        <th>Prénom</th>
+      </tr> 
+    </thead> 
+    <tbody id="liste des étudiants">
+
+   </tbody> 
+  </table>
+</div> 
+</div> 
+
+<div id="mettrePhoto">
+	<!--<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <img src='img/avatar.png' width='130px' height='130px'/>
+	    </div>
+	 </div>
+	</div>-->
+</div>
+
+
+<!-- Large modal -->
+
+<div id="listemodal">
+	
+	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Exemple d'affichage</button>-->
+
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  <div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="container">
+		  <h1>Dossier</h1>
+		  
+		  <table class="table"> 
+			<thead>
+			  <tr> 
+				  <th></th>
+				<th>S3</th>
+				<th>UE31</th> 
+				<th>UE32</th>
+				<th>UE33</th>
+				
+				<th>INFO1</th> 
+				<th>S2</th>
+				<th>UE21</th> 
+				<th>UE22</th>
+				<th>UE23</th>
+				</tr>
+				<tr></tr><th>Coef</th><td></td></tr>
+				 <tr> <th>Moyenne</th><td>Bonjour</td></tr>
+				 <tr> <th>Moyenne Promo</th><td></td><td>le</td></tr>
+				 <tr> <th>Classement</th><td></td><td></td><td>Monde</td></tr>
+				 <tr> <th>Taille Promo</th></tr>
+				 <tr> <td></td><td></td><td></td><td><td></td><td></td><td></td><td></td></tr>
+			  </tr>
+			  <tr>
+				
+			  </tr>
+			</thead> 
+			 
+		  </table>
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+</div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="bootstrap.min.js"></script>
+  <script src="testclass2.js"></script>
+  <script src="Etudiants.js"></script>
+   <script src="Constante.js"></script>
+</body>
+</html>

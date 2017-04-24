@@ -1,18 +1,11 @@
 'use strict';
 
+
 var index=0;
 var moyPromoUE41=0;
 var moyPromoUE42=0;
 var moyPromoG=0;
-var nbEtudiant=0;
-var classement=new Array();
 
-$(".modal-wide").on("show.bs.modal", function() {
-  var height = $(window).height() + 100;
-  $(this).find(".modal-body").css("max-height", height);
-});
-
-var toutEtudiant=new Array();
 
 function createXhrObject(){
     if (window.XMLHttpRequest)
@@ -30,11 +23,18 @@ function createXhrObject(){
     return null; // non supporte
 }
 
+
+
+
+
+
 function rechercher(){
     var mot = document.getElementById("recherche").value;
     var nom = document.getElementsByName("nom");
     var prenom = document.getElementsByName("prenom");
     var lignes = document.getElementsByName("etudiant");
+
+
 
     for(var i = 0; i<nom.length; i++){
         if((nom[i].innerHTML + prenom[i].innerHTML).toUpperCase().indexOf(mot.toUpperCase()) == -1){
@@ -57,19 +57,15 @@ function affichage_initial() {
 }
 
 function ajouterEtudiant (etudiant,num) {
-	
     var root = document.getElementById("liste des étudiants");
     var modal = document.getElementById('listemodal');
     var photo = document.getElementById('mettrePhoto');
-    var modal2 = document.getElementById('diplome');
-    
-    var listeEtud= document.createElement('td');
 
     var keys =  ["numero","nom","prenom","ue","departement","dateNaissance","bac"];
     var bac;
     var dateN;
     var dept;
-	
+
     var nom;
     var prenom;
     var numero;
@@ -77,23 +73,15 @@ function ajouterEtudiant (etudiant,num) {
     var semestre=new Semestre(4,2017);
     var ue41class=new ue(41);
     var ue42class=new ue(42);
-    
-    var moyGen=0;
-    var moyGen1=0;
-    var moyGen2=0;
 
     var rowue41 = "";
     var rowue42 = "";
+    // moyenne Ue
 
-	var coefue1=0;
-	var coefue2=0;
-	
-	var position=0;
+    // Somme des coefs par UE
 
     var ue41 = false;
     var ue42 = false;
-    
-    nbEtudiant++;
 
     for (var i in keys) {
 
@@ -110,6 +98,8 @@ function ajouterEtudiant (etudiant,num) {
         if(i == 3) {
             for (var x in eval(attribut)) {
                 if (x == 'ue41') {
+
+
                     var moyenne = 0;
                     var matieres = ["Pweb2", "AdmSR", "ProgMobile", "ProgRep", "CompInfo", "Projet"];
                     for (var j in matieres) {
@@ -124,8 +114,7 @@ function ajouterEtudiant (etudiant,num) {
 
                         rowue41 += "<tr><td>" + matiere.getIntitule() + "</td><td>" + matiere.getCoefficient() + "</td><td>" + matiere.getMoyenne() + "</td></tr>";
 
-						coefue1+=matiere.getCoefficient();
-						
+
                     }
 
                     semestre.ajouterUe(ue41class);
@@ -138,7 +127,7 @@ function ajouterEtudiant (etudiant,num) {
                     var total_coeff = 0;
                     for (var j in matieres) {
                         var attribut2 = attribut + "." + x + "." + matieres[j];
-                        var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"))
+                        var matiere=new Matiere(matieres[j],matieres[j],eval(attribut2 + ".coefficient"));
                         var mat = eval(attribut2);
                         var notes = eval(attribut2 + ".notes");
                         for (var n in notes) {
@@ -146,42 +135,37 @@ function ajouterEtudiant (etudiant,num) {
                         }
                         ue42class.ajouterMatiere(matiere);
                         rowue42 += "<tr><td>" + matiere.getIntitule() + "</td><td>" + matiere.getCoefficient() + "</td><td>" + matiere.getMoyenne() + "</td></tr>";
-						coefue2+=matiere.getCoefficient();
+
                     }
                     semestre.ajouterUe(ue42class);
                     if (ue42class.getMoyenneUE() >= 8)
                         ue42 = true;
-					
+
+
                 }
-               
-            } 
+            }
         }
-        
+
+
     }
+
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     test.ajouterSemestre(semestre);
-	
+
     moyPromoG+=semestre.getMoyenneSem();
     moyPromoUE41+=ue41class.getMoyenneUE();
     moyPromoUE42+=ue42class.getMoyenneUE();
-    
-    toutEtudiant.push(test);
-    
-    //test.ajouterClassement(semestre.getMoyenneSem());
 
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
         + "</td> <td name='nom'>" + nom
         + "</td><td name='prenom'>" +prenom + "</td> "
-        +"<td ><button class='btn btn-success' data-toggle='modal' data-target='.bs-example-modal-sm" + index + "'>Photo étudiant</button></td>"
-        +"<td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>Fiche étudiant</button> </td>";
-
+        +"<td ><button class='btn btn-success' data-toggle='modal' data-target='.bs-example-modal-sm" + index + "'>Photo étudiant</button></td><td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>Fiche étudiant</button> </td></tr>";
 
 	photo.innerHTML+="<div class='modal fade bs-example-modal-sm" + index + "' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>"+ 
 				"<div class='modal-dialog modal-sm' role='document'>"+
 	   				" <div class='modal-content'>"+
-	    					 "<img c src='img/"+ test.getAvatar()+"' width='130px' height='150px' style='float: right;' alt='"+test.getAvatar() +"'/>"+
-         "<ul> <li>"+test.getNom().toUpperCase() + " " + test.getPrenom()+"	/	Né le: " +test.getDateNaissance()+" </li><li>Diplome: " +test.getBac()+"</li></ul>"+
-					"</div>"+
+	    					 "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
+	   "				 </div>"+
 				" </div>"+
 			" </div>";
 
@@ -189,41 +173,14 @@ function ajouterEtudiant (etudiant,num) {
         "<div class='modal-dialog modal-lg' role='document'>" +
         "<div class='modal-content'>" +
         "<div class='container'>" +
-        "<h1 class='text-center'>" +"Dossier "+
-        test.getNom() + " " + test.getPrenom() +"</h1>"+
-    "<table class='table'>"+ 
-			"<thead>"+
-			  "<tr>"+
-				  "<th></th>"+
-				 "<th>S4</th>"+
-				"<th>UE41</th>"+
-				"<th>UE42</th>"+
-				"<th>S3</th>"+
-				"<th>UE31</th>"+
-				"<th>UE32</th>"+
-				"<th>UE33</th>"+
-				
-				"<th>INFO1</th>"+ 
-				"<th>S2</th>"+
-				"<th>UE21</th> "+
-				"<th>UE22</th>"+
-				"<th>UE23</th>"+
-				"</tr>"+
-				"<tr></tr>"+
-				"<th>Coef</th><td>"+semestre.getCoefficientSem()+" </td><td>"+coefue1+" </td><td>"+coefue2+"</td></tr>"+
-				 "<tr> <th>Moyenne</th><td>"+semestre.getMoyenneSem().toFixed(2)+"</td><td>"+ue41class.getMoyenneUE().toFixed(2)+"</td><td>"+ue42class.getMoyenneUE().toFixed(2)+"<td></tr>"+
-				 "<tr> <th>Moyenne Promo</th>"+"<td name='PromoG'> </td>" +"<td name='promoUe42'> </td>" +"<td name='promoUe41'></td></tr>"+
-				 "<tr> <th>Classement</th>"+"<td id='classPromo"+index+"'></td>"+"<td id='classInfo"+index+"'></td>"+"<td id='classGene"+index+"'></td>"+"</tr>"+
-				 "<tr> <th>Taille Promo</th><td name='taillePromo'></td>"+"<td></td>"+"<td></td>"+"</tr>"+
-				 "<tr> </tr>"+
-			  "</tr>"+
-			  "<tr>"+
-				
-			  "</tr>"+
-			"</thead>"+ 
-			 
-		  "</table>";
-       /* "<h2>UE41</h2>" +
+        "<h1 class='text-center'>" +
+         test.getNom() + " " + test.getPrenom() +
+        "</h1>" +
+            "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
+        "<p> infomation complementaire: </p>"+
+        "<ul> <li> Diplôme : "+ test.getBac()+"</li>"+
+        "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
+        "<h2>UE41</h2>" +
 
         "<table class='table'>" +
         "<thead>" +
@@ -237,6 +194,7 @@ function ajouterEtudiant (etudiant,num) {
         rowue41 +
         "</tbody>"+
         "</table>"+
+
 
         "<h2>UE42</h2>" +
 
@@ -281,7 +239,7 @@ function ajouterEtudiant (etudiant,num) {
         "<th>Genérale</th>" +
         "<th>" + semestre.getCoefficientSem()+ "</th>" +
         "<th>" + semestre.getMoyenneSem().toFixed(2)+ "</th>" +
-        "<th></th>" +
+        "<th name='PromoG'></th>" +
         "</tr>" +
         "</tbody>"+
         "</table>"+
@@ -290,17 +248,13 @@ function ajouterEtudiant (etudiant,num) {
 
         "</div>"+
         "</div>"+
-        "</div>";*/
+        "</div>";
+
 
     index++;
     affichePromo();
-    afficheTaillePromo();
 }
-function afficheTaillePromo(){
-	var tmp=document.getElementsByName('taillePromo');
-	for(var i=0;i<tmp.length;i++)
-		tmp[i].innerHTML=nbEtudiant;
-}
+
 
 function affichePromo() {
     var tmp=document.getElementsByName('promoUe41');

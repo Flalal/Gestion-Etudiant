@@ -17,29 +17,47 @@
 		h1 {
 			text-transform : uppercase;
 		}
-		.modal-dialog{
-			width:700px;
-		}
+
 	</style>
 </head>
 <body>
 
-<div id="commande">
-	<input id="recherche" type="text" placeholder="Rechercher ..."/>
-	<button onclick="rechercher()" class="btn btn-primary">Rechercher</button>
-	<button onclick="affichage_initial()" class="btn btn-primary">Affichage initial</button>
-</div>
+
 <!--
    <INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
--->
+
 <div class="panel panel-default"> 
 <div class="panel-heading text-center">
+-->
 
-Liste des Etudiants
-<br>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" onclick="affichage_initial()">Liste des Etudiants</a>
+    </div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	<div id="commande">
+		<input id="recherche" type="text" placeholder="Rechercher ..."/>
+		<button onclick="rechercher()" class="btn btn-primary">Rechercher</button>
+		<button onclick="affichage_initial()" class="btn btn-primary">Affichage initial</button>
+	</div>
+
+</div>
+
+</nav>
 	<!--
 <input type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"/>
 -->
+<div class="panel panel-default"> 
+<div class="panel-heading text-center">
 </div>
   <table class="table"> 
     <thead>
@@ -66,59 +84,81 @@ Liste des Etudiants
 	</div>-->
 </div>
 
-
 <!-- Large modal -->
 
 <div id="listemodal">
 	
-	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Exemple d'affichage</button>-->
+	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg0">Exemple d'affichage</button>-->
 
 	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	  <div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="container">
-		  <h1>Dossier</h1>
+		  <h1>ue41</h1>
 		  
 		  <table class="table"> 
 			<thead>
 			  <tr> 
-				  <th></th>
-				<th>S3</th>
-				<th>UE31</th> 
-				<th>UE32</th>
-				<th>UE33</th>
-				
-				<th>INFO1</th> 
-				<th>S2</th>
-				<th>UE21</th> 
-				<th>UE22</th>
-				<th>UE23</th>
-				</tr>
-				<tr></tr><th>Coef</th><td></td></tr>
-				 <tr> <th>Moyenne</th><td>Bonjour</td></tr>
-				 <tr> <th>Moyenne Promo</th><td></td><td>le</td></tr>
-				 <tr> <th>Classement</th><td></td><td></td><td>Monde</td></tr>
-				 <tr> <th>Taille Promo</th></tr>
-				 <tr> <td></td><td></td><td></td><td><td></td><td></td><td></td><td></td></tr>
-			  </tr>
-			  <tr>
-				
-			  </tr>
+				<th>Matière</th>
+				<th>Coef</th> 
+				<th>Note</th>
+			  </tr> 
 			</thead> 
-			 
+			<tbody>
+			  <tr> 
+				<td>Pweb</td>
+				<td>1.4</td>
+				<td>12</td>
+			  </tr>
+			  <tr> 
+				<td>Maths</td>
+				<td>1</td>
+				<td>25</td>
+			  </tr> 
+		   </tbody> 
+		  </table>
+			
+		  <h1>ue42</h1>
+		  
+		  <table class="table"> 
+			<thead>
+			  <tr> 
+				<th>Matière</th>
+				<th>Coef</th> 
+				<th>Note</th>
+			  </tr> 
+			</thead> 
+			<tbody>
+			  <tr> 
+				<td>Pweb</td>
+				<td>1.4</td>
+				<td>12</td>
+			  </tr>
+			  <tr> 
+				<td>Maths</td>
+				<td>1</td>
+				<td>25</td>
+			  </tr> 
+		   </tbody> 
 		  </table>
 		  </div>
 		  
 		</div>
 	  </div>
 	</div>
+
 </div>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Bonjour me voici">
+  Exemple popover en haut
+</button>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="bootstrap.min.js"></script>
-  <script src="testclass2.js"></script>
+  <script src="tesN.js"></script>
   <script src="Etudiants.js"></script>
+  <script src="Constante.js"></script>
 </body>
 </html>

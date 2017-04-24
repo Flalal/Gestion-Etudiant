@@ -2,8 +2,8 @@
  * Created by Frederic on 10/04/2017.
  */
 
+
 var TabDepartement=['INFO','MMI','GEA','TC'];
-var classement=new Array();
 
 function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 
@@ -13,9 +13,6 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     var tmp=false;
     this.redoubler=false;
     this.semestres=new Array();
-    this.classement=classement;
-    var position=0;
-    
     for (var i in TabDepartement){
         if (dept==TabDepartement[i])
             tmp=true;
@@ -28,16 +25,23 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.bac=bac;
     this.dateNaissance=new Date(dateN);
 
+
+
+
+
     if (0 < numero )
         this.numero = numero;
     else this.numero = -1;
 
+
     this.getAvatar=function () {
         return this.avatar;
+
     };
 
     this.getDateNaissance=function () {
       return  this.dateNaissance.toLocaleDateString();
+
     };
 
     this.getDepartement=function () {
@@ -49,11 +53,16 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     };
     this.setRedoubler=function () {
         this.redoubler=true;
+
     };
     this.getRedoubler=function () {
         return this.redoubler;
+
     };
-    
+
+
+
+
     this.getNom = function () {
         return this.nom;
     };
@@ -82,61 +91,19 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
             if (this.semestres[i].getSemestre()==numeroduSemestre)
                 return this.UE[i];
         }throw Error("le semestre que vous demander n'existe pas")
-    };
-    
-    this.ajouterClassement=function(moyenne){
-		if (typeof moyenne !== 'number')throw new Error("Type Moyenne invalide");
-		
-        this.classement.push(moyenne);
-        
-        var taille=this.classement.length;
-        
-		console.log(taille);
-		console.log(this.classement);
-		
-		var posX=false;
-		var posI=false;
-		
-		for(var x in this.classement){
-			for(var i in this.classement){
-				if(i==x){
-					
-				}else{
-					if(x<i){
-						console.log(x+" - "+i);
-						if(this.classement[x]<this.classement[i]){
-							console.log(this.classement[x]+" < "+this.classement[i]);
-							posX=false;
-							posI=true;
-						}
-						if(this.classement[x]>this.classement[i]){
-							console.log(this.classement[x]+" > "+this.classement[i]);
-							posX=true;
-							posI=false;						
-						}
-						if(this.classement[x]==this.classement[i]){
-							console.log(this.classement[x]+" = "+this.classement[i]);
-							posX=posI=true;				
-						}
-					}
-				}
-			}		
-			if(posX && posI){
-				console.log("tous les deux premier");
-			}else{
-				if(posX && !posI){
-					console.log("Premier x deuxieme i");
-				}if(!posX && posI){
-					console.log("Premier i deuxieme x");
-				}
-			}
-		}
 
-		
-	};
-	
-	
+    };
+
+
+
+
+
+
+
+
 }
+
+
 
 function Semestre(num,annee) {
     if (arguments.length < 2 ) throw new Error("Nombre arguments insuffisants");
@@ -151,7 +118,8 @@ function Semestre(num,annee) {
         return this.annee;
     };
     this.getSemestre=function () {
-        return this.id;
+        return "S"+this.id;
+
     };
 
     this.ajouterUe=function (uejenesaispas) {
@@ -170,16 +138,28 @@ function Semestre(num,annee) {
         for (var i in this.UE){
             if (this.UE[i].getIdUe()==quelUe)
                 return this.UE[i];
-        }throw Error("UE que vous aviez demander n'existe pas")
+        }throw Error("Ue que vous aviez demander n'existe pas")
     };
     this.getMoyenneSem=function () {
         return this.moyenneSem/this.UE.length;
+
     }
     this.getCoefficientSem=function () {
         return this.coefficientSem;
+
     }
-    
+
+
+
+
+
+
+
+
+
+
 }
+
 
 function ue (identifiant) {
 
@@ -189,6 +169,7 @@ function ue (identifiant) {
     this.matieres=new Array();
     this.moyenneUE=0;
     this.coefficientUE=0;
+
 
     this.ajouterMatiere=function (matiere) {
         if (typeof matiere !== 'object')throw new Error("Type note invalide");
@@ -217,13 +198,17 @@ function ue (identifiant) {
 
     this.getCoefficientUE=function () {
         return this.coefficientUE;
-    };
+
+    }
 
     this.getMoyenneUE=function () {
         return this.moyenneUE/this.coefficientUE;
+
     };
-    
+
+
 }
+
 
 /**
  * Created by Frederic on 10/04/2017.
@@ -278,5 +263,4 @@ function Matiere (intitule, abreviation, coefficient) {
         if (nbNotes <= 0) return 0;
         return this.somme/nbNotes;
     }
-    
 }
