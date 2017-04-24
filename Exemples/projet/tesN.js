@@ -217,7 +217,7 @@ function ajouterEtudiant (etudiant,num) {
             promoTab +
         "</tr>"+
         "<tr id='Classement"+index+"'>  <td>Classement</td></tr>"+
-        "<tr name='TaillePromo'>  <td>Taille Promo</td></tr>"+
+        "<tr name='TaillePromo'>  <td>Taille Promo</td> <td name='nombreEtu'></td></tr>"+
         "</tbody>"+
         "</table>"+
 
@@ -295,6 +295,10 @@ function ajouterEtudiant (etudiant,num) {
            }
 
         }
+    }
+    var NbEtudiant=document.getElementsByName("nombreEtu");
+    for (var cptNbEtu=0;cptNbEtu<NbEtudiant.length;cptNbEtu++){
+        NbEtudiant[cptNbEtu].innerHTML=promo.getnbEtudiants();
     }
 
 }
