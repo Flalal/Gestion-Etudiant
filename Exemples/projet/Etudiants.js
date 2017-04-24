@@ -2,8 +2,59 @@
  * Created by Frederic on 10/04/2017.
  */
 
-
 var TabDepartement=['INFO','MMI','GEA','TC'];
+function Promo() {
+    this.etu=new Array;
+    this.semetres=[0,0,0,0];
+    this.ues =new Array;
+    this.nbEtudiant=0;
+
+    this.ajouterEtudiant=function (etudiant) {
+        if (typeof etudiant !== 'object')throw new Error("Type note invalide");
+        this.etu.push(etudiant);
+        this.nbEtudiant++;
+        var ToutSemestres=etudiant.getToutSemestre();
+        for (var se in ToutSemestres){
+            if(ToutSemestres[se].getToutUE().length!=0) {
+                this.semetres[ToutSemestres[se].getSemestre() - 1] += etudiant.getToutSemestre()[se].getMoyenneSem();
+                var ToutUE=ToutSemestres[se].getToutUE();
+                for (var ue in ToutUE ){
+                    if (this.ues[ToutUE[ue].getIdUe()]!=undefined) {
+                        this.ues[ToutUE[ue].getIdUe()] += ToutUE[ue].getMoyenneUE();
+                    }
+                    else{
+                        this.ues[ToutUE[ue].getIdUe()]=ToutUE[ue].getMoyenneUE();
+                    }
+                }
+            }
+        }
+    };
+
+
+    this.getMoySemPromo=function (num) {
+        return this.semetres[num-1]/this.nbEtudiant;
+
+    };
+    this.getMoyenneUEPromo=function (num) {
+        if (this.ues[num]==undefined)
+            return false;
+        else
+            return this.ues[num]/this.nbEtudiant;
+
+    };
+    this.getnbEtudiants=function () {
+      return this.nbEtudiant;
+    };
+
+
+
+
+
+
+}
+
+
+
 
 function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 
@@ -109,7 +160,7 @@ function Semestre(num,annee) {
     if (arguments.length < 2 ) throw new Error("Nombre arguments insuffisants");
     if (typeof num !== 'number' && typeof annee !== 'number') throw new Error("Type note invalide");
     this.id=num;
-    this.annee=annee
+    this.annee=annee;
     this.UE=new Array();
     this.moyenneSem=0;
     this.coefficientSem=0;
@@ -118,7 +169,7 @@ function Semestre(num,annee) {
         return this.annee;
     };
     this.getSemestre=function () {
-        return "S"+this.id;
+        return this.id;
 
     };
 
@@ -143,7 +194,7 @@ function Semestre(num,annee) {
     this.getMoyenneSem=function () {
         return this.moyenneSem/this.UE.length;
 
-    }
+    };
     this.getCoefficientSem=function () {
         return this.coefficientSem;
 
@@ -179,7 +230,7 @@ function ue (identifiant) {
     };
 
     this.getIdUe=function () {
-        return "Ue"+this.id;
+        return this.id;
 
     };
 

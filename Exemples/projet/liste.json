@@ -13,7 +13,7 @@
         "intitule":"SE",
         "coefficient":1.5,
         "notes":[
-          9.2,
+          19.2,
           10.0
         ]
       },
@@ -28,21 +28,21 @@
         "intitule":"SD",
         "coefficient":1.5,
         "notes":[
-          7.8
+          17.8
         ]
       },
       "BDD":{
         "intitule":"BDD",
         "coefficient":1.5,
         "notes":[
-          8
+          18
         ]
       },
       "CDIN":{
         "intitule":"CDIN",
         "coefficient":1.5,
         "notes":[
-          6.6
+          16.6
         ]
       },
       "Projet":{
@@ -140,6 +140,50 @@
     "bac":"S_2015",
     "avatar":"remy_dachier.jpg",
     "ue":{
+      "ue11":{
+        "SE":{
+          "intitule":"SE",
+          "coefficient":1.5,
+          "notes":[
+            6.2,3
+          ]
+        },
+        "AP":{
+          "intitule":"AP",
+          "coefficient":1.5,
+          "notes":[
+            7.6
+          ]
+        },
+        "SD":{
+          "intitule":"SD",
+          "coefficient":1.5,
+          "notes":[
+            7.8
+          ]
+        },
+        "BDD":{
+          "intitule":"BDD",
+          "coefficient":1.5,
+          "notes":[
+            8
+          ]
+        },
+        "CDIN":{
+          "intitule":"CDIN",
+          "coefficient":1.5,
+          "notes":[
+            6.6
+          ]
+        },
+        "Projet":{
+          "intitule":"Projet",
+          "coefficient":2.5,
+          "notes":[
+            6.4
+          ]
+        }
+      },
     "ue41": {
       "Pweb2": {
        "intitule": "Pweb2",
@@ -225,6 +269,51 @@
     "bac":"STI2D_2015",
     "avatar":"thomas_dangletterre.jpg",
     "ue": {
+      "ue11":{
+        "SE":{
+          "intitule":"SE",
+          "coefficient":1.5,
+          "notes":[
+            1.2,
+            1.0
+          ]
+        },
+        "AP":{
+          "intitule":"AP",
+          "coefficient":1.5,
+          "notes":[
+            1.6
+          ]
+        },
+        "SD":{
+          "intitule":"SD",
+          "coefficient":1.5,
+          "notes":[
+            1.8
+          ]
+        },
+        "BDD":{
+          "intitule":"BDD",
+          "coefficient":1.5,
+          "notes":[
+            8
+          ]
+        },
+        "CDIN":{
+          "intitule":"CDIN",
+          "coefficient":1.5,
+          "notes":[
+            6.6
+          ]
+        },
+        "Projet":{
+          "intitule":"Projet",
+          "coefficient":2.5,
+          "notes":[
+            0.4
+          ]
+        }
+      },
       "ue41": {
         "Pweb2": {
           "intitule": "Pweb2",
