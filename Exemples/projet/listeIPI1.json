@@ -8,7 +8,7 @@
             "intitule":"Pweb2",
             "coefficient":1.5,
             "notes":[
-               9.2,
+               12.2,
                10.0
             ]
          },
@@ -16,35 +16,35 @@
             "intitule":"AdmSR",
             "coefficient":1.5,
             "notes":[
-               17.6
+               15.6
             ]
          },
          "ProgMobile":{
             "intitule":"ProgMobile",
             "coefficient":1.5,
             "notes":[
-               7.8
+               12.8
             ]
          },
          "ProgRep":{
             "intitule":"ProgRep",
             "coefficient":1.5,
             "notes":[
-               8
+               13
             ]
          },
          "CompInfo":{
             "intitule":"CompInfo",
             "coefficient":1.5,
             "notes":[
-               6.6
+               12.6
             ]
          },
          "Projet":{
             "intitule":"Projet",
             "coefficient":2.5,
             "notes":[
-               16.4
+               14.4
             ]
          }
       },
