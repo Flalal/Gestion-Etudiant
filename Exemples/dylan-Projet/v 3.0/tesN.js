@@ -58,6 +58,10 @@ function ajouterEtudiant (etudiant,num) {
     var root = document.getElementById("liste des étudiants");
     var modal = document.getElementById('listemodal');
     var photo = document.getElementById('mettrePhoto');
+	
+	//cela permet de creer le bouton pour voir le detail de chaque UE
+    var tmp=document.getElementById('notesDetails');
+	var button=document.createElement('button');
 
     var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac", "ue"];
     var bac;
@@ -80,7 +84,8 @@ function ajouterEtudiant (etudiant,num) {
     var rowue42 = "";
     // intituler du tableau
 
-
+    var moyenneSem = "";
+    
     var intituler = "";
     var moyenne = "";
     var coeff = "";
@@ -144,22 +149,46 @@ function ajouterEtudiant (etudiant,num) {
                     intituler+="<td>"+tabSem[j].getSemestre()+"</td>";
                     moyenne+="<td>"+tabSem[j].getMoyenneSem().toFixed(2)+"</td>";
                     coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
+                        
                     for (var tmpUe in tabSem[j].getToutUE()) {
-                        intituler+="<td><button id='notesPopover' type='button' class='btn btn-default' data-toggle='popover' data-placement='top' title='Notes des cours'>"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</td>";
+                        intituler+="<td id='notesDetails'>"+"</td>";
                         moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
-                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
-                    }
-                    
+                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";	          
+						
+						//value permet de mettre l'UE comme "titre" de bouton
+						var value=tabSem[j].getToutUE()[tmpUe].getIdUe();                       
+                       
+                       //For qui permet de mettre les metieres avec les noets a côter
+	                    for (var i in tabSem[j].getToutUE()){
+							moyenneSem+= tabSem[j].getToutUE()[tmpUe].matieres[i].intitule + ": " + tabSem[j].getToutUE()[tmpUe].matieres[i].somme + " // ";
+						}
+                    }                   				
                 }
+                
+                //Modifie le contenu de chaque bouton selon l'Ue et selon L'etudiant
+                
+                if(tmp!=null){
+					button.setAttribute("type","text");						
+					button.setAttribute("data-toggle","popover");
+					button.setAttribute("title","Détail de l UE");
+					button.setAttribute("data-content",moyenneSem);
+					button.setAttribute("data-placement","top");
+					if(moyenne<8)
+						button.setAttribute("class","btn btn-danger btn-block");
+					else if(moyenne<10)
+						button.setAttribute("class","btn btn-warning btn-block");
+					else
+						button.setAttribute("class","btn btn-success btn-block");
+					button.innerHTML=value;
+					tmp.appendChild(button);
+				}else{
+					console.log("c est pas bon!!");
+				}
             }
-
-
         }
-
-
     }
-
-
+  
+    
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     test.ajouterSemestre(semestre);
 
