@@ -1,0 +1,65 @@
+V 1.0 pour les photos avec legende
+V 2.0 affichage du tableau pour l'etudiant de chaque semestre
+V 3.0 quand on clique sur un UE, affiche le detail par rapport au matiere
+
+##### Date : 24/04
+* Ce qui est fait :  
+ - changer le "menu"
+* Ce qui est en cours de réalisation: 
+ - quand on clique sur un UE, affiche le details par matieres
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ - mettre le details quand on clique 
+
+##### Date : 14/04
+* Ce qui est fait :  
+ - nombre d'etudiant par promo
+* Ce qui est en cours de réalisation: 
+ - classement de l'etudiant
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ -  classement de l'etudiant 
+
+##### Date : 13/04
+* Ce qui est fait :  
+ - design sur les boutons finit
+* Ce qui est en cours de réalisation: 
+ - classement de l'etudiant
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ -  classement de l'etudiant 
+
+##### Date : 12/04
+* Ce qui est fait :  
+ - continuation sur les boutons+ finit
+* Ce qui est en cours de réalisation: 
+ - bouton etudiant + photo
+* Problèmes rencontrés :  
+ - Popover ne fonctionner pas sur PC
+* Ce que je prévois de faire 
+ -  design sur les boutons + commencement classement de l'etudiant
+
+##### Date : 11/04
+* Ce qui est fait :  
+ - continuation sur les boutons
+* Ce qui est en cours de réalisation: 
+ - bouton etudiant + photo
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ -  finir boutons
+
+##### Date : 10/04
+* Ce qui est fait :  
+ - Voir les autres departement avec Mr Hsu pour voir le fonctionnement pour le jury
+ - ouverture du git
+ - regarde le code 
+* Ce qui est en cours de réalisation: 
+ - debut bouton etudiant + photo
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ -  finir boutons
