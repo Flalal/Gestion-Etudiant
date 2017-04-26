@@ -12,7 +12,6 @@ var moyPromoUE41=0;
 var moyPromoUE42=0;
 var moyPromoG=0;
 
-
 function createXhrObject(){
     if (window.XMLHttpRequest)
         return new XMLHttpRequest();
@@ -59,9 +58,12 @@ function ajouterEtudiant (etudiant,num) {
     var modal = document.getElementById('listemodal');
     var photo = document.getElementById('mettrePhoto');
 	
-	//cela permet de creer le bouton pour voir le detail de chaque UE
-    var tmp=document.getElementById('notesDetails');
+	///cela permet de creer le bouton pour voir le detail de chaque UE
 	var button=document.createElement('button');
+	///permet de mettre le nom du bouton
+	var value;
+	///permet de mettre les infos dans le boutons
+	var infoUe = "";
 
     var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac", "ue"];
     var bac;
@@ -79,16 +81,13 @@ function ajouterEtudiant (etudiant,num) {
         tabSem.push(new Semestre(cpt+1, 2017));
     }
 
-
     var rowue41 = "";
     var rowue42 = "";
     // intituler du tableau
-
-    var moyenneSem = "";
     
     var intituler = "";
     var moyenne = "";
-    var coeff = "";
+    var coeff = "";1
     var nbUE = 0;
 
     var ue41 = false;
@@ -118,11 +117,14 @@ function ajouterEtudiant (etudiant,num) {
 
         var attribut = "etudiant." + keys[i];
 
-        if (i == 6) {
-
-            for (var x in UEDEPT) {/// parcours la constant qui reference tout les ue de chaque département;
-                for (var j in eval(attribut)) {// parcours dans les ue
-                    if (UEDEPT[x][0] == (dept + "_" + j)) {//condition si ue existe  dans le json
+        if (i == 6) {			
+			
+            for (var x in UEDEPT) {
+				// parcours la constant qui reference tout les ue de chaque département;
+                for (var j in eval(attribut)) {
+					// parcours dans les ue
+                    if (UEDEPT[x][0] == (dept + "_" + j)) {
+						//condition si ue existe  dans le json
                         var numSem = parseInt(j.slice(2)[0]) - 1;
                         var numue = tabUe.push(new ue(parseInt(j.slice(2))));
                         nbUE++;
@@ -144,51 +146,82 @@ function ajouterEtudiant (etudiant,num) {
                     }
                 }
             }
+            
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
                     intituler+="<td>"+tabSem[j].getSemestre()+"</td>";
                     moyenne+="<td>"+tabSem[j].getMoyenneSem().toFixed(2)+"</td>";
                     coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
-                        
+                   
                     for (var tmpUe in tabSem[j].getToutUE()) {
-                        intituler+="<td id='notesDetails'>"+"</td>";
-                        moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
-                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";	          
-						
-						//value permet de mettre l'UE comme "titre" de bouton
-						var value=tabSem[j].getToutUE()[tmpUe].getIdUe();                       
-                       
-                       //For qui permet de mettre les metieres avec les noets a côter
-	                    for (var i in tabSem[j].getToutUE()){
-							moyenneSem+= tabSem[j].getToutUE()[tmpUe].matieres[i].intitule + ": " + tabSem[j].getToutUE()[tmpUe].matieres[i].somme + " // ";
+						 var mat="";
+						 var moy;
+						 var tout;
+						 for(var tmpmati in tabSem[j].getToutUE()[tmpUe].getToutMatiere()){
+							mat+="<td>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getIntitule()+"</td>";
+							moy+="<td>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getMoyenne()+"</td>";
+							tout=mat+moy;
 						}
-                    }                   				
-                }
-                
-                //Modifie le contenu de chaque bouton selon l'Ue et selon L'etudiant
-                
-                if(tmp!=null){
-					button.setAttribute("type","text");						
-					button.setAttribute("data-toggle","popover");
-					button.setAttribute("title","Détail de l UE");
-					button.setAttribute("data-content",moyenneSem);
-					button.setAttribute("data-placement","top");
-					if(moyenne<8)
-						button.setAttribute("class","btn btn-danger btn-block");
-					else if(moyenne<10)
-						button.setAttribute("class","btn btn-warning btn-block");
-					else
-						button.setAttribute("class","btn btn-success btn-block");
-					button.innerHTML=value;
-					tmp.appendChild(button);
-				}else{
-					console.log("c est pas bon!!");
-				}
+                        intituler+="<td><button type='button' class='btn btn-default' title='Details UE' data-container='body' data-toggle='popover' data-placement='top' data-content='"+ tout+"'</button>"+ tabSem[j].getToutUE()[tmpUe].getIdUe() +"</td>";
+                        moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
+                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";	                                
+                       
+						///permet de prendre Id (et le mettre la où je veux mettre le bouton)
+                        ///value: valeur qui permet de mettre l'UE comme "titre" de bouton
+						//value=tabSem[j].getToutUE()[tmpUe].getIdUe();
+                       
+						/// affichage a revoir plus tard (affichage basique)
+						///For: qui permet de mettre les matieres avec les notes a côter
+	                   /* for (var i in tabSem[j].getToutUE()){
+							infoUe+= tabSem[j].getToutUE()[tmpUe].matieres[i].intitule + ": " 
+							+ tabSem[j].getToutUE()[tmpUe].matieres[i].getMoyenne() + " // ";
+						}*/
+						///permet de voir le decoupage
+						//console.log("etudiant "+index + " nom "+ nom +"\n"+value+ " \n" + infoUe+ " \n");
+						
+						///Modifie le contenu de chaque bouton selon les cours de chaque Ue 
+						///les moyennes de chaque etudiant pour chaque cours
+						///et mettre en couleurs les boutons selon la moyenne
+						/*button.setAttribute("type","text");						
+						button.setAttribute("data-toggle","popover");
+						button.setAttribute("title","Détail de UE");
+						button.setAttribute("data-content",infoUe);
+						button.setAttribute("data-placement","top");
+						
+						if(moyenne<8)
+							button.setAttribute("class","btn btn-danger btn-block");
+						else if(moyenne<10)
+							button.setAttribute("class","btn btn-warning btn-block");
+						else
+							button.setAttribute("class","btn btn-success btn-block");
+						button.innerHTML=value;*/
+						
+						/*
+						 * mon tmp permet l'affichage 
+						 * mais au premier etudiant il est null,
+						 * et met les boutons des etudiants suivant dans le premier,
+						 * met les boutons du dernier passage UE et le contenu avec
+						 * 
+						 * Voir / faire test
+						 * */
+						 
+						/*if(tmp!=null){
+							console.log("Bouton Etudiant"+index);
+							tmp.appendChild(button);
+						}else{
+							console.log('pas de bouton Etudiant'+index);
+						}
+						///mettre les infos a "zero"
+						infoUe="";*/
+						matiere="";
+						moy="";
+                    }				
+					     				
+                } 
             }
         }
     }
   
-    
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     test.ajouterSemestre(semestre);
 
@@ -237,7 +270,7 @@ function ajouterEtudiant (etudiant,num) {
         "</tbody>"+
         "</table>"+
 
-/*
+		/*
         "<h2>UE42</h2>" +
 
         "<table class='table'>" +
@@ -292,11 +325,13 @@ function ajouterEtudiant (etudiant,num) {
         "</div>"+
         "</div>";
 
-
     index++;
     affichePromo();
 }
 
+function detailsUE(valeur){
+	document.getElementById("details").textContent=valeur;
+}
 
 function affichePromo() {
     var tmp=document.getElementsByName('promoUe41');

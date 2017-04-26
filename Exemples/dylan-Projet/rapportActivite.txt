@@ -2,6 +2,17 @@ V 1.0 pour les photos avec legende
 V 2.0 affichage du tableau pour l'etudiant de chaque semestre
 V 3.0 quand on clique sur un UE, affiche le detail par rapport au matiere
 
+##### Date : 25/04
+* Ce qui est fait :  
+ - decoupage chaque Ue, avec cours et moyenne
+ - mettre le decoupage dans la "box"/"fenetre"
+* Ce qui est en cours de réalisation: 
+ - les boutons pour chaque UE 
+* Problèmes rencontrés :  
+ - bouton pour chaque Ue de chaque etudiant
+* Ce que je prévois de faire 
+ -  faire  boutons
+
 ##### Date : 24/04
 * Ce qui est fait :  
  - changer le style du "menu"
