@@ -49,8 +49,7 @@ function Promo() {
     this.getnbEtudiants=function () {
       return this.nbEtudiant;
     };
-    
-    
+
     this.Promoclassement=function (num,numeroEtu) {
         var dut=new Array;
         for (var tmpetu in this.etu ){
@@ -89,11 +88,14 @@ function Promo() {
                 }
             }
         }
-
         for(var tmpdut3=0; tmpdut3<dut.length;tmpdut3++ ){
             console.log(dut[tmpdut3]);
-           if (dut[tmpdut3][0]==numeroEtu)
-               return tmpdut3+1;
+        }
+
+
+        for(var tmpdut3=0; tmpdut3<dut.length;tmpdut3++ ){
+            if (dut[tmpdut3][0]==numeroEtu)
+                return tmpdut3+1;
         }
 
 
@@ -106,6 +108,16 @@ function Promo() {
 
 
 
+
+
+}
+function compare(a, b) {
+    if (a<b)
+    return 1;
+    if (a>b)
+    return -1;
+    // a doit être égal à b
+    return 0;
 }
 
 
@@ -117,6 +129,7 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.nom = nom.toLowerCase();
     this.prenom = prenom.toLowerCase();
     var tmp=false;
+    this.classement=0;
     this.redoubler=false;
     this.semestres=new Array();
     for (var i in TabDepartement){
@@ -130,12 +143,16 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.avatar=this.prenom+"_"+this.nom+".jpg";
     this.bac=bac;
     this.dateNaissance=new Date(dateN);
+    this.numero = numero;
 
 
+    this.getClassement=function () {
+        return this.classement;
 
+    };
+    this.setClassement=function (num) {
 
-
-        this.numero = numero;
+    }
 
 
     this.getAvatar=function () {

@@ -155,7 +155,7 @@ function ajouterEtudiant (etudiant,num) {
                         promoTab+="<td name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>"
                         moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
                         coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
-                        classement+="<td id='CUe"+tabSem[j].getSemestre()+numero+"'></td>";
+                        classement+="<td id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
 
 
 
@@ -176,6 +176,7 @@ function ajouterEtudiant (etudiant,num) {
        test.ajouterSemestre(tabSem[cpt]);
     }
     promo.ajouterEtudiant(test);
+    promo.Promoclassement(42);
 
 
 
@@ -238,27 +239,32 @@ function ajouterEtudiant (etudiant,num) {
 
 
     index++;
-
     for (var j in tabSem) {
         if (tabSem[j].getToutUE().length != 0) {
-           var SemPromo=document.getElementsByName("PS"+tabSem[j].getSemestre());
-           for (var cptSem=0;cptSem<SemPromo.length;cptSem++){
-               SemPromo[cptSem].innerHTML=(promo.getMoySemPromo(tabSem[j].getSemestre())).toFixed(2);
-               var ToutEtudiants=promo.getToutLesEtudiants();
-               for (var etu in ToutEtudiants){
-                   var SemClass=document.getElementById("CS"+tabSem[j].getSemestre()+numero);
-                   SemClass.innerHTML=promo.Promoclassement(1,numero);
-                   console.log("");
-               }
-           }
-           for (var tmpUe in tabSem[j].getToutUE()) {
+            var SemPromo=document.getElementsByName("PS"+tabSem[j].getSemestre());
+            for (var cptSem=0;cptSem<SemPromo.length;cptSem++){
+                SemPromo[cptSem].innerHTML=(promo.getMoySemPromo(tabSem[j].getSemestre())).toFixed(2);
+                var ToutEtudiants=promo.getToutLesEtudiants();
+                for (var etu in ToutEtudiants){
+                    var SemClass=document.getElementById("CS"+tabSem[j].getSemestre()+ToutEtudiants[etu].getNumero());
+                    SemClass.innerHTML=promo.Promoclassement(tabSem[j].getSemestre(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
+                    console.log("");
+                }
+            }
+            for (var tmpUe in tabSem[j].getToutUE()) {
                 var UePromo=document.getElementsByName("PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe());
-              // console.log(promo.getMoyenneUEPromo(tabSem[j].getToutUE()[tmpUe].getIdUe()));
-               for (var cptUe=0;cptUe<UePromo.length;cptUe++){
-                   UePromo[cptUe].innerHTML=(promo.getMoyenneUEPromo(tabSem[j].getToutUE()[tmpUe].getIdUe())).toFixed(2);
-               }
+                // console.log(promo.getMoyenneUEPromo(tabSem[j].getToutUE()[tmpUe].getIdUe()));
+                for (var cptUe=0;cptUe<UePromo.length;cptUe++){
+                    UePromo[cptUe].innerHTML=(promo.getMoyenneUEPromo(tabSem[j].getToutUE()[tmpUe].getIdUe())).toFixed(2);
+                    var ToutEtudiants=promo.getToutLesEtudiants();
+                    for (var etu in ToutEtudiants){
+                        var SemClass=document.getElementById("CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+ToutEtudiants[etu].getNumero());
+                        SemClass.innerHTML=promo.Promoclassement(tabSem[j].getToutUE()[tmpUe].getIdUe(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
+                        console.log("");
+                    }
+                }
 
-           }
+            }
 
         }
     }
