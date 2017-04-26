@@ -16,7 +16,7 @@ function Promo() {
         var ToutSemestres=etudiant.getToutSemestre();
         for (var se in ToutSemestres){
             if(ToutSemestres[se].getToutUE().length!=0) {
-                this.semetres[ToutSemestres[se].getSemestre() - 1] += etudiant.getToutSemestre()[se].getMoyenneSem();
+                this.semetres[ToutSemestres[se].getSemestre() - 1] += ToutSemestres[se].getMoyenneSem();
                 var ToutUE=ToutSemestres[se].getToutUE();
                 for (var ue in ToutUE ){
                     if (this.ues[ToutUE[ue].getIdUe()]!=undefined) {
@@ -29,6 +29,10 @@ function Promo() {
             }
         }
     };
+    this.getToutLesEtudiants=function () {
+        return this.etu;
+
+    };
 
 
     this.getMoySemPromo=function (num) {
@@ -37,13 +41,64 @@ function Promo() {
     };
     this.getMoyenneUEPromo=function (num) {
         if (this.ues[num]==undefined)
-            return false;
+            return null;
         else
             return this.ues[num]/this.nbEtudiant;
 
     };
     this.getnbEtudiants=function () {
       return this.nbEtudiant;
+    };
+    
+    
+    this.Promoclassement=function (num,numeroEtu) {
+        var dut=new Array;
+        for (var tmpetu in this.etu ){
+            dut[tmpetu]=new Array();
+            var ToutSemestres=this.etu[tmpetu].getToutSemestre();
+            for (var se in ToutSemestres) {
+                if (ToutSemestres[se].getToutUE().length != 0) {
+                    if (ToutSemestres[se].getSemestre() == num) {
+                        dut[tmpetu][0]=this.etu[tmpetu].getNumero();
+                        dut[tmpetu][1] = ToutSemestres[se].getMoyenneSem();
+                        break;
+                    }
+
+                    var ToutUE=ToutSemestres[se].getToutUE();
+                    for (var ue in ToutUE ) {
+                        if (ToutUE[ue].getIdUe()==num){
+                            dut[tmpetu][0]=this.etu[tmpetu].getNumero();
+                            dut[tmpetu][1] = ToutUE[ue].getMoyenneUE();
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+
+        for(var tmpdut in dut ){
+            for (var tmpdut2=0; tmpdut2<dut.length-1;tmpdut2++){
+                if (dut[tmpdut2][1]<dut[tmpdut2+1][1]){
+                    var tmp=dut[tmpdut2+1];
+                    dut[tmpdut2+1]=dut[tmpdut2];
+                    dut[tmpdut2]=tmp;
+
+                }
+            }
+        }
+
+        for(var tmpdut3=0; tmpdut3<dut.length;tmpdut3++ ){
+            console.log(dut[tmpdut3]);
+           if (dut[tmpdut3][0]==numeroEtu)
+               return tmpdut3+1;
+        }
+
+
+
+
     };
 
 
@@ -80,9 +135,7 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 
 
 
-    if (0 < numero )
         this.numero = numero;
-    else this.numero = -1;
 
 
     this.getAvatar=function () {
