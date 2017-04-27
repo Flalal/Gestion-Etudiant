@@ -60,9 +60,6 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
 
     };
 
-
-
-
     this.getNom = function () {
         return this.nom;
     };
@@ -93,12 +90,6 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
         }throw Error("le semestre que vous demander n'existe pas")
 
     };
-
-
-
-
-
-
 
 
 }
@@ -148,15 +139,6 @@ function Semestre(num,annee) {
         return this.coefficientSem;
 
     }
-
-
-
-
-
-
-
-
-
 
 }
 

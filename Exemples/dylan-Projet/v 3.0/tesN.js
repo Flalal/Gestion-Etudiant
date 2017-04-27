@@ -73,6 +73,9 @@ function ajouterEtudiant (etudiant,num) {
     var nom;
     var prenom;
     var numero;
+
+	var details="";
+	
 // creation des ue et du semestre
     var semestre = new Semestre(4, 2017);
     var tabUe = new Array();
@@ -154,67 +157,12 @@ function ajouterEtudiant (etudiant,num) {
                     coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
                    
                     for (var tmpUe in tabSem[j].getToutUE()) {
-						 var mat="";
-						 var moy="";
-						 var tout="";
-						 for(var tmpmati in tabSem[j].getToutUE()[tmpUe].getToutMatiere()){
-							mat+="<b>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getIntitule()+"</b>";
-							moy+="<b>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getMoyenne()+"</b>";
-							tout=mat+moy;
-						}
-                        intituler+="<td><button type='text' class='btn btn-default' title='Details UE'  data-toggle='popover' data-placement='top' data-content='salut'</button>"+ tabSem[j].getToutUE()[tmpUe].getIdUe() +"</td>";
+							
+						 //var moyPromoMatiere=0.0;        
+                        intituler+="<td>"+tabSem[j].getToutUE()[tmpUe].getIdUe() +"</td>";
                         moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
                         coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";	                                
-                       
-						///permet de prendre Id (et le mettre la où je veux mettre le bouton)
-                        ///value: valeur qui permet de mettre l'UE comme "titre" de bouton
-						//value=tabSem[j].getToutUE()[tmpUe].getIdUe();
-                       
-						/// affichage a revoir plus tard (affichage basique)
-						///For: qui permet de mettre les matieres avec les notes a côter
-	                   /* for (var i in tabSem[j].getToutUE()){
-							infoUe+= tabSem[j].getToutUE()[tmpUe].matieres[i].intitule + ": " 
-							+ tabSem[j].getToutUE()[tmpUe].matieres[i].getMoyenne() + " // ";
-						}*/
-						///permet de voir le decoupage
-						//console.log("etudiant "+index + " nom "+ nom +"\n"+value+ " \n" + infoUe+ " \n");
-						
-						///Modifie le contenu de chaque bouton selon les cours de chaque Ue 
-						///les moyennes de chaque etudiant pour chaque cours
-						///et mettre en couleurs les boutons selon la moyenne
-						/*button.setAttribute("type","text");						
-						button.setAttribute("data-toggle","popover");
-						button.setAttribute("title","Détail de UE");
-						button.setAttribute("data-content",infoUe);
-						button.setAttribute("data-placement","top");
-						
-						if(moyenne<8)
-							button.setAttribute("class","btn btn-danger btn-block");
-						else if(moyenne<10)
-							button.setAttribute("class","btn btn-warning btn-block");
-						else
-							button.setAttribute("class","btn btn-success btn-block");
-						button.innerHTML=value;*/
-						
-						/*
-						 * mon tmp permet l'affichage 
-						 * mais au premier etudiant il est null,
-						 * et met les boutons des etudiants suivant dans le premier,
-						 * met les boutons du dernier passage UE et le contenu avec
-						 * 
-						 * Voir / faire test
-						 * */
-						 
-						/*if(tmp!=null){
-							console.log("Bouton Etudiant"+index);
-							tmp.appendChild(button);
-						}else{
-							console.log('pas de bouton Etudiant'+index);
-						}
-						///mettre les infos a "zero"
-						infoUe="";*/
-						matiere="";
-						moy="";
+                       details+=afficheDetails(tabSem[j].getToutUE()[tmpUe]);
                     }				
 					     				
                 } 
@@ -252,8 +200,8 @@ function ajouterEtudiant (etudiant,num) {
         "<ul> <li> Diplôme : "+ test.getBac()+"</li>"+
         "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
         "<h2>UE41</h2>" +
-
-        "<table class='table'>" +
+        
+       "<table class='table'>" +
         "<thead>" +
        "<tr id='TittreTableau'>" +
         "<th></th>" +intituler +
@@ -268,7 +216,9 @@ function ajouterEtudiant (etudiant,num) {
         "<tr id='Classement"+index+"'>  <td>Classement</td></tr>"+
         "<tr name='TaillePromo'>  <td>Taille Promo</td></tr>"+
         "</tbody>"+
+        
         "</table>"+
+       details+
 
 		/*
         "<h2>UE42</h2>" +
@@ -327,10 +277,35 @@ function ajouterEtudiant (etudiant,num) {
 
     index++;
     affichePromo();
+    
 }
 
-function detailsUE(valeur){
-	document.getElementById("details").textContent=valeur;
+function afficheDetails(ue){
+	
+	var mat="";
+	var moye="";
+	var coef="";
+	
+	
+	 for(var tmpmati in ue.getToutMatiere()){
+		mat+="<td>"+ue.getToutMatiere()[tmpmati].getIntitule()+"</td>";
+		moye+="<td>"+ue.getToutMatiere()[tmpmati].getMoyenne()+"</td>";
+		coef+='<td>'+ue.getToutMatiere()[tmpmati].getCoefficient()+'</td>';
+	}   
+	var table= "<table class='table'>" +
+        "<thead>" +
+       "<tr id='TittreTab'>" +
+        "<th>"+ue.getIdUe()+"</th>" + mat+
+        "</tr>" +
+        "</thead>" +
+        "<tbody>" +
+        "<tr id='Coef"+index+"'>  <td>Coefficent</td>"+coef+"</tr>"+
+        "<tr id='Moye"+index+"'>  <td>Moyenne</td> "+
+            moye+
+        "</tr>"+
+        "</tbody>";
+        
+        return table;
 }
 
 function affichePromo() {
