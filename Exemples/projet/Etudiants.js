@@ -88,10 +88,6 @@ function Promo() {
                 }
             }
         }
-        for(var tmpdut3=0; tmpdut3<dut.length;tmpdut3++ ){
-            console.log(dut[tmpdut3]);
-        }
-
 
         for(var tmpdut3=0; tmpdut3<dut.length;tmpdut3++ ){
             if (dut[tmpdut3][0]==numeroEtu)
@@ -129,8 +125,6 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.nom = nom.toLowerCase();
     this.prenom = prenom.toLowerCase();
     var tmp=false;
-    this.classement=0;
-    this.redoubler=false;
     this.semestres=new Array();
     for (var i in TabDepartement){
         if (dept==TabDepartement[i])
@@ -145,14 +139,6 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.dateNaissance=new Date(dateN);
     this.numero = numero;
 
-
-    this.getClassement=function () {
-        return this.classement;
-
-    };
-    this.setClassement=function (num) {
-
-    }
 
 
     this.getAvatar=function () {
@@ -172,14 +158,7 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.getBac=function () {
         return this.bac;
     };
-    this.setRedoubler=function () {
-        this.redoubler=true;
 
-    };
-    this.getRedoubler=function () {
-        return this.redoubler;
-
-    };
 
 
 
@@ -234,6 +213,7 @@ function Semestre(num,annee) {
     this.UE=new Array();
     this.moyenneSem=0;
     this.coefficientSem=0;
+    this.SemestreValde=true;
 
     this.getAnnee=function () {
         return this.annee;
@@ -248,6 +228,13 @@ function Semestre(num,annee) {
         this.UE.push(uejenesaispas);
        this.moyenneSem+= uejenesaispas.getMoyenneUE();
        this.coefficientSem+=uejenesaispas.getCoefficientUE();
+       if (! uejenesaispas.ValidationUe()){
+           this.SemestreValde=false;
+       }
+    };
+
+    this.validationSemestre=function () {
+      return (this.SemestreValde && (this.moyenneSem/this.UE.length) >=10);
     };
 
 
@@ -289,18 +276,40 @@ function ue (identifiant) {
     this.id=identifiant;
     this.matieres=new Array();
     this.moyenneUE=0;
+    this.tauxAbsent=0;
     this.coefficientUE=0;
+    this.valideAbs=true;
 
 
-    this.ajouterMatiere=function (matiere) {
+    this.ajouterMatiere=function (matiere) {// function ajouter une matiere et permet de calculer la moyenne de ue et coeff
         if (typeof matiere !== 'object')throw new Error("Type note invalide");
         this.matieres.push(matiere);
         this.moyenneUE+=matiere.getCoefficient()*matiere.getMoyenne();
         this.coefficientUE+=matiere.getCoefficient();
+        if(matiere.getTauxAbsent()>=10)
+            this.valideAbs=false;
     };
+
+    /**
+     * @return {boolean}
+     */
+    this.ValidationUe=function () {
+
+        return this.valideAbs && (this.moyenneUE/this.coefficientUE)>=8 && this.tauxAbsent<10;
+
+    } ;
 
     this.getIdUe=function () {
         return this.id;
+
+    };
+
+    this.getTauxAbsent=function () {
+      return this.tauxAbsent;
+    };
+    this.setTauxAbsent=function (taux) {
+        if (typeof taux !== 'number')throw new Error("Type note invalide");
+        this.tauxAbsent=taux;
 
     };
 
@@ -320,7 +329,7 @@ function ue (identifiant) {
     this.getCoefficientUE=function () {
         return this.coefficientUE;
 
-    }
+    };
 
     this.getMoyenneUE=function () {
         return this.moyenneUE/this.coefficientUE;
@@ -342,6 +351,7 @@ function Matiere (intitule, abreviation, coefficient) {
     this.coefficient = coefficient;
     this.listeNotes = new Array();
     this.somme = 0.0;
+    this.tauxAbsent=0;
 
     this.getCoefficient = function () {
         return this.coefficient;
@@ -357,7 +367,15 @@ function Matiere (intitule, abreviation, coefficient) {
 
     this.getNombreNotes = function () {
         return this.listeNotes.length;
-    }
+    };
+    this.getTauxAbsent=function () {
+        return this.tauxAbsent;
+    };
+    this.setTauxAbsent=function (taux) {
+        if (typeof taux !== 'number')throw new Error("Type note invalide");
+        this.tauxAbsent=taux;
+
+    };
 
     this.ajouterNotes = function (note) {
         if (typeof note !== 'number') throw new Error("Type note invalide");

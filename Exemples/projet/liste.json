@@ -12,6 +12,7 @@
       "SE":{
         "intitule":"SE",
         "coefficient":1.5,
+        "TauxAbsent":1,
         "notes":[
           19.2,
           10.0

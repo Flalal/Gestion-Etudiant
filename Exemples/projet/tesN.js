@@ -72,7 +72,6 @@ function ajouterEtudiant (etudiant,num) {
     var prenom;
     var numero;
 // creation des ue et du semestre
-    var semestre = new Semestre(4, 2017);
     var tabUe = new Array();
     var tabSem = new Array();
     for (var cpt = 0; cpt < 4; cpt++) {
@@ -87,7 +86,6 @@ function ajouterEtudiant (etudiant,num) {
     var moyenne = "";
     var coeff = "";
     var classement="";
-    var nbUE = 0;
 
     var ue41 = false;
     var ue42 = false;
@@ -123,7 +121,9 @@ function ajouterEtudiant (etudiant,num) {
                     if (UEDEPT[x][0] == (dept + "_" + j)) {//condition si ue existe  dans le json
                         var numSem = parseInt(j.slice(2)[0]) - 1;
                         var numue = tabUe.push(new ue(parseInt(j.slice(2))));
-                        nbUE++;
+                        if(eval(attribut + "." + j+".TauxAbsent")!=undefined){
+                            tabUe[numue-1].setTauxAbsent(eval(attribut + "." + j+".TauxAbsent"));
+                        }
                         for (var matiere in UEDEPT[x][1]) {
                             var attribut2 = attribut + "." + j + "." + UEDEPT[x][1][matiere];
                             var matiereclass = new Matiere(UEDEPT[x][1][matiere], UEDEPT[x][1][matiere], eval(attribut2 + ".coefficient"));
@@ -132,12 +132,14 @@ function ajouterEtudiant (etudiant,num) {
                                 matiereclass.ajouterNotes(notes[n]);
 
                             }
-                            nbUE += numue;
+                            if(eval(attribut2+".TauxAbsent")!=undefined){
+                                matiereclass.setTauxAbsent(eval(attribut2+".TauxAbsent"))
+                            }
+                            console.log(matiereclass.getTauxAbsent());
                             tabUe[numue - 1].ajouterMatiere(matiereclass);
 
                         }
 
-                        semestre.ajouterUe(tabUe[numue - 1]);
                         tabSem[numSem].ajouterUe(tabUe[numue - 1]);
                     }
                 }
@@ -145,13 +147,13 @@ function ajouterEtudiant (etudiant,num) {
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
-                    intituler+="<td>S"+tabSem[j].getSemestre()+"</td>";
+                    intituler+="<td style='font-weight: bold'>S"+tabSem[j].getSemestre()+"</td>";
                     promoTab+="<td name='PS"+tabSem[j].getSemestre()+"'></td>";
                     moyenne+="<td>"+tabSem[j].getMoyenneSem().toFixed(2)+"</td>";
                     coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
                     for (var tmpUe in tabSem[j].getToutUE()) {
-                        intituler+="<td>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</td>";
+                        intituler+="<td style='font-weight: bold'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</td>";
                         promoTab+="<td name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>"
                         moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
                         coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
@@ -248,7 +250,7 @@ function ajouterEtudiant (etudiant,num) {
                 for (var etu in ToutEtudiants){
                     var SemClass=document.getElementById("CS"+tabSem[j].getSemestre()+ToutEtudiants[etu].getNumero());
                     SemClass.innerHTML=promo.Promoclassement(tabSem[j].getSemestre(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
-                    console.log("");
+
                 }
             }
             for (var tmpUe in tabSem[j].getToutUE()) {
@@ -260,7 +262,6 @@ function ajouterEtudiant (etudiant,num) {
                     for (var etu in ToutEtudiants){
                         var SemClass=document.getElementById("CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+ToutEtudiants[etu].getNumero());
                         SemClass.innerHTML=promo.Promoclassement(tabSem[j].getToutUE()[tmpUe].getIdUe(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
-                        console.log("");
                     }
                 }
 

@@ -155,14 +155,14 @@ function ajouterEtudiant (etudiant,num) {
                    
                     for (var tmpUe in tabSem[j].getToutUE()) {
 						 var mat="";
-						 var moy;
-						 var tout;
+						 var moy="";
+						 var tout="";
 						 for(var tmpmati in tabSem[j].getToutUE()[tmpUe].getToutMatiere()){
-							mat+="<td>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getIntitule()+"</td>";
-							moy+="<td>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getMoyenne()+"</td>";
+							mat+="<b>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getIntitule()+"</b>";
+							moy+="<b>"+tabSem[j].getToutUE()[tmpUe].getToutMatiere()[tmpmati].getMoyenne()+"</b>";
 							tout=mat+moy;
 						}
-                        intituler+="<td><button type='button' class='btn btn-default' title='Details UE' data-container='body' data-toggle='popover' data-placement='top' data-content='"+ tout+"'</button>"+ tabSem[j].getToutUE()[tmpUe].getIdUe() +"</td>";
+                        intituler+="<td><button type='text' class='btn btn-default' title='Details UE'  data-toggle='popover' data-placement='top' data-content='salut'</button>"+ tabSem[j].getToutUE()[tmpUe].getIdUe() +"</td>";
                         moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
                         coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";	                                
                        
