@@ -8,6 +8,7 @@ function Promo() {
     this.semetres=[0,0,0,0];
     this.ues =new Array;
     this.nbEtudiant=0;
+    this.matieres=new Array;
 
     this.ajouterEtudiant=function (etudiant) {
         if (typeof etudiant !== 'object')throw new Error("Type note invalide");
@@ -24,6 +25,8 @@ function Promo() {
                     }
                     else{
                         this.ues[ToutUE[ue].getIdUe()]=ToutUE[ue].getMoyenneUE();
+                        this.matieres["salut"]=2;
+                        console.log(this.matieres["salut"])
                     }
                 }
             }

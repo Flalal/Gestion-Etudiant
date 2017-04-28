@@ -127,7 +127,6 @@ function ajouterEtudiant (etudiant,num) {
                         }
                         for (var matiere in UEDEPT[x][1]) {
                             var attribut2 = attribut + "." + j + "." + UEDEPT[x][1][matiere];
-                            console.log(attribut2);
                             var matiereclass = new Matiere(UEDEPT[x][1][matiere], UEDEPT[x][1][matiere], eval(attribut2 + ".coefficient"));
                             var notes = eval(attribut2 + ".notes");
                             for (var n in notes) {
@@ -137,7 +136,6 @@ function ajouterEtudiant (etudiant,num) {
                             if(eval(attribut2+".TauxAbsent")!=undefined){
                                 matiereclass.setTauxAbsent(eval(attribut2+".TauxAbsent"))
                             }
-                            console.log(matiereclass.getTauxAbsent());
                             tabUe[numue - 1].ajouterMatiere(matiereclass);
 
                         }
@@ -146,18 +144,20 @@ function ajouterEtudiant (etudiant,num) {
                     }
                 }
             }
+
+            // permet de afficher correctement le tableau du plus récent
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
                     intituler+="<th>S"+tabSem[j].getSemestre()+"</th>";
                     promoTab+="<td name='PS"+tabSem[j].getSemestre()+"'></td>";
-                    moyenne+="<td>"+tabSem[j].getMoyenneSem().toFixed(2)+"</td>";
+                    moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
                     coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
                     for (var tmpUe in tabSem[j].getToutUE()) {
                         intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
                         promoTab+="<td name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
-                        moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
+                        moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
                         coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
                         classement+="<td id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
                         details+=afficheDetails(tabSem[j].getToutUE()[tmpUe]);
@@ -237,10 +237,18 @@ function ajouterEtudiant (etudiant,num) {
         "</tbody>"+
         "</table>" +
             details+
+///zone de texte pour les commentaires
+
 
 
         "</div>"+
-
+        "<fieldset>"+
+        "<div class='form-group'>"+
+        "<label for='query'>Commentaire: </label>"+
+        "<input class='form-control' name='query' id='query' placeholder='Votre commentaire...' type='text'> "+
+        "</div>"+
+        "<button onclick='envoyerInfo()' type='envoyer' class='btn btn-primary'>Envoyer</button>"+
+        "</fieldset>"+
         "</div>"+
         "</div>"+
         "</div>";
@@ -281,22 +289,43 @@ function ajouterEtudiant (etudiant,num) {
     }
 
 }
+function envoyerInfo(){
+    alert(document.getElementById("query").value);
+}
+
+function moyenneCouleur(moyenne){
+    var tmp="";
+    if(moyenne<10){
+        if(moyenne<8){
+            tmp="<td style='color: red'>"+moyenne.toFixed(2)+"</td>";
+        }
+        else{
+            tmp="<td style='color: orange'>"+moyenne.toFixed(2)+"</td>";
+        }
+    }
+    else{
+        tmp="<td style='color: green'>"+moyenne.toFixed(2)+"</td>";
+    }
+
+    return tmp;
+
+}
 
 function afficheDetails(ue){
 
     var mat="<th>UE"+ue.getIdUe()+"</th>";
-    var moye="<td>"+ue.getMoyenneUE().toFixed(2) +"</td>";
+    var moye=moyenneCouleur(ue.getMoyenneUE());
     var coef="<td>"+ue.getCoefficientUE() +"</td>";
 
 
     for(var tmpmati in ue.getToutMatiere()){
         mat+="<th>"+ue.getToutMatiere()[tmpmati].getIntitule()+"</th>";
-        moye+="<td>"+ue.getToutMatiere()[tmpmati].getMoyenne().toFixed(2)+"</td>";
+        moye+=moyenneCouleur(ue.getToutMatiere()[tmpmati].getMoyenne());
         coef+='<td>'+ue.getToutMatiere()[tmpmati].getCoefficient()+'</td>';
     }
     var table=
-        "<table class='table'>" +
         "<h2>UE"+ue.getIdUe() +"</h2>"+
+        "<table class='table'>" +
         "<thead>" +
         "<tr id='TittreTab'>" +
         "<th></th>" + mat+
@@ -307,7 +336,8 @@ function afficheDetails(ue){
         "<tr>  <td>Moyenne</td> "+
         moye+
         "</tr>"+
-        "</tbody>";
+        "</tbody>" +
+        "</table>";
 
     return table;
 }
