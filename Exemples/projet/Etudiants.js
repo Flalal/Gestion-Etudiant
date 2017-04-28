@@ -50,14 +50,14 @@ function Promo() {
       return this.nbEtudiant;
     };
 
-    this.Promoclassement=function (num,numeroEtu) {
+    this.Promoclassement=function (intituler,numeroEtu) {
         var dut=new Array;
         for (var tmpetu in this.etu ){
             dut[tmpetu]=new Array();
             var ToutSemestres=this.etu[tmpetu].getToutSemestre();
             for (var se in ToutSemestres) {
                 if (ToutSemestres[se].getToutUE().length != 0) {
-                    if (ToutSemestres[se].getSemestre() == num) {
+                    if (ToutSemestres[se].getSemestre() == intituler) {
                         dut[tmpetu][0]=this.etu[tmpetu].getNumero();
                         dut[tmpetu][1] = ToutSemestres[se].getMoyenneSem();
                         break;
@@ -65,11 +65,20 @@ function Promo() {
 
                     var ToutUE=ToutSemestres[se].getToutUE();
                     for (var ue in ToutUE ) {
-                        if (ToutUE[ue].getIdUe()==num){
+                        if (ToutUE[ue].getIdUe()==intituler){
                             dut[tmpetu][0]=this.etu[tmpetu].getNumero();
                             dut[tmpetu][1] = ToutUE[ue].getMoyenneUE();
                             break;
                         }
+                        var ToutMatiere=ToutUE[ue].getToutMatiere();
+                        for( var matiere in ToutMatiere){
+                            if(ToutMatiere[matiere].getIntitule()+ToutUE[ue].getIdUe()==intituler){
+                                dut[tmpetu][0]=this.etu[tmpetu].getNumero();
+                                dut[tmpetu][1]=ToutMatiere[matiere].getMoyenne();
+
+                            }
+                        }
+
                     }
 
                 }

@@ -12,8 +12,8 @@ const SEMDEPT=[["INFO_S1",[11,12]],
     ["MMI_S4",[41,42]],
     ["MM1_S1",[11,12]]];
 
-const UEDEPT=[["INFO_ue11",["SE","AP","SD","BDD","CDIN","Projet"]],
-    ["INFO_ue12",["MD","AL","EE","FO","COM","ANG","PPP"]],
+const UEDEPT=[["INFO_ue11",["SE1","AP1","SD1","BD1","CDIN","Projet1"]],
+    ["INFO_ue12",["MD","AL","EE","ORGA","FCOM","ANG1","PPP1"]],
     ["INFO_ue41",["Pweb2", "AdmSR", "ProgMobile", "ProgRep", "CompInfo", "Projet"]],
     ["INFO_ue42",["Atelier", "RO", "COM", "Ang"]],
     ["MM1_ue11",["LV2","EEA","EMN","FO","COM","Ang","PPP","GP","EJEMO","AP"]]];
