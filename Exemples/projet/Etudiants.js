@@ -25,8 +25,15 @@ function Promo() {
                     }
                     else{
                         this.ues[ToutUE[ue].getIdUe()]=ToutUE[ue].getMoyenneUE();
-                        this.matieres["salut"]=2;
-                        console.log(this.matieres["salut"])
+                    }
+                    var ToutMatieres=ToutUE[ue].getToutMatiere();
+                    for(var i in ToutMatieres) {
+                        if (this.matieres[ToutMatieres[i].getIntitule()] != undefined) {
+                            this.matieres[ToutMatieres[i].getIntitule()] += ToutMatieres[i].getMoyenne();
+                        }
+                        else {
+                            this.matieres[ToutMatieres[i].getIntitule()] = ToutMatieres[i].getMoyenne();
+                        }
                     }
                 }
             }
@@ -48,6 +55,13 @@ function Promo() {
         else
             return this.ues[num]/this.nbEtudiant;
 
+    };
+
+    this.moyennePromoCours=function(cours){
+        if(this.matieres[cours]==undefined)
+            return null;
+        else
+            return this.matieres[cours]/this.nbEtudiant;
     };
     this.getnbEtudiants=function () {
       return this.nbEtudiant;
