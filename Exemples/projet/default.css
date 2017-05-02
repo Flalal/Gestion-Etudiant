@@ -1,6 +1,11 @@
-/*
-#tableau_principale
-{
-    background-color: white;
-    position:fixed;
-}*/
+
+
+#tableau_principale {
+    width: 80%;
+    margin: auto;
+    table-layout: fixed;
+}
+
+#tableau_principale thead.affix {
+    background: white;
+}

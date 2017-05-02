@@ -9,6 +9,46 @@ var index=0;
 var promo;
 
 
+
+jQuery(function($){
+    $('#tableau_principale thead').affix({
+        offset: {
+            top: 1
+        }
+    });
+
+    /* Le tableau #results s'adapte à la largeur de fenêtre disponible,
+     * ce qui nous oblige à définir une fonction de recalcul des largeurs
+     * des colonnes <th /> dès changement de cette taille de fenêtre.
+     */
+    $(window).resize(function() {
+
+        $(".floating-header th")
+            .width("auto") // Suppression de toutes les largeurs "px".
+            .each(function () {
+                var
+                    $th = $(this),
+                    w = $th.width(), // Récupération de la largeur du <th />
+                    text = $th.text(); // Récupération du texte du <th />
+
+                /* Ici nous forçons la largeur en "px" car les "%" ne seront
+                 * pas pris en compte quand le <thead /> sera en "position: fixed;".
+                 */
+                $th.width(w);
+
+                var $thInner = $("<div />").text(text).width(w);
+
+                // Injection de la <div /> dans le <th />
+                $th.html($thInner);
+            });
+
+    });
+
+    // Premier déclenchement de la fonction resize()
+    $(window).resize();
+});
+
+
 function createXhrObject(){
     if (window.XMLHttpRequest)
         return new XMLHttpRequest();
@@ -61,7 +101,6 @@ function affichage_initial() {
 function ajouterEtudiant (etudiant,num) {
     var root = document.getElementById("liste des étudiants");
     var modal = document.getElementById('listemodal');
-    var photo = document.getElementById('mettrePhoto');
     var titre=document.getElementById('titreTableau');
 
     var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac", "ue"];
@@ -83,7 +122,8 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler = "  <th>Numéro</th> <th>Nom</th> <th>Prénom</th><th></th>";
+    var intituler2 = "  <th>Numéro</th> <th>Nom</th> <th>Prénom</th><th></th>";
+    var intituler = " ";
     var moyenne = "";
     var coeff = "";
     var details="";
@@ -177,6 +217,7 @@ function ajouterEtudiant (etudiant,num) {
 
 
     }
+    intituler2+=intituler+"<th>Détail</th>";
 
 
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
@@ -186,7 +227,7 @@ function ajouterEtudiant (etudiant,num) {
     promo.ajouterEtudiant(test);
     promo.Promoclassement(42);
 
-titre.innerHTML=intituler
+titre.innerHTML=intituler2;
 
 
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
@@ -194,16 +235,8 @@ titre.innerHTML=intituler
         + "</td><td name='prenom'>" +prenom + "</td> " +
         "<td></td>"+
             moyenne+
-        "<td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>Fiche étudiant</button> </td></tr>";
+        "<td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
 
-    photo.innerHTML+="<div class='modal fade bs-example-modal-sm" + index + "' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>"+
-        "<div class='modal-dialog modal-sm' role='document'>"+
-        " <div class='modal-content'>"+
-        "<img c src='img/"+ test.getAvatar()+"' width='130px' height='150px' style='float: right;' alt='"+test.getAvatar() +"'/>"+
-        "<ul> <li>"+test.getNom().toUpperCase() + " " + test.getPrenom()+"	/	Né le: " +test.getDateNaissance()+" </li><li>Diplome: " +test.getBac()+"</li>"+"</ul>"+
-        "</div>"+
-        " </div>"+
-        " </div>";
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
         "<div class='modal-dialog modal-lg' role='document'>" +
@@ -218,7 +251,7 @@ titre.innerHTML=intituler
         "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
 
 
-        "<table class='table'>" +
+        "<table class='table table-bordered table-striped'>" +
         "<h2>Moyenne général</h2>"+
         "<thead>" +
         "<tr id='TittreTableau'>" +
@@ -240,23 +273,9 @@ titre.innerHTML=intituler
         "<tr name='TaillePromo'>  <td>Taille Promo</td> <td name='nombreEtu'></td></tr>"+
         "</tbody>"+
         "</table>" +
-            details+
+            details
 ///zone de texte pour les commentaires
-
-
-
-        "</div>"+
-        "<fieldset>"+
-        "<div class='form-group'>"+
-        "<label for='query'>Commentaire: </label>"+
-        "<input class='form-control' name='query' id='query' placeholder='Votre commentaire...' type='text'> "+
-        "</div>"+
-        "<button onclick='envoyerInfo()' type='envoyer' class='btn btn-primary'>Envoyer</button>"+
-        "</fieldset>"+
-        "</div>"+
-        "</div>"+
-        "</div>";
-
+    ;
 
     index++;
     for (var j in tabSem) {
@@ -284,9 +303,6 @@ titre.innerHTML=intituler
                 }
                 for(var matiere2 in tabSem[j].getToutUE()[tmpUe].getToutMatiere()){
                     var tabMatiere=document.getElementsByName(tabSem[j].getToutUE()[tmpUe].getToutMatiere()[matiere2].getIntitule());
-                    for(var moyenne2 in tabMatiere){
-                            console.log(promo.moyennePromoCours(tabSem[j].getToutUE()[tmpUe].getToutMatiere()[matiere2].getIntitule()).toFixed(2));
-                    }
                 }
 
             }
