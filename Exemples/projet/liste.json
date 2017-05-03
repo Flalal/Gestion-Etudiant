@@ -9,6 +9,57 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+        "annee":2015,
+        "commentaire":"ADM",
+        "SE1":{
+          "intitule":"SE1",
+          "coefficient":3.5,
+          "TauxAbsent":1,
+          "notes":[
+            9.00,
+            12.0,
+            11.00
+          ]
+        },
+        "AP1":{
+          "intitule":"AP1",
+          "coefficient":3.5,
+          "notes":[
+            0,16.00,17.5
+          ]
+        },
+        "SD1":{
+          "intitule":"SD1",
+          "coefficient":2.5,
+          "notes":[
+            10.5
+          ]
+        },
+        "BD1":{
+          "intitule":"BD1",
+          "coefficient":3.5,
+          "notes":[
+            10,14,6
+          ]
+        },
+        "CDIN":{
+          "intitule":"CDIN",
+          "coefficient":2.5,
+          "notes":[
+            16.6,19,12
+          ]
+        },
+        "Projet1":{
+          "intitule":"Projet1",
+          "coefficient":1.5,
+          "notes":[
+            14.5
+          ]
+        }
+      },
+      "ue11'":{
+        "annee":2014,
+        "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -56,6 +107,8 @@
         }
       },
       "ue12":{
+        "annee":2015,
+        "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -110,6 +163,8 @@
       },
 
       "ue41":{
+        "annee":2015,
+        "commentaire":"ADM, faire mieux au semestre prochain",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -155,6 +210,8 @@
         }
       },
     "ue42":{
+      "annee":2015,
+      "commentaire":"ADM",
       "Atelier":{
         "intitule":"Atelier",
         "coefficient":2,
@@ -197,6 +254,8 @@
     "avatar":"remy_dachier.jpg",
     "ue":{
       "ue11":{
+        "annee":2015,
+        "commentaire":"AJ",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -243,6 +302,7 @@
         }
       },
       "ue12":{
+            "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -296,6 +356,7 @@
         }
       },
     "ue41": {
+          "commentaire":"ADM",
       "Pweb2": {
        "intitule": "Pweb2",
       "coefficient": 1.5,
@@ -340,6 +401,7 @@
     }
   },
   "ue42": {
+        "commentaire":"ADM",
     "Atelier": {
       "intitule": "Atelier",
       "coefficient": 2,
@@ -381,6 +443,7 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+            "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -428,6 +491,7 @@
         }
       },
       "ue12":{
+            "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -482,6 +546,7 @@
       },
 
       "ue41":{
+            "commentaire":"ADM",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -527,6 +592,7 @@
         }
       },
       "ue42":{
+            "commentaire":"ADM",
         "Atelier":{
           "intitule":"Atelier",
           "coefficient":2,
@@ -568,6 +634,7 @@
   "avatar":"julien_bisson.jpg",
   "ue":{
     "ue11":{
+      "commentaire":"ADM",
       "SE1":{
         "intitule":"SE1",
         "coefficient":3.5,
@@ -615,6 +682,7 @@
       }
     },
     "ue12":{
+      "commentaire":"ADM",
       "MD":{
         "intitule":"MD",
         "coefficient":2.5,
@@ -669,6 +737,7 @@
     },
 
     "ue41":{
+          "commentaire":"ADM",
       "Pweb2":{
         "intitule":"Pweb2",
         "coefficient":1.5,
@@ -756,6 +825,7 @@
   "avatar":"julien_bisson.jpg",
   "ue":{
     "ue11":{
+      "commentaire":"ADM",
       "SE1":{
         "intitule":"SE1",
         "coefficient":3.5,
@@ -803,6 +873,7 @@
       }
     },
     "ue12":{
+    "commentaire":"ADM",
       "MD":{
         "intitule":"MD",
         "coefficient":2.5,
@@ -857,6 +928,7 @@
     },
 
     "ue41":{
+    "commentaire":"ADM",
       "Pweb2":{
         "intitule":"Pweb2",
         "coefficient":1.5,
@@ -902,6 +974,7 @@
       }
     },
     "ue42":{
+    "commentaire":"ADM",
       "Atelier":{
         "intitule":"Atelier",
         "coefficient":2,
@@ -944,6 +1017,7 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+      "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -991,6 +1065,7 @@
         }
       },
       "ue12":{
+      "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -1045,6 +1120,7 @@
       },
 
       "ue41":{
+      "commentaire":"ADM",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -1090,6 +1166,7 @@
         }
       },
       "ue42":{
+      "commentaire":"ADM",
         "Atelier":{
           "intitule":"Atelier",
           "coefficient":2,
@@ -1132,6 +1209,7 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+      "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -1179,6 +1257,7 @@
         }
       },
       "ue12":{
+        "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -1233,6 +1312,7 @@
       },
 
       "ue41":{
+        "commentaire":"ADM",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -1278,6 +1358,7 @@
         }
       },
       "ue42":{
+      "commentaire":"ADM",
         "Atelier":{
           "intitule":"Atelier",
           "coefficient":2,
@@ -1320,6 +1401,7 @@
   "avatar":"julien_bisson.jpg",
   "ue":{
     "ue11":{
+    "commentaire":"ADM",
       "SE1":{
         "intitule":"SE1",
         "coefficient":3.5,
@@ -1367,6 +1449,7 @@
       }
     },
     "ue12":{
+    "commentaire":"ADM",
       "MD":{
         "intitule":"MD",
         "coefficient":2.5,
@@ -1421,6 +1504,7 @@
     },
 
     "ue41":{
+    "commentaire":"ADM",
       "Pweb2":{
         "intitule":"Pweb2",
         "coefficient":1.5,
@@ -1466,6 +1550,7 @@
       }
     },
     "ue42":{
+    "commentaire":"ADM",
       "Atelier":{
         "intitule":"Atelier",
         "coefficient":2,
@@ -1508,6 +1593,7 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+      "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -1555,6 +1641,7 @@
         }
       },
       "ue12":{
+      "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -1609,6 +1696,7 @@
       },
 
       "ue41":{
+      "commentaire":"ADM",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -1654,6 +1742,7 @@
         }
       },
       "ue42":{
+      "commentaire":"ADM",
         "Atelier":{
           "intitule":"Atelier",
           "coefficient":2,
@@ -1696,6 +1785,7 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+      "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -1743,6 +1833,7 @@
         }
       },
       "ue12":{
+      "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -1797,6 +1888,7 @@
       },
 
       "ue41":{
+      "commentaire":"ADM",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -1842,6 +1934,7 @@
         }
       },
       "ue42":{
+      "commentaire":"ADM",
         "Atelier":{
           "intitule":"Atelier",
           "coefficient":2,
@@ -1884,6 +1977,7 @@
     "avatar":"julien_bisson.jpg",
     "ue":{
       "ue11":{
+      "commentaire":"ADM",
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,
@@ -1931,6 +2025,7 @@
         }
       },
       "ue12":{
+      "commentaire":"ADM",
         "MD":{
           "intitule":"MD",
           "coefficient":2.5,
@@ -1985,6 +2080,7 @@
       },
 
       "ue41":{
+      "commentaire":"ADM",
         "Pweb2":{
           "intitule":"Pweb2",
           "coefficient":1.5,
@@ -2030,6 +2126,7 @@
         }
       },
       "ue42":{
+      "commentaire":"ADM",
         "Atelier":{
           "intitule":"Atelier",
           "coefficient":2,

@@ -2,6 +2,28 @@ V 1.0 pour les photos avec legende
 V 2.0 affichage du tableau pour l'etudiant de chaque semestre
 V 3.0 quand on clique sur un UE, affiche le detail par rapport au matiere
 
+##### Date : 28/04
+* Ce qui est fait :  
+ - Couleur pour les moyennes 
+ - Les moyennes pour les cours 
+* Ce qui est en cours de réalisation:
+ - Changement de l'apsect page d'accueil
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ - page d'accueil 
+
+##### Date : 27/04
+* Ce qui est fait :  
+ - FIche Etudiant par UE
+ - Mettre notre code en commun
+* Ce qui est en cours de réalisation:
+ - moyenne et classement pour les cours
+* Problèmes rencontrés :  
+ - 
+* Ce que je prévois de faire 
+ - 
+
 ##### Date : 26/04
 * Ce qui est fait :  
  - decoupage chaque Ue, avec cours et moyenne

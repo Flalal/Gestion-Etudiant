@@ -295,7 +295,7 @@ function Semestre(num,annee) {
 }
 
 
-function ue (identifiant) {
+function ue (identifiant,annee) {
 
     if (arguments.length < 1  ) throw new Error("Nombre arguments insuffisants");
     if (typeof identifiant !== 'number') throw new Error("Type note invalide");
@@ -305,7 +305,16 @@ function ue (identifiant) {
     this.tauxAbsent=0;
     this.coefficientUE=0;
     this.valideAbs=true;
-
+	this.commentaire="";
+	this.annee=annee;
+	
+	this.ajouterCommentaire=function(comment){
+		if(typeof comment!='string')throw new Error("Type commentaire invalide");
+		this.commentaire=comment;
+	};
+	this.getCommentaire=function(){
+		return this.commentaire;
+	};
 
     this.ajouterMatiere=function (matiere) {// function ajouter une matiere et permet de calculer la moyenne de ue et coeff
         if (typeof matiere !== 'object')throw new Error("Type note invalide");
@@ -314,6 +323,7 @@ function ue (identifiant) {
         this.coefficientUE+=matiere.getCoefficient();
         if(matiere.getTauxAbsent()>=10)
             this.valideAbs=false;
+
     };
 
     /**
