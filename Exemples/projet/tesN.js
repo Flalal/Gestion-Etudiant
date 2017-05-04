@@ -12,11 +12,7 @@ var promo;
 
 jQuery(function($){
 
-    $("#liste_des_étudiants td").each(function () {
-        var $td=$(this),taille=$td.width();
 
-
-    });
 });
 
 
@@ -96,7 +92,7 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler2 = "  <th>Num</th> <th>Nom</th> <th>Prén</th><th>Class</th>";
+    var intituler2 = "  <th class='col-md-1'>Num</th> <th class='col-md-1'>Nom</th> <th class='col-md-1'>Prénom</th><th class='col-md-1' >Clas</th>";
     var coef2="<th></th><th></th><th></th><th></th>";
     var moyPromo2="<th></th><th></th><th></th><th></th>";
     var intituler = " ";
@@ -175,24 +171,24 @@ function ajouterEtudiant (etudiant,num) {
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
-                    intituler+="<th>S"+tabSem[j].getSemestre()+"</th>";
-                    intituler2+="<th onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
-                    promoTab+="<td name='PS"+tabSem[j].getSemestre()+"'></td>";
-                    moyPromo2+="<th name='PS"+tabSem[j].getSemestre()+"'>"+"<t/h>";
+                    intituler+="<th class='col-md-1'>S"+tabSem[j].getSemestre()+"</th>";
+                    intituler2+="<th class='col-md-1' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
+                    promoTab+="<td class='col-md-1' name='PS"+tabSem[j].getSemestre()+"'></td>";
+                    moyPromo2+="<th class='col-md-1' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
                     moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
-                    coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
-                    coef2+="<th>"+tabSem[j].getCoefficientSem()+"</th>";
+                    coeff+="<td class='col-md-1'>"+tabSem[j].getCoefficientSem()+"</td>";
+                    coef2+="<th class='col-md-1'>"+tabSem[j].getCoefficientSem()+"</th>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
 
                     for (var tmpUe in tabSem[j].getToutUE()) {
-                        intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
-                        intituler2+="<th onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
-                        promoTab+="<td name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
-                        moyPromo2+="<th name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
+                        intituler+="<th class='col-md-1'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        intituler2+="<th class='col-md-1' onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        promoTab+="<td  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
+                        moyPromo2+="<th class='col-md-1' name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
                         moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
-                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
-                        coef2+="<th>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
-                        classement+="<td id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
+                        coeff+="<td >"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
+                        coef2+="<th class='col-md-1'>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
+                        classement+="<td  class='col-md-1' id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
                         commentaire=tabSem[j].getToutUE()[tmpUe].getCommentaire();
                         details+=afficheDetails(tabSem[j].getToutUE()[tmpUe],commentaire);
 
@@ -214,16 +210,16 @@ function ajouterEtudiant (etudiant,num) {
     promo.ajouterEtudiant(test);
     promo.Promoclassement(42);
 
-	titre.innerHTML=intituler2+"<th>detail</th>";
+	titre.innerHTML=intituler2+"<th class='col-md-1'>detail</th>";
 	coef.innerHTML=coef2;
 	moyennePromo.innerHTML=moyPromo2;
 
-    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
-        + "</td> <td name='nom'>" + nom
-        + "</td><td name='prenom'>" +prenom + "</td> " +
-         "<td id='classementFinal"+numero+"'>"+"</td>"+
+    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero' class='col-md-1'>" + numero
+        + "</td> <td name='nom' class='col-md-1'>" + nom
+        + "</td><td name='prenom' class='col-md-1'>" +prenom + "</td> " +
+         "<td id='classementFinal"+numero+"' class='col-md-1'>"+"</td>"+
             moyenne+
-        "<td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
+        "<td class='col-md-1'><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
 
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
@@ -329,14 +325,14 @@ function moyenneCouleur(moyenne){
     var tmp="";
     if(moyenne<10){
         if(moyenne<8){
-            tmp="<td style='color: red'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td class='col-md-1' style='color: red'>"+moyenne.toFixed(2)+"</td>";
         }
         else{
-            tmp="<td style='color: orange'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td class='col-md-1' style='color: orange'>"+moyenne.toFixed(2)+"</td>";
         }
     }
     else{
-        tmp="<td style='color: green'>"+moyenne.toFixed(2)+"</td>";
+        tmp="<td  class='col-md-1' style='color: green'>"+moyenne.toFixed(2)+"</td>";
     }
 
     return tmp;
