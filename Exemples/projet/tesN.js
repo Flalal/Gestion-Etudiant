@@ -92,7 +92,7 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler2 = "  <th class='col-md-1'>Num</th> <th class='col-md-1'>Nom</th> <th class='col-md-1'>Prénom</th><th class='col-md-1' >Clas</th>";
+    var intituler2 = "  <th class='"+CLASSBOOSTRAP+"'>Num</th> <th class='"+CLASSBOOSTRAP+"'>Nom</th> <th class='"+CLASSBOOSTRAP+"'>Prénom</th><th class='"+CLASSBOOSTRAP+"' >Clas</th>";
     var coef2="<th></th><th></th><th></th><th></th>";
     var moyPromo2="<th></th><th></th><th></th><th></th>";
     var intituler = " ";
@@ -171,24 +171,24 @@ function ajouterEtudiant (etudiant,num) {
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
-                    intituler+="<th class='col-md-1'>S"+tabSem[j].getSemestre()+"</th>";
-                    intituler2+="<th class='col-md-1' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
-                    promoTab+="<td class='col-md-1' name='PS"+tabSem[j].getSemestre()+"'></td>";
-                    moyPromo2+="<th class='col-md-1' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
+                    intituler+="<th>S"+tabSem[j].getSemestre()+"</th>";
+                    intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
+                    promoTab+="<td class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'></td>";
+                    moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
                     moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
-                    coeff+="<td class='col-md-1'>"+tabSem[j].getCoefficientSem()+"</td>";
-                    coef2+="<th class='col-md-1'>"+tabSem[j].getCoefficientSem()+"</th>";
+                    coeff+="<td class='"+CLASSBOOSTRAP+"'"+tabSem[j].getCoefficientSem()+"</td>";
+                    coef2+="<th class='"+CLASSBOOSTRAP+"'>"+tabSem[j].getCoefficientSem()+"</th>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
 
                     for (var tmpUe in tabSem[j].getToutUE()) {
-                        intituler+="<th class='col-md-1'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
-                        intituler2+="<th class='col-md-1' onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
                         promoTab+="<td  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
-                        moyPromo2+="<th class='col-md-1' name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
+                        moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
                         moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
                         coeff+="<td >"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
-                        coef2+="<th class='col-md-1'>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
-                        classement+="<td  class='col-md-1' id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
+                        coef2+="<th class='"+CLASSBOOSTRAP+"'>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
+                        classement+="<td  class='"+CLASSBOOSTRAP+"' id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
                         commentaire=tabSem[j].getToutUE()[tmpUe].getCommentaire();
                         details+=afficheDetails(tabSem[j].getToutUE()[tmpUe],commentaire);
 
@@ -202,7 +202,6 @@ function ajouterEtudiant (etudiant,num) {
 
     }
 
-
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     for (var cpt = 0; cpt < 4; cpt++) {
        test.ajouterSemestre(tabSem[cpt]);
@@ -210,16 +209,16 @@ function ajouterEtudiant (etudiant,num) {
     promo.ajouterEtudiant(test);
     promo.Promoclassement(42);
 
-	titre.innerHTML=intituler2+"<th class='col-md-1'>detail</th>";
+	titre.innerHTML=intituler2+"<th class='"+CLASSBOOSTRAP+"'>detail</th>";
 	coef.innerHTML=coef2;
 	moyennePromo.innerHTML=moyPromo2;
 
     root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero' class='col-md-1'>" + numero
-        + "</td> <td name='nom' class='col-md-1'>" + nom
-        + "</td><td name='prenom' class='col-md-1'>" +prenom + "</td> " +
-         "<td id='classementFinal"+numero+"' class='col-md-1'>"+"</td>"+
+        + "</td> <td name='nom' class='"+CLASSBOOSTRAP+"'>" + nom
+        + "</td><td name='prenom' class='"+CLASSBOOSTRAP+"'>" +prenom + "</td> " +
+         "<td id='classementFinal"+numero+"' class='"+CLASSBOOSTRAP+"'>"+"</td>"+
             moyenne+
-        "<td class='col-md-1'><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
+        "<td class='col-md-1' ><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
 
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
@@ -314,7 +313,6 @@ function classementAccueil(cours){
 
 	var toutEtudiant=promo.getToutLesEtudiants();
 	for(var tmp in toutEtudiant){
-		console.log(toutEtudiant[tmp].getNumero());
 		var doc=document.getElementById('classementFinal'+toutEtudiant[tmp].getNumero());
 		doc.innerHTML=promo.Promoclassement(cours,toutEtudiant[tmp].getNumero())+ "/"+promo.getnbEtudiants();
 	}
@@ -325,14 +323,14 @@ function moyenneCouleur(moyenne){
     var tmp="";
     if(moyenne<10){
         if(moyenne<8){
-            tmp="<td class='col-md-1' style='color: red'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td class='"+CLASSBOOSTRAP+"' style='color: red'>"+moyenne.toFixed(2)+"</td>";
         }
         else{
-            tmp="<td class='col-md-1' style='color: orange'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td class='"+CLASSBOOSTRAP+"' style='color: orange'>"+moyenne.toFixed(2)+"</td>";
         }
     }
     else{
-        tmp="<td  class='col-md-1' style='color: green'>"+moyenne.toFixed(2)+"</td>";
+        tmp="<td  class='"+CLASSBOOSTRAP+"' style='color: green'>"+moyenne.toFixed(2)+"</td>";
     }
 
     return tmp;
