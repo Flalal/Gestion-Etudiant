@@ -11,6 +11,7 @@ var promo;
 
 
 
+
 function createXhrObject(){
     if (window.XMLHttpRequest)
         return new XMLHttpRequest();
@@ -352,7 +353,7 @@ function afficheDetails(ue,comments){
         "<h2>UE"+ue.getIdUe() +"</h2>"+
         "<table class='table table-bordered table-striped'>" +
         "<thead>" +
-        "<tr id='TittreTab'>" +
+        "<tr>" +
         "<th></th>" + mat+
         "</tr>" +
         "</thead>" +

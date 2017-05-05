@@ -25,4 +25,4 @@ const UEDEPT=[["INFO_ue11",["SE1","AP1","SD1","BD1","CDIN","Projet1"]],
 // dictionnaire clé plus valeurs
 
 
-const CLASSBOOSTRAP="col-xs-1 col-sm-1 col-md-1 col-lg-1";
+const CLASSBOOSTRAP="";
