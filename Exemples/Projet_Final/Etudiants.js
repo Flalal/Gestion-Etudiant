@@ -8,6 +8,7 @@ function Promo() {
     this.semetres=[0,0,0,0];
     this.ues =new Array;
     this.nbEtudiant=0;
+    this.matieres=new Array;
 
     this.ajouterEtudiant=function (etudiant) {
         if (typeof etudiant !== 'object')throw new Error("Type note invalide");
@@ -24,6 +25,15 @@ function Promo() {
                     }
                     else{
                         this.ues[ToutUE[ue].getIdUe()]=ToutUE[ue].getMoyenneUE();
+                    }
+                    var ToutMatieres=ToutUE[ue].getToutMatiere();
+                    for(var i in ToutMatieres) {
+                        if (this.matieres[ToutMatieres[i].getIntitule()] != undefined) {
+                            this.matieres[ToutMatieres[i].getIntitule()] += ToutMatieres[i].getMoyenne();
+                        }
+                        else {
+                            this.matieres[ToutMatieres[i].getIntitule()] = ToutMatieres[i].getMoyenne();
+                        }
                     }
                 }
             }
@@ -46,18 +56,25 @@ function Promo() {
             return this.ues[num]/this.nbEtudiant;
 
     };
+
+    this.moyennePromoCours=function(cours){
+        if(this.matieres[cours]==undefined)
+            return null;
+        else
+            return this.matieres[cours]/this.nbEtudiant;
+    };
     this.getnbEtudiants=function () {
       return this.nbEtudiant;
     };
 
-    this.Promoclassement=function (num,numeroEtu) {
+    this.Promoclassement=function (intituler,numeroEtu) {
         var dut=new Array;
         for (var tmpetu in this.etu ){
             dut[tmpetu]=new Array();
             var ToutSemestres=this.etu[tmpetu].getToutSemestre();
             for (var se in ToutSemestres) {
                 if (ToutSemestres[se].getToutUE().length != 0) {
-                    if (ToutSemestres[se].getSemestre() == num) {
+                    if (ToutSemestres[se].getSemestre() == intituler) {
                         dut[tmpetu][0]=this.etu[tmpetu].getNumero();
                         dut[tmpetu][1] = ToutSemestres[se].getMoyenneSem();
                         break;
@@ -65,11 +82,20 @@ function Promo() {
 
                     var ToutUE=ToutSemestres[se].getToutUE();
                     for (var ue in ToutUE ) {
-                        if (ToutUE[ue].getIdUe()==num){
+                        if (ToutUE[ue].getIdUe()==intituler){
                             dut[tmpetu][0]=this.etu[tmpetu].getNumero();
                             dut[tmpetu][1] = ToutUE[ue].getMoyenneUE();
                             break;
                         }
+                        var ToutMatiere=ToutUE[ue].getToutMatiere();
+                        for( var matiere in ToutMatiere){
+                            if(ToutMatiere[matiere].getIntitule()+ToutUE[ue].getIdUe()==intituler){
+                                dut[tmpetu][0]=this.etu[tmpetu].getNumero();
+                                dut[tmpetu][1]=ToutMatiere[matiere].getMoyenne();
+
+                            }
+                        }
+
                     }
 
                 }
@@ -269,7 +295,7 @@ function Semestre(num,annee) {
 }
 
 
-function ue (identifiant) {
+function ue (identifiant,annee) {
 
     if (arguments.length < 1  ) throw new Error("Nombre arguments insuffisants");
     if (typeof identifiant !== 'number') throw new Error("Type note invalide");
@@ -279,7 +305,16 @@ function ue (identifiant) {
     this.tauxAbsent=0;
     this.coefficientUE=0;
     this.valideAbs=true;
-
+	this.commentaire="";
+	this.annee=annee;
+	
+	this.ajouterCommentaire=function(comment){
+		if(typeof comment!='string')throw new Error("Type commentaire invalide");
+		this.commentaire=comment;
+	};
+	this.getCommentaire=function(){
+		return this.commentaire;
+	};
 
     this.ajouterMatiere=function (matiere) {// function ajouter une matiere et permet de calculer la moyenne de ue et coeff
         if (typeof matiere !== 'object')throw new Error("Type note invalide");
@@ -288,6 +323,7 @@ function ue (identifiant) {
         this.coefficientUE+=matiere.getCoefficient();
         if(matiere.getTauxAbsent()>=10)
             this.valideAbs=false;
+
     };
 
     /**

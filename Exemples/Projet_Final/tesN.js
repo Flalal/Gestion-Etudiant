@@ -9,6 +9,8 @@ var index=0;
 var promo;
 
 
+
+
 function createXhrObject(){
     if (window.XMLHttpRequest)
         return new XMLHttpRequest();
@@ -59,9 +61,11 @@ function affichage_initial() {
 }
 
 function ajouterEtudiant (etudiant,num) {
-    var root = document.getElementById("liste des étudiants");
+    var root = document.getElementById("liste_des_étudiants");
     var modal = document.getElementById('listemodal');
-    var photo = document.getElementById('mettrePhoto');
+    var titre=document.getElementById('titreTableau');
+    var coef=document.getElementById('titreCoefficient');
+    var moyennePromo=document.getElementById('moyennePromo');
 
     var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac", "ue"];
     var bac;
@@ -71,6 +75,7 @@ function ajouterEtudiant (etudiant,num) {
     var nom;
     var prenom;
     var numero;
+
 // creation des ue et du semestre
     var tabUe = new Array();
     var tabSem = new Array();
@@ -82,14 +87,17 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler = "";
+    var intituler2 = "  <th class='"+CLASSBOOSTRAP+"'>Num</th> <th class='"+CLASSBOOSTRAP+"' >Nom</th> <th class='"+CLASSBOOSTRAP+"'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
+    var coef2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
+    var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
+    var intituler = " ";
     var moyenne = "";
     var coeff = "";
     var details="";
     var classement="";
 
-    var ue41 = false;
-    var ue42 = false;
+	var commentaire="";
+
 
     for (var i in keys) {
 
@@ -119,12 +127,18 @@ function ajouterEtudiant (etudiant,num) {
 
             for (var x in UEDEPT) {/// parcours la constant qui reference tout les ue de chaque département;
                 for (var j in eval(attribut)) {// parcours dans les ue
+
                     if (UEDEPT[x][0] == (dept + "_" + j)) {//condition si ue existe  dans le json
                         var numSem = parseInt(j.slice(2)[0]) - 1;
-                        var numue = tabUe.push(new ue(parseInt(j.slice(2))));
+                        var numue = tabUe.push(new ue(parseInt(j.slice(2)),eval(attribut + "." + j+".annee")));
                         if(eval(attribut + "." + j+".TauxAbsent")!=undefined){
                             tabUe[numue-1].setTauxAbsent(eval(attribut + "." + j+".TauxAbsent"));
                         }
+                        if(eval(attribut + "." + j+".commentaire")!=undefined){
+							tabUe[numue-1].ajouterCommentaire(eval(attribut + "." + j+".commentaire"));
+						}
+
+                        //console.log(eval(attribut + "." + j+".commentaire"));
                         for (var matiere in UEDEPT[x][1]) {
                             var attribut2 = attribut + "." + j + "." + UEDEPT[x][1][matiere];
                             var matiereclass = new Matiere(UEDEPT[x][1][matiere], UEDEPT[x][1][matiere], eval(attribut2 + ".coefficient"));
@@ -136,7 +150,7 @@ function ajouterEtudiant (etudiant,num) {
                             if(eval(attribut2+".TauxAbsent")!=undefined){
                                 matiereclass.setTauxAbsent(eval(attribut2+".TauxAbsent"))
                             }
-                            console.log(matiereclass.getTauxAbsent());
+
                             tabUe[numue - 1].ajouterMatiere(matiereclass);
 
                         }
@@ -145,36 +159,41 @@ function ajouterEtudiant (etudiant,num) {
                     }
                 }
             }
+
+            // permet de afficher correctement le tableau du plus récent
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
-                    intituler+="<td style='font-weight: bold'>S"+tabSem[j].getSemestre()+"</td>";
-                    promoTab+="<td name='PS"+tabSem[j].getSemestre()+"'></td>";
-                    moyenne+="<td>"+tabSem[j].getMoyenneSem().toFixed(2)+"</td>";
-                    coeff+="<td>"+tabSem[j].getCoefficientSem()+"</td>";
+                    intituler+="<th >S"+tabSem[j].getSemestre()+"</th>";
+                    intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
+                    promoTab+="<td  name='PS"+tabSem[j].getSemestre()+"'></td>";
+                    moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
+                    moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
+                    coeff+="<td >"+tabSem[j].getCoefficientSem()+"</td>";
+                    coef2+="<th class='"+CLASSBOOSTRAP+"' >"+tabSem[j].getCoefficientSem()+"</th>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
+
                     for (var tmpUe in tabSem[j].getToutUE()) {
-                        intituler+="<td style='font-weight: bold'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</td>";
-                        promoTab+="<td name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>"
-                        moyenne+="<td>"+tabSem[j].getToutUE()[tmpUe].getMoyenneUE().toFixed(2)+"</td>";
-                        coeff+="<td>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
+                        intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        promoTab+="<td  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
+                        moyPromo2+="<th class='"+CLASSBOOSTRAP+"'  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
+                        moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
+                        coeff+="<td >"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
+                        coef2+="<th class='"+CLASSBOOSTRAP+"'>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
                         classement+="<td id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
-                        details+=afficheDetails(tabSem[j].getToutUE()[tmpUe]);
-
-
-
+                        commentaire=tabSem[j].getToutUE()[tmpUe].getCommentaire();
+                        details+=afficheDetails(tabSem[j].getToutUE()[tmpUe],commentaire);
 
                     }
 
                 }
             }
 
-
         }
 
 
     }
-
 
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     for (var cpt = 0; cpt < 4; cpt++) {
@@ -183,22 +202,17 @@ function ajouterEtudiant (etudiant,num) {
     promo.ajouterEtudiant(test);
     promo.Promoclassement(42);
 
+	titre.innerHTML=intituler2+"<th class='"+CLASSBOOSTRAP+"'>detail</th>";
+	coef.innerHTML=coef2+"<th class='"+CLASSBOOSTRAP+"'></th>";
+	moyennePromo.innerHTML=moyPromo2+"<th class='"+CLASSBOOSTRAP+"'></th>";
 
+    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero' class='"+CLASSBOOSTRAP+"'>" + numero
+        + "</td> <td name='nom' class='"+CLASSBOOSTRAP+"' >" + nom
+        + "</td><td name='prenom' class='"+CLASSBOOSTRAP+"'>" +prenom + "</td> " +
+         "<td id='classementFinal"+numero+"' class='"+CLASSBOOSTRAP+"' >"+"</td>"+
+            moyenne+
+        "<td ><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
 
-
-    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero'>" + numero
-        + "</td> <td name='nom'>" + nom
-        + "</td><td name='prenom'>" +prenom + "</td> "
-        +"<td ><button class='btn btn-success' data-toggle='modal' data-target='.bs-example-modal-sm" + index + "'>Photo étudiant</button></td><td><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>Fiche étudiant</button> </td></tr>";
-
-    photo.innerHTML+="<div class='modal fade bs-example-modal-sm" + index + "' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>"+
-        "<div class='modal-dialog modal-sm' role='document'>"+
-        " <div class='modal-content'>"+
-        "<img c src='img/"+ test.getAvatar()+"' width='130px' height='150px' style='float: right;' alt='"+test.getAvatar() +"'/>"+
-        "<ul> <li>"+test.getNom().toUpperCase() + " " + test.getPrenom()+"	/	Né le: " +test.getDateNaissance()+" </li><li>Diplome: " +test.getBac()+"</li>"+"</ul>"+
-        "</div>"+
-        " </div>"+
-        " </div>";
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
         "<div class='modal-dialog modal-lg' role='document'>" +
@@ -207,12 +221,14 @@ function ajouterEtudiant (etudiant,num) {
         "<h1 class='text-center'>" +
         test.getNom() + " " + test.getPrenom() +
         "</h1>" +
-        "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
+        "<img  src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
         "<p> infomation complementaire: </p>"+
         "<ul> <li> Diplôme : "+ test.getBac()+"</li>"+
         "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
 
-        "<table class='table'>" +
+
+        "<table class='table table-bordered table-striped'>" +
+        "<h2>Moyenne général</h2>"+
         "<thead>" +
         "<tr id='TittreTableau'>" +
         "<th></th>" +
@@ -230,12 +246,10 @@ function ajouterEtudiant (etudiant,num) {
         "<tr id='Classement"+index+"'>  <td>Classement</td>"+
             classement+
         "</tr>"+
-        "<tr name='TaillePromo'>  <td>Taille Promo</td> <td name='nombreEtu'></td></tr>"+
         "</tbody>"+
         "</table>" +
             details+
-
-        "</tbody>"+
+                 "</tbody>"+
         "</table>"+
 
         "</div>"+
@@ -243,7 +257,6 @@ function ajouterEtudiant (etudiant,num) {
         "</div>"+
         "</div>"+
         "</div>";
-
 
     index++;
     for (var j in tabSem) {
@@ -256,6 +269,9 @@ function ajouterEtudiant (etudiant,num) {
                     var SemClass=document.getElementById("CS"+tabSem[j].getSemestre()+ToutEtudiants[etu].getNumero());
                     SemClass.innerHTML=promo.Promoclassement(tabSem[j].getSemestre(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
 
+                   /*var fin=document.getElementById("classementFinal"+ToutEtudiants[etu].getNumero());
+                    if(null!=fin)fin.innerHTML=promo.Promoclassement(tabSem[j].getSemestre(),ToutEtudiants[etu].getNumero())+ "/"+promo.getnbEtudiants();
+					*/
                 }
             }
             for (var tmpUe in tabSem[j].getToutUE()) {
@@ -269,42 +285,86 @@ function ajouterEtudiant (etudiant,num) {
                         SemClass.innerHTML=promo.Promoclassement(tabSem[j].getToutUE()[tmpUe].getIdUe(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
                     }
                 }
+                for(var matiere2 in tabSem[j].getToutUE()[tmpUe].getToutMatiere()){
+                    var tabMatiere=document.getElementsByName(tabSem[j].getToutUE()[tmpUe].getToutMatiere()[matiere2].getIntitule());
+                    for(var moyenne2=0 ;moyenne2< tabMatiere.length ;moyenne2++){
+                        tabMatiere[moyenne2].innerHTML=(promo.moyennePromoCours(tabSem[j].getToutUE()[tmpUe].getToutMatiere()[matiere2].getIntitule()).toFixed(2));
+
+                    }
+                }
 
             }
 
         }
     }
-    var NbEtudiant=document.getElementsByName("nombreEtu");
-    for (var cptNbEtu=0;cptNbEtu<NbEtudiant.length;cptNbEtu++){
-        NbEtudiant[cptNbEtu].innerHTML=promo.getnbEtudiants();
-    }
+
 
 }
 
-function afficheDetails(ue){
+function classementAccueil(cours){
+	//alert(cours);
 
-    var mat="";
-    var moye="";
-    var coef="";
+	var toutEtudiant=promo.getToutLesEtudiants();
+	for(var tmp in toutEtudiant){
+		var doc=document.getElementById('classementFinal'+toutEtudiant[tmp].getNumero());
+		doc.innerHTML=promo.Promoclassement(cours,toutEtudiant[tmp].getNumero())+ "/"+promo.getnbEtudiants();
+	}
+}
+
+
+function moyenneCouleur(moyenne){
+    var tmp="";
+    if(moyenne<10){
+        if(moyenne<8){
+            tmp="<td  class='"+CLASSBOOSTRAP+"' style='color: red'>"+moyenne.toFixed(2)+"</td>";
+        }
+        else{
+            tmp="<td  class='"+CLASSBOOSTRAP+"'  style='color: orange'>"+moyenne.toFixed(2)+"</td>";
+        }
+    }
+    else{
+        tmp="<td  class='"+CLASSBOOSTRAP+"' style='color: green'>"+moyenne.toFixed(2)+"</td>";
+    }
+
+    return tmp;
+
+}
+
+function afficheDetails(ue,comments){
+
+    var mat="<th>UE"+ue.getIdUe()+"</th>";
+    var moye=moyenneCouleur(ue.getMoyenneUE());
+    var coef="<td>"+ue.getCoefficientUE() +"</td>";
+    var tab="<td></td>";
+    var commentaire=comments;
 
 
     for(var tmpmati in ue.getToutMatiere()){
-        mat+="<td>"+ue.getToutMatiere()[tmpmati].getIntitule()+"</td>";
-        moye+="<td>"+ue.getToutMatiere()[tmpmati].getMoyenne()+"</td>";
+        mat+="<th>"+ue.getToutMatiere()[tmpmati].getIntitule()+"</th>";
+        moye+=moyenneCouleur(ue.getToutMatiere()[tmpmati].getMoyenne());
         coef+='<td>'+ue.getToutMatiere()[tmpmati].getCoefficient()+'</td>';
+        tab+="<td name='"+ue.getToutMatiere()[tmpmati].getIntitule()+"'></td>";
+
     }
-    var table= "<table class='table'>" +
+
+
+    var table=
+        "<h2>UE"+ue.getIdUe() +"</h2>"+
+        "<table class='table table-bordered table-striped'>" +
         "<thead>" +
         "<tr id='TittreTab'>" +
-        "<th>UE"+ue.getIdUe()+"</th>" + mat+
+        "<th></th>" + mat+
         "</tr>" +
         "</thead>" +
         "<tbody>" +
-        "<tr id='Coef"+index+"'>  <td>Coefficent</td>"+coef+"</tr>"+
-        "<tr id='Moye"+index+"'>  <td>Moyenne</td> "+
+        "<tr>  <td>Coefficent</td>"+coef+"</tr>"+
+        "<tr>  <td>Moyenne</td> "+
+
         moye+
         "</tr>"+
-        "</tbody>";
+    "<tr> <td>Moyenne Promo</td>"+tab+"</tr>"+
+    "</tbody>" +
+   "</table><p>*Commentaire: "+ commentaire +"</p>";
 
     return table;
 }
@@ -313,7 +373,7 @@ function afficheDetails(ue){
 
 
 function viderListe () {
-    var rootListe = document.getElementById("liste des étudiants");
+    var rootListe = document.getElementById("liste_des_étudiants");
     rootListe.innerHTML = "";
 }
 
@@ -357,6 +417,7 @@ function initEventHandlers(element, event, fx) {
         element.attachEvent('on' + event, fx);
 }
 
-initEventHandlers(window, 'load', submitForm("liste.json"));/**
+initEventHandlers(window, 'load', submitForm("liste.json"));
+/**
  * Created by Frederic on 11/04/2017.
  */

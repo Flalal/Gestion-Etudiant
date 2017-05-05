@@ -5,15 +5,16 @@
     <!-- Latest compiled and minified CSS -->
 	<title>Gestion des Notes des Etudiant </title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="default.css">
 	<style>
 		.container {
 			width: 100%;
 		}
 		body {
-			padding: 20px;
+			padding: 10px;
 		}
 		.etudiant:hover {
-			background-color: #ccc;	
+			background-color: #ccc;
 		}
 		h1 {
 			text-transform : uppercase;
@@ -22,6 +23,7 @@
 	</style>
 </head>
 <body>
+<div>
 
 <div id="commande">
 	<input id="recherche" type="text" placeholder="Rechercher ..."/>
@@ -31,106 +33,69 @@
 <!--
    <INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
 -->
-<div class="panel panel-default"> 
+
+<div class="panel panel-default">
 <div class="panel-heading text-center">
 
-Liste des Etudiants
+	<p>Liste des Etudiants</p>
 <br>
 	<!--
 <input type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"/>
 -->
 </div>
-  <table class="table"> 
-    <thead>
-	  <tr> 
-        <th>Numéro</th>
-        <th>Nom</th> 
-        <th>Prénom</th>
-      </tr> 
-    </thead> 
-    <tbody id="liste des étudiants">
+ <!-- <table class="table table-bordered table-striped tablesorter " id="tableau_principale">
+    <thead class="floating-header">
+	  <tr id="titreTableau">
+      </tr>
 
-   </tbody> 
+	<tr id="titreCoefficient">
+	</tr>
+
+	  <tr id="moyennePromo">
+
+	  </tr>
+    </thead>
   </table>
-</div> 
-</div> 
+	<div style="height:300px;overflow-Y:auto;" >
+	<table class="table table-bordered table-striped ">
+    <tbody id="liste_des_étudiants">
 
-<div id="mettrePhoto">
-	<!--<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-	  <div class="modal-dialog modal-sm" role="document">
-	    <div class="modal-content">
-	      <img src='img/avatar.png' width='130px' height='130px'/>
-	    </div>
-	 </div>
+   </tbody>
+  </table>
 	</div>-->
+
+	<table class="table table-bordered table-striped table-fixed " id="tableau_principale">
+		<thead class="floating-header">
+		<tr id="titreTableau">
+		</tr>
+
+		<tr id="titreCoefficient">
+		</tr>
+
+		<tr id="moyennePromo">
+
+		</tr>
+		</thead>
+		<tbody id="liste_des_étudiants">
+
+		</tbody>
+	</table>
+
 </div>
+
+
 
 <!-- Large modal -->
 
 <div id="listemodal">
-	
+
 	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg0">Exemple d'affichage</button>-->
 
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-	  <div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="container">
-		  
-		  <table class="table"> 
-			<thead>
-			  <tr> 
-				<th>Matière</th>
-				<th>Coef</th> 
-				<th>Note</th>
-			  </tr> 
-			</thead> 
-			<tbody>
-			  <tr> 
-				<td>Pweb</td>
-				<td>1.4</td>
-				<td>12</td>
-			  </tr>
-			  <tr> 
-				<td>Maths</td>
-				<td>1</td>
-				<td>25</td>
-			  </tr> 
-		   </tbody> 
-		  </table>
-			
-		  <h1>ue42</h1>
-		  
-		  <table class="table"> 
-			<thead>
-			  <tr> 
-				<th>Matière</th>
-				<th>Coef</th> 
-				<th>Note</th>
-			  </tr> 
-			</thead> 
-			<tbody>
-			  <tr> 
-				<td>Pweb</td>
-				<td>1.4</td>
-				<td>12</td>
-			  </tr>
-			  <tr> 
-				<td>Maths</td>
-				<td>1</td>
-				<td>25</td>
-			  </tr> 
-		   </tbody> 
-		  </table>
-		  </div>
-		  
-		</div>
-	  </div>
-	</div>
-
+</div>
 </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="jquery-3.2.1.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="bootstrap.min.js"></script>
   <script src="tesN.js"></script>

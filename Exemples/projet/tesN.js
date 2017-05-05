@@ -10,11 +10,6 @@ var promo;
 
 
 
-jQuery(function($){
-
-
-});
-
 
 function createXhrObject(){
     if (window.XMLHttpRequest)
@@ -92,9 +87,9 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler2 = "  <th class='"+CLASSBOOSTRAP+"'>Num</th> <th class='"+CLASSBOOSTRAP+"'>Nom</th> <th class='"+CLASSBOOSTRAP+"'>Prénom</th><th class='"+CLASSBOOSTRAP+"' >Clas</th>";
-    var coef2="<th></th><th></th><th></th><th></th>";
-    var moyPromo2="<th></th><th></th><th></th><th></th>";
+    var intituler2 = "  <th class='"+CLASSBOOSTRAP+"'>Num</th> <th class='"+CLASSBOOSTRAP+"' >Nom</th> <th class='"+CLASSBOOSTRAP+"'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
+    var coef2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
+    var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
     var intituler = " ";
     var moyenne = "";
     var coeff = "";
@@ -103,8 +98,6 @@ function ajouterEtudiant (etudiant,num) {
 
 	var commentaire="";
 
-    var ue41 = false;
-    var ue42 = false;
 
     for (var i in keys) {
 
@@ -171,24 +164,24 @@ function ajouterEtudiant (etudiant,num) {
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
-                    intituler+="<th>S"+tabSem[j].getSemestre()+"</th>";
+                    intituler+="<th >S"+tabSem[j].getSemestre()+"</th>";
                     intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
-                    promoTab+="<td class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'></td>";
+                    promoTab+="<td  name='PS"+tabSem[j].getSemestre()+"'></td>";
                     moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
                     moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
-                    coeff+="<td class='"+CLASSBOOSTRAP+"'"+tabSem[j].getCoefficientSem()+"</td>";
-                    coef2+="<th class='"+CLASSBOOSTRAP+"'>"+tabSem[j].getCoefficientSem()+"</th>";
+                    coeff+="<td >"+tabSem[j].getCoefficientSem()+"</td>";
+                    coef2+="<th class='"+CLASSBOOSTRAP+"' >"+tabSem[j].getCoefficientSem()+"</th>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
 
                     for (var tmpUe in tabSem[j].getToutUE()) {
                         intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
                         intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
                         promoTab+="<td  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
-                        moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
+                        moyPromo2+="<th class='"+CLASSBOOSTRAP+"'  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
                         moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
                         coeff+="<td >"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
                         coef2+="<th class='"+CLASSBOOSTRAP+"'>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
-                        classement+="<td  class='"+CLASSBOOSTRAP+"' id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
+                        classement+="<td id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
                         commentaire=tabSem[j].getToutUE()[tmpUe].getCommentaire();
                         details+=afficheDetails(tabSem[j].getToutUE()[tmpUe],commentaire);
 
@@ -210,15 +203,15 @@ function ajouterEtudiant (etudiant,num) {
     promo.Promoclassement(42);
 
 	titre.innerHTML=intituler2+"<th class='"+CLASSBOOSTRAP+"'>detail</th>";
-	coef.innerHTML=coef2;
-	moyennePromo.innerHTML=moyPromo2;
+	coef.innerHTML=coef2+"<th class='"+CLASSBOOSTRAP+"'></th>";
+	moyennePromo.innerHTML=moyPromo2+"<th class='"+CLASSBOOSTRAP+"'></th>";
 
-    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero' class='col-md-1'>" + numero
-        + "</td> <td name='nom' class='"+CLASSBOOSTRAP+"'>" + nom
+    root.innerHTML+="<tr class='etudiant' name='etudiant' ><td name='numero' class='"+CLASSBOOSTRAP+"'>" + numero
+        + "</td> <td name='nom' class='"+CLASSBOOSTRAP+"' >" + nom
         + "</td><td name='prenom' class='"+CLASSBOOSTRAP+"'>" +prenom + "</td> " +
-         "<td id='classementFinal"+numero+"' class='"+CLASSBOOSTRAP+"'>"+"</td>"+
+         "<td id='classementFinal"+numero+"' class='"+CLASSBOOSTRAP+"' >"+"</td>"+
             moyenne+
-        "<td class='col-md-1' ><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
+        "<td ><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
 
 
     modal.innerHTML+= "<div class='modal fade bs-example-modal-lg" + index + "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>"+
@@ -228,7 +221,7 @@ function ajouterEtudiant (etudiant,num) {
         "<h1 class='text-center'>" +
         test.getNom() + " " + test.getPrenom() +
         "</h1>" +
-        "<img c src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
+        "<img  src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
         "<p> infomation complementaire: </p>"+
         "<ul> <li> Diplôme : "+ test.getBac()+"</li>"+
         "<li> Date de naissance "+ test.getDateNaissance()+"</li></ul>"+
@@ -323,10 +316,10 @@ function moyenneCouleur(moyenne){
     var tmp="";
     if(moyenne<10){
         if(moyenne<8){
-            tmp="<td class='"+CLASSBOOSTRAP+"' style='color: red'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td  class='"+CLASSBOOSTRAP+"' style='color: red'>"+moyenne.toFixed(2)+"</td>";
         }
         else{
-            tmp="<td class='"+CLASSBOOSTRAP+"' style='color: orange'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td  class='"+CLASSBOOSTRAP+"'  style='color: orange'>"+moyenne.toFixed(2)+"</td>";
         }
     }
     else{
