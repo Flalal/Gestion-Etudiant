@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="042c412e-af92-4a2d-a8a8-157e4777188a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Exemples/Projet_Final/jquery-3.2.1.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exemples/Projet_Final/default.css" afterPath="$PROJECT_DIR$/Exemples/Projet_Final/default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exemples/Projet_Final/index.html" afterPath="$PROJECT_DIR$/Exemples/Projet_Final/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exemples/Projet_Final/tesN.js" afterPath="$PROJECT_DIR$/Exemples/Projet_Final/tesN.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exemples/projet/Constante.js" afterPath="$PROJECT_DIR$/Exemples/projet/Constante.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exemples/projet/default.css" afterPath="$PROJECT_DIR$/Exemples/projet/default.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,8 +29,8 @@
       <file leaf-file-name="Etudiants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/Etudiants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+            <state relative-caret-position="4500">
+              <caret line="300" column="27" lean-forward="false" selection-start-line="300" selection-start-column="27" selection-end-line="300" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -34,8 +39,30 @@
       <file leaf-file-name="jquery-3.2.1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/jquery-3.2.1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
+            <state relative-caret-position="15">
               <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/bootstrap.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-3.2.1.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/jquery-3.2.1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -44,7 +71,7 @@
       <file leaf-file-name="liste.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/liste.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48555">
+            <state relative-caret-position="27367">
               <caret line="3237" column="3" lean-forward="false" selection-start-line="3237" selection-start-column="3" selection-end-line="3237" selection-end-column="3" />
               <folding />
             </state>
@@ -54,7 +81,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="-188">
               <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
               <folding />
             </state>
@@ -64,18 +91,28 @@
       <file leaf-file-name="Constante.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/Constante.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="66" lean-forward="true" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+            <state relative-caret-position="300">
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="default.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/default.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state relative-caret-position="375">
+              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="29" column="78" lean-forward="false" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -84,8 +121,8 @@
       <file leaf-file-name="tesN.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemples/projet/tesN.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="915">
+              <caret line="133" column="74" lean-forward="false" selection-start-line="133" selection-start-column="74" selection-end-line="133" selection-end-column="74" />
               <folding>
                 <marker date="1493991700000" expanded="true" signature="8799:8812" ph="..." />
                 <marker date="1493991700000" expanded="true" signature="12767:12777" ph="..." />
@@ -135,9 +172,9 @@
         <option value="$PROJECT_DIR$/Exemples/projet/liste.json" />
         <option value="$PROJECT_DIR$/Exemples/projet/listeIPI1.json" />
         <option value="$PROJECT_DIR$/Exemples/projet/index.html" />
-        <option value="$PROJECT_DIR$/Exemples/projet/Constante.js" />
         <option value="$PROJECT_DIR$/Exemples/projet/tesN.js" />
         <option value="$PROJECT_DIR$/Exemples/projet/default.css" />
+        <option value="$PROJECT_DIR$/Exemples/projet/Constante.js" />
       </list>
     </option>
   </component>
@@ -190,6 +227,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Exemples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GestionEtudiants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GestionEtudiants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exemples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet_Final" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -309,18 +364,18 @@
       <workItem from="1493964730620" duration="11630000" />
       <workItem from="1494217080710" duration="893000" />
       <workItem from="1494244477948" duration="1922000" />
-      <workItem from="1494310601785" duration="1623000" />
+      <workItem from="1494310601785" duration="3453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132996000" />
+    <option name="totallyTimeSpent" value="134826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2446386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2446386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -367,27 +422,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Exemples/projet/tesN.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1493991700000" expanded="true" signature="8799:8812" ph="..." />
-            <marker date="1493991700000" expanded="true" signature="12767:12777" ph="..." />
-            <marker date="1493991700000" expanded="true" signature="12889:12902" ph="..." />
-            <marker date="1493991700000" expanded="true" signature="13011:13023" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exemples/projet/Constante.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="true" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exemples/projet/listeIPI1.json" />
     <entry file="file://$PROJECT_DIR$/Exemples/projet/Etudiants.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -582,13 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exemples/projet/bootstrap-theme.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -611,18 +638,50 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/bootstrap-table-develop/dist/bootstrap-table.min.css" />
+    <entry file="file://$PROJECT_DIR$/Exemples/projet/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-188">
+          <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Exemples/projet/Etudiants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        <state relative-caret-position="4500">
+          <caret line="300" column="27" lean-forward="false" selection-start-line="300" selection-start-column="27" selection-end-line="300" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exemples/projet/default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exemples/projet/Constante.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exemples/projet/liste.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27367">
+          <caret line="3237" column="3" lean-forward="false" selection-start-line="3237" selection-start-column="3" selection-end-line="3237" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Exemples/projet/tesN.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="915">
+          <caret line="133" column="74" lean-forward="false" selection-start-line="133" selection-start-column="74" selection-end-line="133" selection-end-column="74" />
           <folding>
             <marker date="1493991700000" expanded="true" signature="8799:8812" ph="..." />
             <marker date="1493991700000" expanded="true" signature="12767:12777" ph="..." />
@@ -632,42 +691,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exemples/projet/liste.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48555">
-          <caret line="3237" column="3" lean-forward="false" selection-start-line="3237" selection-start-column="3" selection-end-line="3237" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exemples/projet/jquery-3.2.1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
+        <state relative-caret-position="15">
           <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exemples/projet/index.html">
+    <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/jquery-3.2.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exemples/projet/Constante.js">
+    <entry file="file://$PROJECT_DIR$/Exemples/Projet_Final/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="66" lean-forward="true" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exemples/projet/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        <state relative-caret-position="15">
+          <caret line="29" column="78" lean-forward="false" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
           <folding />
         </state>
       </provider>

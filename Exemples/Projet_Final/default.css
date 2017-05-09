@@ -1,6 +1,7 @@
+/*
 .table-fixed tr {
     width: 97%;
-    display: inline-table  ;/*inline-table;*/
+    display: inline-table  ;!*inline-table;*!
 }
 .table-fixed tbody {
     overflow-y: scroll;
@@ -16,4 +17,18 @@
     height:500px;
 }
 
+
+*/
+
+
+.table-fixed tbody {
+    display:block;
+    height:350px;
+    overflow:auto;
+}
+.table-fixed tbody tr,.table-fixed thead {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
 
