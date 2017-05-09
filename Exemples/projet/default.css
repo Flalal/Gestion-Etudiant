@@ -22,11 +22,13 @@
 
 
 .table-fixed tbody {
-    overflow-y: scroll;
-    height: 200px;
-    position:absolute;
+    display:block;
+    height:400px;
+    overflow:auto;
 }
-.table-fixed tbody tr {
-    width:99%;
-    display: inline-table;
+.table-fixed tbody tr,.table-fixed thead {
+    display:table;
+    width:100%;
+    table-layout:fixed;
 }
+
