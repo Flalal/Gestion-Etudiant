@@ -93,9 +93,11 @@ function ajouterEtudiant (etudiant,num) {
     var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
     var intituler = " ";
     var moyenne = "";
+    var moyenne2 ="";
     var coeff = "";
     var details="";
     var classement="";
+    var redoubler=false;
 
 	var commentaire="";
 
@@ -128,13 +130,25 @@ function ajouterEtudiant (etudiant,num) {
 
             for (var x in UEDEPT) {/// parcours la constant qui reference tout les ue de chaque département;
                 for (var j in eval(attribut)) {// parcours dans les ue
+                    var Redoublement=false;
+                    var intutitulerUE ="";
+                    if(j.indexOf("R")!=-1) {
+                        intutitulerUE = j.slice(0, -1);
+                        Redoublement=true;
+                        redoubler=true;
+                    }
+                    else
+                        intutitulerUE=j;
 
-                    if (UEDEPT[x][0] == (dept + "_" + j)) {//condition si ue existe  dans le json
+
+
+                    if (UEDEPT[x][0] == (dept + "_" + intutitulerUE)) {//condition si ue existe  dans le json
                         var numSem = parseInt(j.slice(2)[0]) - 1;
-                        var numue = tabUe.push(new ue(parseInt(j.slice(2)),eval(attribut + "." + j+".annee")));
+                        var numue = tabUe.push(new ue(j.slice(2),eval(attribut + "." + j+".annee")));
                         if(eval(attribut + "." + j+".TauxAbsent")!=undefined){
                             tabUe[numue-1].setTauxAbsent(eval(attribut + "." + j+".TauxAbsent"));
                         }
+                        tabUe[numue-1].setRedoubler(Redoublement);
                         if(eval(attribut + "." + j+".commentaire")!=undefined){
 							tabUe[numue-1].ajouterCommentaire(eval(attribut + "." + j+".commentaire"));
 						}
@@ -158,6 +172,7 @@ function ajouterEtudiant (etudiant,num) {
 
                         tabSem[numSem].ajouterUe(tabUe[numue - 1]);
                     }
+
                 }
             }
 
@@ -170,16 +185,20 @@ function ajouterEtudiant (etudiant,num) {
                     promoTab+="<td  name='PS"+tabSem[j].getSemestre()+"'></td>";
                     moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
                     moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
+                    moyenne2+=moyenneCouleur(tabSem[j].getMoyenneSem());
                     coeff+="<td >"+tabSem[j].getCoefficientSem()+"</td>";
                     coef2+="<th class='"+CLASSBOOSTRAP+"' >"+tabSem[j].getCoefficientSem()+"</th>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
 
                     for (var tmpUe in tabSem[j].getToutUE()) {
                         intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
-                        intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getToutUE()[tmpUe].getIdUe()+")'>Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
+                        if(tabSem[j].getToutUE()[tmpUe].getRedoubler()==false) {
+                            intituler2 += "<th class='" + CLASSBOOSTRAP + "' onclick='classementAccueil(" + tabSem[j].getToutUE()[tmpUe].getIdUe() + ")'>Ue" + tabSem[j].getToutUE()[tmpUe].getIdUe() + "</th>";
+                            moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
+                        }
+                        moyenne2+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
                         promoTab+="<td  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
                         moyPromo2+="<th class='"+CLASSBOOSTRAP+"'  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
-                        moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
                         coeff+="<td >"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
                         coef2+="<th class='"+CLASSBOOSTRAP+"'>"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</th>";
                         classement+="<td id='CUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+numero+"'></td>";
@@ -202,6 +221,10 @@ function ajouterEtudiant (etudiant,num) {
     }
     promo.ajouterEtudiant(test);
     promo.Promoclassement(42);
+
+    if(redoubler){
+        prenom+="*";
+    }
 
 	titre.innerHTML=intituler2+"<th class='"+CLASSBOOSTRAP+"'>detail</th>";
 	coef.innerHTML=coef2+"<th class='"+CLASSBOOSTRAP+"'></th>";
@@ -239,7 +262,7 @@ function ajouterEtudiant (etudiant,num) {
         "<tbody>" +
         "<tr id='Coeff"+index+"'>  <td>Coefficent</td>"+coeff+"</tr>"+
         "<tr id='Moyenne"+index+"'>  <td>Moyenne</td> "+
-            moyenne+
+            moyenne2+
         "</tr>"+
         "<tr name='MoyennePromo'>  <td>Moyenne Promo</td> "+
             promoTab +
