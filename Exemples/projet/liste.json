@@ -59,6 +59,8 @@
       "ue11R":{
         "annee":2014,
         "commentaire":"ADM",
+        "Classement":"12/60",
+        "moyennePromo":12.3,
         "SE1":{
           "intitule":"SE1",
           "coefficient":3.5,

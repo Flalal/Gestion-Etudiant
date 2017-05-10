@@ -255,7 +255,6 @@ function Semestre(num,annee) {
         if (typeof uejenesaispas  !== 'object')throw new Error("Type note invalide");
         this.UE.push(uejenesaispas);
         if (uejenesaispas.getRedoubler()==false){
-            console.log(uejenesaispas);
             this.moyenneSem+= uejenesaispas.getMoyenneUE();
             this.coefficientSem+=uejenesaispas.getCoefficientUE();
             this.cptUeNonR++;

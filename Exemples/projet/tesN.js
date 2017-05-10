@@ -46,7 +46,7 @@ function rechercher(){
             lignes[i].style.display = "none";
         }
         else{
-            lignes[i].style.display = "table-row";
+            lignes[i].style.display = "table";
         }
     }
 }
@@ -57,7 +57,7 @@ function affichage_initial() {
 
     for (en_cours = 0; en_cours < lignes.length; en_cours++)
     {
-        lignes[en_cours].style.display = "table-row";
+        lignes[en_cours].style.display = "table";
     }
 }
 
@@ -88,7 +88,7 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler2 = "  <th class='"+CLASSBOOSTRAP+"'>Num</th> <th class='"+CLASSBOOSTRAP+"' >Nom</th> <th class='"+CLASSBOOSTRAP+"'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
+    var intituler2 = " <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"numero\")'>Num</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"nom\")' >Nom</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"prenom\")'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
     var coef2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
     var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
     var intituler = " ";
@@ -184,8 +184,8 @@ function ajouterEtudiant (etudiant,num) {
                     intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
                     promoTab+="<td  name='PS"+tabSem[j].getSemestre()+"'></td>";
                     moyPromo2+="<th class='"+CLASSBOOSTRAP+"' name='PS"+tabSem[j].getSemestre()+"'>"+"</th>";
-                    moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem());
-                    moyenne2+=moyenneCouleur(tabSem[j].getMoyenneSem());
+                    moyenne+=moyenneCouleur(tabSem[j].getMoyenneSem(),tabSem[j].getSemestre());
+                    moyenne2+=moyenneCouleur(tabSem[j].getMoyenneSem(),"");
                     coeff+="<td >"+tabSem[j].getCoefficientSem()+"</td>";
                     coef2+="<th class='"+CLASSBOOSTRAP+"' >"+tabSem[j].getCoefficientSem()+"</th>";
                     classement+="<td id='CS"+tabSem[j].getSemestre()+numero+"'></td>";
@@ -194,9 +194,9 @@ function ajouterEtudiant (etudiant,num) {
                         intituler+="<th >Ue"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"</th>";
                         if(tabSem[j].getToutUE()[tmpUe].getRedoubler()==false) {
                             intituler2 += "<th class='" + CLASSBOOSTRAP + "' onclick='classementAccueil(" + tabSem[j].getToutUE()[tmpUe].getIdUe() + ")'>Ue" + tabSem[j].getToutUE()[tmpUe].getIdUe() + "</th>";
-                            moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
+                            moyenne+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE(),tabSem[j].getToutUE()[tmpUe].getIdUe());
                         }
-                        moyenne2+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE());
+                        moyenne2+=moyenneCouleur(tabSem[j].getToutUE()[tmpUe].getMoyenneUE(),"");
                         promoTab+="<td  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'></td>";
                         moyPromo2+="<th class='"+CLASSBOOSTRAP+"'  name='PUe"+tabSem[j].getToutUE()[tmpUe].getIdUe()+"'>"+"</th>";
                         coeff+="<td >"+tabSem[j].getToutUE()[tmpUe].getCoefficientUE()+"</td>";
@@ -333,21 +333,48 @@ function classementAccueil(cours){
 		var doc=document.getElementById('classementFinal'+toutEtudiant[tmp].getNumero());
 		doc.innerHTML=promo.Promoclassement(cours,toutEtudiant[tmp].getNumero())+ "/"+promo.getnbEtudiants();
 	}
+	trier(cours);
+}
+
+function trier (intituler) {
+    var mot = document.getElementById("recherche");
+    mot.value = "";
+    var TdModifer = document.getElementsByName(intituler);
+    var lignes = document.getElementsByName("etudiant");
+    var en_cours, plus_petit, j, temp;
+
+    for (en_cours = 0; en_cours < TdModifer.length - 1; en_cours++)
+    {
+        plus_petit = en_cours;
+        for (j = en_cours + 1; j < TdModifer.length; j++){
+            if (TdModifer[j].innerHTML < TdModifer[plus_petit].innerHTML)
+                plus_petit = j;
+        }
+        temp = TdModifer[en_cours];
+        TdModifer[en_cours] = TdModifer[plus_petit];
+        TdModifer[plus_petit] = temp;
+
+        lignes[en_cours].style.display = "table";
+        temp = lignes[en_cours].innerHTML;
+        lignes[en_cours].innerHTML = lignes[plus_petit].innerHTML;
+        lignes[plus_petit].innerHTML = temp;
+    }
+
 }
 
 
-function moyenneCouleur(moyenne){
+function moyenneCouleur(moyenne,names){
     var tmp="";
     if(moyenne<10){
         if(moyenne<8){
-            tmp="<td  class='"+CLASSBOOSTRAP+"' style='color: red'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td  name='"+names+"' class='"+CLASSBOOSTRAP+"' style='color: red'>"+moyenne.toFixed(2)+"</td>";
         }
         else{
-            tmp="<td  class='"+CLASSBOOSTRAP+"'  style='color: orange'>"+moyenne.toFixed(2)+"</td>";
+            tmp="<td name='"+names+"'  class='"+CLASSBOOSTRAP+"'  style='color: orange'>"+moyenne.toFixed(2)+"</td>";
         }
     }
     else{
-        tmp="<td  class='"+CLASSBOOSTRAP+"' style='color: green'>"+moyenne.toFixed(2)+"</td>";
+        tmp="<td name='"+names+"'  class='"+CLASSBOOSTRAP+"' style='color: green'>"+moyenne.toFixed(2)+"</td>";
     }
 
     return tmp;
@@ -357,7 +384,7 @@ function moyenneCouleur(moyenne){
 function afficheDetails(ue,comments){
 
     var mat="<th>UE"+ue.getIdUe()+"</th>";
-    var moye=moyenneCouleur(ue.getMoyenneUE());
+    var moye=moyenneCouleur(ue.getMoyenneUE(),"");
     var coef="<td>"+ue.getCoefficientUE() +"</td>";
     var tab="<td></td>";
     var commentaire=comments;
@@ -365,7 +392,7 @@ function afficheDetails(ue,comments){
 
     for(var tmpmati in ue.getToutMatiere()){
         mat+="<th>"+ue.getToutMatiere()[tmpmati].getIntitule()+"</th>";
-        moye+=moyenneCouleur(ue.getToutMatiere()[tmpmati].getMoyenne());
+        moye+=moyenneCouleur(ue.getToutMatiere()[tmpmati].getMoyenne(),"");
         coef+='<td>'+ue.getToutMatiere()[tmpmati].getCoefficient()+'</td>';
         tab+="<td name='"+ue.getToutMatiere()[tmpmati].getIntitule()+"'></td>";
 
@@ -373,7 +400,7 @@ function afficheDetails(ue,comments){
 
 
     var table=
-        "<h2>UE"+ue.getIdUe() +"</h2>"+
+        "<h2>UE"+ue.getIdUe() +" \ Commentaire: "+ commentaire+"</h2>"+
         "<table class='table table-bordered table-striped'>" +
         "<thead>" +
         "<tr>" +
@@ -388,7 +415,7 @@ function afficheDetails(ue,comments){
         "</tr>"+
     "<tr> <td>Moyenne Promo</td>"+tab+"</tr>"+
     "</tbody>" +
-   "</table><p>*Commentaire: "+ commentaire +"</p>";
+   "</table>";
 
     return table;
 }
