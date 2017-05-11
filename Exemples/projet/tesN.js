@@ -1,7 +1,6 @@
 /**
  * Created by Frederic on 13/04/2017.
  */
-'use strict';
 
 
 var index=0;
@@ -88,7 +87,7 @@ function ajouterEtudiant (etudiant,num) {
 
     // intituler du tableau
     var promoTab="";
-    var intituler2 = " <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"numero\")'>Num</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"nom\")' >Nom</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"prenom\")'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
+    var intituler2 = " <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"numero\")'>Num</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"nom\")' >Nom</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"prenomx\")'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
     var coef2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
     var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
     var intituler = " ";
@@ -180,6 +179,24 @@ function ajouterEtudiant (etudiant,num) {
             tabSem.reverse();
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
+                    if (j<2) {
+                        if (intituler.indexOf(dept+"2")==-1) {
+                            intituler2 += "<th >" + dept + "2</th>";
+                            intituler += "<th >" + dept + "2</th>";
+                            moyenne += "<td></td>";
+                            moyPromo2 += "<th >" + "</th>";
+                            coef2 += "<th > </th>";
+                        }
+                    }
+                    else{
+                        if (intituler.indexOf(dept+"1")==-1) {
+                            intituler2 += "<th >" + dept + "1</th>";
+                            intituler += "<th >" + dept + "1</th>";
+                            moyenne += "<td></td>";
+                            moyPromo2 += "<th >" + "</th>";
+                            coef2 += "<th > </th>";
+                        }
+                    }
                     intituler+="<th >S"+tabSem[j].getSemestre()+"</th>";
                     intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
                     promoTab+="<td  name='PS"+tabSem[j].getSemestre()+"'></td>";

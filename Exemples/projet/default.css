@@ -28,7 +28,14 @@
 }
 .table-fixed tbody tr,.table-fixed thead {
     display:table;
-    width:100%;
     table-layout:fixed;
 }
 
+.table-fixed tbody tr{
+    width:100%;
+
+}
+
+.table-fixed thead {
+    width:100%;
+}
