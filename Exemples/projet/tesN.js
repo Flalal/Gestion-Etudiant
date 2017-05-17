@@ -11,6 +11,8 @@ var promo;
 
 
 
+
+/*
 function createXhrObject(){
     if (window.XMLHttpRequest)
         return new XMLHttpRequest();
@@ -26,7 +28,29 @@ function createXhrObject(){
     window.alert("pas de prise en charge de XMLHTTPRequest.");
     return null; // non supporte
 }
+*/
+function chargerFichier(idInputFile) {
+    "use strict";
+    var entree, fichier, fr;
 
+    if (typeof window.FileReader !== "function") {
+        alert("L’API file n’est pas encore supportée par votre navigateur.");
+        return;
+    }
+
+    entree = document.getElementById(idInputFile);
+    if (!entree.files[0]) {
+        alert("S’il vous plaît sélectionnez un fichier avant de cliquer sur «Chargement».");
+    } else {
+        fichier = entree.files[0];
+        fr = new FileReader();
+        fr.onload = function () {
+            var content= fr.result;
+            decodeJson(content);
+        };
+        fr.readAsText(fichier);
+    }
+}
 
 
 
@@ -60,7 +84,7 @@ function affichage_initial() {
     }
 }
 
-function ajouterEtudiant (etudiant,num) {
+function ajouterEtudiant (etudiant) {
     var root = document.getElementById("liste_des_étudiants");
     var modal = document.getElementById('listemodal');
     var titre=document.getElementById('titreTableau');
@@ -180,18 +204,18 @@ function ajouterEtudiant (etudiant,num) {
             for (var j in tabSem) {
                 if (tabSem[j].getToutUE().length != 0) {
                     if (j<2) {
-                        if (intituler.indexOf(dept+"2")==-1) {
+                        if (intituler2.indexOf(dept+"2")==-1) {
                             intituler2 += "<th >" + dept + "2</th>";
-                            intituler += "<th >" + dept + "2</th>";
+                         //   intituler += "<th >" + dept + "2</th>";
                             moyenne += "<td></td>";
                             moyPromo2 += "<th >" + "</th>";
                             coef2 += "<th > </th>";
                         }
                     }
                     else{
-                        if (intituler.indexOf(dept+"1")==-1) {
+                        if (intituler2.indexOf(dept+"1")==-1) {
                             intituler2 += "<th >" + dept + "1</th>";
-                            intituler += "<th >" + dept + "1</th>";
+                           // intituler += "<th >" + dept + "1</th>";
                             moyenne += "<td></td>";
                             moyPromo2 += "<th >" + "</th>";
                             coef2 += "<th > </th>";
@@ -233,10 +257,11 @@ function ajouterEtudiant (etudiant,num) {
     }
 
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
+    console.log(test);
     for (var cpt = 0; cpt < 4; cpt++) {
        test.ajouterSemestre(tabSem[cpt]);
     }
-    promo.ajouterEtudiant(test);
+    promo.ajouterEtudiantCLA(test);
     promo.Promoclassement(42);
 
     if(redoubler){
@@ -445,6 +470,7 @@ function viderListe () {
     rootListe.innerHTML = "";
 }
 
+
 function decodeJson(text) {
     var liste = JSON.parse(text);
     viderListe();
@@ -457,12 +483,15 @@ function decodeJson(text) {
     }
 }
 
+
 function submitForm(file) {
-    var req = createXhrObject();
-    if (null == req) return ;
-    req.onreadystatechange = function() {
-        if(req.readyState == 4){
-            if(req.status == 200){
+
+/*    var req = createXhrObject();
+    if (null == req) return;
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                console.log(req.responseText);
                 decodeJson(req.responseText);
             } else {
                 alert("Error: returned status code " + req.status + " " + req.statusText);
@@ -470,12 +499,22 @@ function submitForm(file) {
         }
     };
     req.open("GET", file, true);
-    req.send(null);
+    req.send(null);*/
+    promo=new Promo();
+    viderListe();
+    index=0;
+    $.getJSON( file, function(obj) {
+        $.each(obj, function(key, value) {
+            console.log(value);
+            ajouterEtudiant(value);
+        });
+    });
+
 } // submitForm
 
 function initButton() {
-    var bouton = document.getElementById('button');
-    initEventHandlers(bouton, 'click', function() { submitForm("liste.json"); } );
+    var bouton = document.getElementById('boutonCharger');
+    initEventHandlers(bouton,"click",function(){chargerFichier("fichierEntre");});
 }
 
 function initEventHandlers(element, event, fx) {
@@ -485,7 +524,7 @@ function initEventHandlers(element, event, fx) {
         element.attachEvent('on' + event, fx);
 }
 
-initEventHandlers(window, 'load', submitForm("liste.json"));
+initEventHandlers(window, 'load', initButton);
 /**
  * Created by Frederic on 11/04/2017.
  */
