@@ -39,3 +39,36 @@
 .table-fixed thead {
     width:100%;
 }
+
+.text-center
+{
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #428BCA;
+}
+.text-center .close{margin-top:5px;color:#BCF8FF}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+a:visited {
+    color:#808080;
+}
+a:hover{
+    text-decoration: none;
+    color: white;
+    background: #C0C0C0;
+}
+
+a:active{
+    text-decoration: none;
+    color: white;
+    background-color: #FFCC66;
+}
+
+a.top {
+    text-decoration: none;
+    position:fixed;
+    background-color:#FFFFFF ;
+}

@@ -191,10 +191,7 @@ function ajouterEtudiant (etudiant,num) {
                     moyenne2+=moyenneCouleur(tabSem[j].getMoyenneSem(),"");
                              
                     ///pour moyenne semestre min/max
-                    tabPMS.push(tabSem[j].getMoyenneSem());
-					tabResuS=tabPMS.sort(tri);
-					moyenneMoins+="<td name='MM"+tabSem[j].getSemestre()+"'>"+tabResuS[0].toFixed(2)+"</td>";
-					moyennePlus+="<td name='MP"+tabSem[j].getSemestre()+"'>"+tabResuS[tabResuS.length-1].toFixed(2)+"</td>";	
+
 						
                    coeff+="<td >"+tabSem[j].getCoefficientSem()+"</td>";
                     coef2+="<th class='"+CLASSBOOSTRAP+"' >"+tabSem[j].getCoefficientSem()+"</th>";
@@ -229,17 +226,16 @@ function ajouterEtudiant (etudiant,num) {
            }			
 			
         }
-    }   
-    
-    plusieurs2=tableauSeparer(tabSem[2],tabSem[3],numero);
-    plusieurs=tableauSeparer(tabSem[0],tabSem[1],numero);
+    }
+    plusieurs+=tableauSeparer(tabSem[0],tabSem[1],numero);
+    plusieurs+=tableauSeparer(tabSem[2],tabSem[3],numero);
+
  
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
     for (var cpt = 0; cpt < 4; cpt++) {
        test.ajouterSemestre(tabSem[cpt]);
     }
     promo.ajouterEtudiant(test);
-    promo.Promoclassement(42);
 
     if(redoubler){
         prenom+="*";
@@ -290,6 +286,7 @@ function ajouterEtudiant (etudiant,num) {
 	"<h2>Moyenne général</h2>"+
         plusieurs+
         plusieurs2+
+        details+
         
         /*"<table class='table table-bordered table-striped'>" +
         "<h2>Moyenne général</h2>"+
@@ -317,10 +314,9 @@ function ajouterEtudiant (etudiant,num) {
 			moyennePlus+
         "</tr>"+
         "</tbody>"+
-        "</table>" +*/
-             details+
-                 "</tbody>"+
-        "</table>"+
+        "</table>" +*
+              "</tbody>"+
+        "</table>"+*/
        
        "<div class='modal-footer'>"+
 			 
@@ -351,9 +347,9 @@ function ajouterEtudiant (etudiant,num) {
                     SemClass.innerHTML=promo.Promoclassement(tabSem[j].getSemestre(),ToutEtudiants[etu].getNumero())+"/"+promo.getnbEtudiants();
 					///couleur Colonne
 					couleurColonne(tabSem[j].getSemestre());
-                   /*var fin=document.getElementById("classementFinal"+ToutEtudiants[etu].getNumero());
+                   var fin=document.getElementById("classementFinal"+ToutEtudiants[etu].getNumero());
                     if(null!=fin)fin.innerHTML=promo.Promoclassement(tabSem[j].getSemestre(),ToutEtudiants[etu].getNumero())+ "/"+promo.getnbEtudiants();
-					*/
+
                 }
             }
             for (var tmpUe in tabSem[j].getToutUE()) {
@@ -390,10 +386,7 @@ function ajouterEtudiant (etudiant,num) {
 function tri(a,b){
 	 return a - b;
 }
-function cleanInt(x) {
-  x = Number(x);
-  return x >= 0 ? Math.floor(x) : Math.ceil(x);
-}
+
 
 function somme(chiffre1,chiffre2){
 	total=chiffre1+chiffre2;
@@ -427,6 +420,8 @@ function tableauSeparer(name1,name2,numero){
 	info++;
 	if (name1.getToutUE().length != 0) {
 					total+="<th>Info"+info+"</th>";
+        tabPromo+="<td name='class"+info+"'></td>";
+        classementTab+="<td ></td>";
 					
 					totalCoef+="<td>"+somme(name1.getCoefficientSem(),name2.getCoefficientSem())+"</td>";
 					totalMoyenne+="<td>"+"**"+"</td>";
@@ -435,7 +430,7 @@ function tableauSeparer(name1,name2,numero){
 					
                     intitulerTab+="<th>S"+name1.getSemestre()+"</th>";       
                    tabPromo+="<td name='PS"+name1.getSemestre()+"'></td>";
-                    moyenneTab+=moyenneCouleur(name1.getMoyenneSem(),name1.getSemestre());	
+                    moyenneTab+=moyenneCouleur(name1.getMoyenneSem(),"");
 						
                    coeffTab+="<td >"+name1.getCoefficientSem()+"</td>";
                     classementTab+="<td id='CS"+name1.getSemestre()+numero+"'></td>";
@@ -449,7 +444,7 @@ function tableauSeparer(name1,name2,numero){
                     for (var tmpUe in name1.getToutUE()) {
 						
                         intitulerTab+="<th><a href='#"+name1.getToutUE()[tmpUe].getIdUe()+numero+"'><i class='icon icon-sign-out icon-lg'></i>Ue"+name1.getToutUE()[tmpUe].getIdUe()+"</a></th>";
-						moyenneTab+=moyenneCouleur(name1.getToutUE()[tmpUe].getMoyenneUE(),name1.getToutUE()[tmpUe].getIdUe());
+						moyenneTab+=moyenneCouleur(name1.getToutUE()[tmpUe].getMoyenneUE(),"");
 						
                         tabPromo+="<td  name='PUe"+name1.getToutUE()[tmpUe].getIdUe()+"'></td>";             
                         coeffTab+="<td >"+name1.getToutUE()[tmpUe].getCoefficientUE()+"</td>";                     
@@ -467,7 +462,7 @@ function tableauSeparer(name1,name2,numero){
 					
                     intitulerTab+="<th>S"+name2.getSemestre()+"</th>";       
                    tabPromo+="<td name='PS"+name2.getSemestre()+"'></td>";
-                    moyenneTab+=moyenneCouleur(name2.getMoyenneSem(),name2.getSemestre());	
+                    moyenneTab+=moyenneCouleur(name2.getMoyenneSem(),"");
 						
                    coeffTab+="<td >"+name2.getCoefficientSem()+"</td>";
                     classementTab+="<td id='CS"+name2.getSemestre()+numero+"'></td>";
@@ -480,7 +475,7 @@ function tableauSeparer(name1,name2,numero){
 					
                     for (var tmpUe in name2.getToutUE()) {
                         intitulerTab+="<th><a href='#"+name2.getToutUE()[tmpUe].getIdUe()+numero+"'><i class='icon icon-sign-out icon-lg'></i>Ue"+name2.getToutUE()[tmpUe].getIdUe()+"</a></th>";
-						moyenneTab+=moyenneCouleur(name2.getToutUE()[tmpUe].getMoyenneUE(),name2.getToutUE()[tmpUe].getIdUe());
+						moyenneTab+=moyenneCouleur(name2.getToutUE()[tmpUe].getMoyenneUE(),"");
 						
                         tabPromo+="<td  name='PUe"+name2.getToutUE()[tmpUe].getIdUe()+"'></td>";             
                         coeffTab+="<td >"+name2.getToutUE()[tmpUe].getCoefficientUE()+"</td>";                     
@@ -510,12 +505,8 @@ function tableauSeparer(name1,name2,numero){
 
 		"<tr id='Coeff"+index+"'>  <td>Coefficent</td>"+totalCoef+coeffTab+"</tr>"+
 		"<tr id='Moyenne"+index+"'>  <td>Moyenne</td>"+totalMoyenne+moyenneTab+"</tr>"+
-		 "<tr name='MoyennePromo'>  <td>Moyenne Promo</td> "+
-            totalMoyPromo+tabPromo+
-        "</tr>"+
-        "<tr id='Classement"+index+"'>  <td>Classement</td>"+
-            totalClassement+classementTab+
-        "</tr>"+
+		 "<tr name='MoyennePromo'>  <td>Moyenne Promo</td>"+ tabPromo+" </tr>"+
+        "<tr id='Classement"+index+"'>  <td>Classement</td>"+ classementTab+"</tr>"+
           "<tr name='MoyenneMoins'><td>Moyenne Moins<td>"+
 			moyenneMoins+
         "</tr>"+
@@ -524,7 +515,8 @@ function tableauSeparer(name1,name2,numero){
         "</tr>"+
         "</tbody>"+
         "</table>";
-
+    if (info>1)
+        info=0;
 	return tmpTab;
 }
 
@@ -576,6 +568,7 @@ function trier (intituler) {
     mot.value = "";
     var TdModifer = document.getElementsByName(intituler);
     var lignes = document.getElementsByName("etudiant");
+
     var en_cours, plus_petit, j, temp;
 	
     for (en_cours = 0; en_cours < TdModifer.length - 1; en_cours++)
