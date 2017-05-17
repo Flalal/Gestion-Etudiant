@@ -4,6 +4,7 @@
       "prenom":"julien",
       "numero":"2017_1",
       "ue41":{
+         "annee":2015,
          "Pweb2":{
             "intitule":"Pweb2",
             "coefficient":1.5,

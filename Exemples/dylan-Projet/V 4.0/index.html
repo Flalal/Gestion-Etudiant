@@ -10,11 +10,11 @@
 		.container {
 			width: 100%;
 		}
-		body {
-			padding: 20px;
+		.body {
+			padding: 10px;
 		}
 		.etudiant:hover {
-			background-color: #ccc;	
+			background-color: #ccc;
 		}
 		h1 {
 			text-transform : uppercase;
@@ -23,148 +23,105 @@
 	</style>
 </head>
 <body>
+<div>
+
+<div class="container">
+	<nav class="navbar navbar-default" style="background-color: #E6E6FA;">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <p class="navbar-brand" >WebSite: Liste des Etudiants</p>
+			  
+			</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+				<div id="commande">
+					<input id="recherche" type="text" placeholder="Rechercher ..."/>
+					<button onclick="rechercher()" class="btn btn-primary">Rechercher</button>
+					<button onclick="affichage_initial()" class="btn btn-primary">Affichage initial</button>
+				</div>
+			  </ul>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
 
 <!--
-   <INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
--->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand">Liste des Etudiants</a>
-    </div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-	<div id="commande">
-		<input id="recherche" type="text" placeholder="Rechercher ..."/>
-		<button onclick="rechercher()" class="btn btn-primary">Rechercher</button>
-		<button onclick="affichage_initial()" class="btn btn-primary">Affichage initial</button>
-	</div>
-
+ <div id="commande">
+	<input id="recherche" type="text" placeholder="Rechercher ..."/>
+	<button onclick="rechercher()" class="btn btn-primary">Rechercher</button>
+	<button onclick="affichage_initial()" class="btn btn-primary">Affichage initial</button>
 </div>
-</nav>
+  <INPUT type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"></input>
+-->
+
+<div class="panel panel-default">
+<div class="panel-heading text-center">
+
+	<p>Liste des Etudiants</p>
+<br>
 	<!--
 <input type="BUTTON" id="button" value="Initialiser" class="btn btn-warning"/>
 -->
-<div class="panel panel-default"> 
-<div class="panel-heading text-center">
 </div>
-  <table class="table table-bordered table-striped " id="tableau_principale">
+ <!-- <table class="table table-bordered table-striped tablesorter " id="tableau_principale">
     <thead class="floating-header">
 	  <tr id="titreTableau">
       </tr>
 
 	<tr id="titreCoefficient">
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th>coef</th>
-		<th>coef</th>
-		<th>coef</th>
-		<th></th>
-
 	</tr>
 
 	  <tr id="moyennePromo">
-		  <th></th>
-		  <th></th>
-		  <th></th>
-		  <th></th>
-		  <th>Promo</th>
-		  <th>Promo</th>
-		  <th>Promo</th>
-		  <th>Promo</th>
-		  <th>Promo</th>
-		  <th>Promo</th>
 
 	  </tr>
-    </thead> 
-    <tbody id="liste des étudiants">
-
-   </tbody> 
+    </thead>
   </table>
-</div> 
-</div> 
+	<div style="height:300px;overflow-Y:auto;" >
+	<table class="table table-bordered table-striped ">
+    <tbody id="liste_des_étudiants">
 
-<div id="mettrePhoto">
-	<!--<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-	  <div class="modal-dialog modal-sm" role="document">
-	    <div class="modal-content">
-	      <img src='img/avatar.png' width='130px' height='130px'/>
-	    </div>
-	 </div>
+   </tbody>
+  </table>
 	</div>-->
+
+	<table class="table table-bordered table-striped table-fixed  " id="tableau_principale">
+		<thead class="floating-header">
+		<tr id="titreTableau">
+		</tr>
+
+		<tr id="titreCoefficient">
+		</tr>
+
+		<tr id="moyennePromo">
+
+		</tr>
+		</thead>
+		<tbody id="liste_des_étudiants">
+
+		</tbody>
+	</table>
+
+</div>
+
 </div>
 
 <!-- Large modal -->
 
 <div id="listemodal">
-	
+
 	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg0">Exemple d'affichage</button>-->
 
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-	  <div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="container">
-		  
-		  <table class="table"> 
-			<thead>
-			  <tr> 
-				<th>Matière</th>
-				<th>Coef</th> 
-				<th>Note</th>
-			  </tr> 
-			</thead> 
-			<tbody>
-			  <tr> 
-				<td>Pweb</td>
-				<td>1.4</td>
-				<td>12</td>
-			  </tr>
-			  <tr> 
-				<td>Maths</td>
-				<td>1</td>
-				<td>25</td>
-			  </tr> 
-		   </tbody> 
-		  </table>
-			
-		  <h1>ue42</h1>
-		  
-		  <table class="table"> 
-			<thead>
-			  <tr> 
-				<th>Matière</th>
-				<th>Coef</th> 
-				<th>Note</th>
-			  </tr> 
-			</thead> 
-			<tbody>
-			  <tr> 
-				<td>Pweb</td>
-				<td>1.4</td>
-				<td>12</td>
-			  </tr>
-			  <tr> 
-				<td>Maths</td>
-				<td>1</td>
-				<td>25</td>
-			  </tr> 
-		   </tbody> 
-		  </table>
-		  </div>
-		  
-		</div>
-	  </div>
-	</div>
-
+</div>
 </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
