@@ -10,7 +10,7 @@ function Promo() {
     this.nbEtudiant=0;
     this.matieres=new Array;
 
-    this.ajouterEtudiant=function (etudiant) {
+    this.ajouterEtudiantCLA=function (etudiant) {
         if (typeof etudiant !== 'object')throw new Error("Type note invalide");
         this.etu.push(etudiant);
         this.nbEtudiant++;
