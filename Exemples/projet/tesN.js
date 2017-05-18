@@ -6,7 +6,7 @@
 var index=0;
 
 var promo;
-var info=3;
+
 
 
 
@@ -207,19 +207,20 @@ function ajouterEtudiant (etudiant) {
                     if (j<2) {
                         if (intituler2.indexOf(dept+"2")==-1) {
                             intituler2 += "<th >" + dept + "2</th>";
-                         //   intituler += "<th >" + dept + "2</th>";
-                            moyenne += "<td></td>";
-                            moyPromo2 += "<th >" + "</th>";
-                            coef2 += "<th > </th>";
+                            moyenne += "<td id='Moyenne"+dept+numero+"2'></td>";
+                            moyPromo2 += "<th name='PDepart2' >" + "</th>";
+                            coef2 += "<th name='Coeff"+dept +"2'> </th>";
+
                         }
+
                     }
                     else{
                         if (intituler2.indexOf(dept+"1")==-1) {
                             intituler2 += "<th >" + dept + "1</th>";
-                           // intituler += "<th >" + dept + "1</th>";
-                            moyenne += "<td></td>";
-                            moyPromo2 += "<th >" + "</th>";
-                            coef2 += "<th > </th>";
+                            moyenne += "<td id='Moyenne"+dept +numero+"1'></td>";
+                            moyPromo2 += "<th name='PDepart1' >" + "</th>";
+                            coef2 += "<th name='Coeff"+dept +"1'> </th>";
+
                         }
                     }
                     intituler2+="<th class='"+CLASSBOOSTRAP+"' onclick='classementAccueil("+tabSem[j].getSemestre()+")'>S"+tabSem[j].getSemestre()+"</th>";
@@ -247,8 +248,8 @@ function ajouterEtudiant (etudiant) {
     }
 
     var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
-    plusieurs+=tableauSeparer(tabSem[0],tabSem[1],numero);
-    plusieurs+=tableauSeparer(tabSem[2],tabSem[3],numero);
+    plusieurs+=tableauSeparer(tabSem[0],tabSem[1],numero,dept);
+    plusieurs+=tableauSeparer(tabSem[2],tabSem[3],numero,dept);
     for (var cpt = 0; cpt < 4; cpt++) {
        test.ajouterSemestre(tabSem[cpt]);
     }
@@ -295,8 +296,52 @@ function ajouterEtudiant (etudiant) {
         "</div>";
 
     index++;
+    var cpt3=0;
     for (var j in tabSem) {
         if (tabSem[j].getToutUE().length != 0) {
+            if (j<2) {
+                var HTMLDepartement=document.getElementsByName("Coeff"+dept+"2");
+                var HTMLMoyenneDEpt=document.getElementById("Moyenne"+dept+numero+"2");
+                var HTMLPROMODEpartement=document.getElementsByName("PDepart2");
+                if (cpt3==0) {
+                    HTMLDepartement[0].innerHTML=tabSem[j].getCoefficientSem();
+                    HTMLMoyenneDEpt.innerHTML=tabSem[j].getMoyenneSem();
+                    cpt3++;
+                }
+                else{
+                    HTMLDepartement[0].innerHTML=eval(HTMLDepartement[0].innerHTML+"+"+tabSem[j].getCoefficientSem());
+                    HTMLMoyenneDEpt.innerHTML=eval("("+HTMLMoyenneDEpt.innerHTML+"+"+tabSem[j].getMoyenneSem()+")/2").toFixed(2);
+                    cpt3=0;
+                    for (var tmpPromoD=0;tmpPromoD<HTMLPROMODEpartement.length;tmpPromoD++){
+                        HTMLPROMODEpartement[tmpPromoD].innerHTML=promo.getMoyDeptPromo(2).toFixed(2);
+                    }
+
+
+                }
+
+
+            }
+            else{
+                var HTMLDepartement=document.getElementsByName("Coeff"+dept+"1");
+                var HTMLMoyenneDEpt=document.getElementById("Moyenne"+dept+numero+"1");
+                var HTMLPROMODEpartement=document.getElementsByName("PDepart1");
+                if (cpt3==0) {
+                    HTMLDepartement[0].innerHTML=tabSem[j].getCoefficientSem();
+                    HTMLMoyenneDEpt.innerHTML=tabSem[j].getMoyenneSem();
+                    cpt3++;
+                }
+                else{
+                    HTMLDepartement[0].innerHTML=eval(HTMLDepartement[0].innerHTML+"+"+tabSem[j].getCoefficientSem());
+                    HTMLMoyenneDEpt.innerHTML=eval("("+HTMLMoyenneDEpt.innerHTML+"+"+tabSem[j].getMoyenneSem()+")/2").toFixed(2);
+                    cpt3=0;
+                    for (var tmpPromoD=0;tmpPromoD<HTMLPROMODEpartement.length;tmpPromoD++){
+                        HTMLPROMODEpartement[tmpPromoD].innerHTML=promo.getMoyDeptPromo(1).toFixed(2);
+                    }
+                }
+            }
+
+
+
             var SemPromo=document.getElementsByName("PS"+tabSem[j].getSemestre());
             for (var cptSem=0;cptSem<SemPromo.length;cptSem++){
                 SemPromo[cptSem].innerHTML=(promo.getMoySemPromo(tabSem[j].getSemestre())).toFixed(2);
@@ -343,9 +388,10 @@ function somme(chiffre1,chiffre2){
     return total;
 }
 
-function tableauSeparer(name1,name2,numero){
+function tableauSeparer(name1,name2,numero,departement){
 
     var tmpTab="";
+    var info;
 
     var classementTab="";
     var intitulerTab="";
@@ -367,15 +413,20 @@ function tableauSeparer(name1,name2,numero){
     var tabPMU=new Array();
     var tabResuU=new Array();
 
-    info--;
+    if((name1.getToutUE().length == 0) && (name2.getToutUE().length == 0))
+        return"";
+    if(name1.getSemestre()>2)
+        info=2;
+    else
+        info=1;
     if (name1.getToutUE().length != 0) {
-        total+="<th>Info"+info+"</th>";
-        tabPromo+="<td name='class"+info+"'></td>";
+        total+="<th>"+departement+info+"</th>";
+        tabPromo+="<td name='PDepart"+info+"'></td>";
         classementTab+="<td ></td>";
 
         totalCoef+="<td>"+somme(name1.getCoefficientSem(),name2.getCoefficientSem())+"</td>";
-        totalMoyenne+="<td>"+"**"+"</td>";
-        totalMoyPromo+="<td>"+"***"+"</td>";
+        totalMoyenne+="<td>"+((somme(name1.getMoyenneSem(),name2.getMoyenneSem()))/2).toFixed(2)+"</td>";
+        totalMoyPromo+="<td name='PDepart"+info+"'> </td>";
         totalClassement+="<td>"+"****"+"</td>";
 
         intitulerTab+="<th>S"+name1.getSemestre()+"</th>";
@@ -466,8 +517,6 @@ function tableauSeparer(name1,name2,numero){
         "</tr>"+
         "</tbody>"+
         "</table>";
-    if (info<2)
-        info=3;
     return tmpTab;
 }
 

@@ -6,6 +6,7 @@ var TabDepartement=['INFO','MMI','GEA','TC'];
 function Promo() {
     this.etu=new Array;
     this.semetres=[0,0,0,0];
+    this.annee=[0,0];
     this.ues =new Array;
     this.nbEtudiant=0;
     this.matieres=new Array;
@@ -17,6 +18,14 @@ function Promo() {
         var ToutSemestres=etudiant.getToutSemestre();
         for (var se in ToutSemestres){
             if(ToutSemestres[se].getToutUE().length!=0) {
+                if (ToutSemestres[se].getSemestre()>2){
+
+                    this.annee[1]+=ToutSemestres[se].getMoyenneSem();
+                }
+                else {
+                    this.annee[0] += ToutSemestres[se].getMoyenneSem();
+                }
+
                 this.semetres[ToutSemestres[se].getSemestre() - 1] += ToutSemestres[se].getMoyenneSem();
                 var ToutUE=ToutSemestres[se].getToutUE();
                 for (var ue in ToutUE ){
@@ -44,6 +53,11 @@ function Promo() {
 
     };
 
+
+    this.getMoyDeptPromo=function (num) {
+        return this.annee[num-1]/(this.nbEtudiant*2);
+
+    };
 
     this.getMoySemPromo=function (num) {
         return this.semetres[num-1]/this.nbEtudiant;
