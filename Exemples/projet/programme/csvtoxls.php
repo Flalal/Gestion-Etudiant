@@ -54,13 +54,6 @@ function convertCSVtoXLS($file,$file2)
     fclose($fp2);
 
     creation($matieresCSV,$etudiant,$intilerEtu,$intilerMatier);
-
-
-
-
-
-
-
 }
 
 function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
@@ -82,6 +75,9 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
             }
         }
     }
+
+    $annee=explode('/',$autre[2][1])[2].explode('/',$autre[3][1])[2];
+    var_dump($annee);
 
 
     $objPHPExcel = new PHPExcel();
@@ -166,6 +162,7 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
     $nbSheet++;
 /// creation absentece
     $sheet4 = $objPHPExcel->createSheet($nbSheet);
+    $Position=array();
 
     for ($cpt=0;$cpt<4;$cpt++){
 
@@ -184,17 +181,31 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
         $sheet4->getStyle(chr(70+($cptue*2)+1)."2")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $sheet4->mergeCells(chr(70+($cptue*2))."1:".chr(70+($cptue*2)+1)."1");
         $sheet4->setCellValue(chr(70+($cptue*2))."2" ,'J');
-        $sheet4->setCellValue("D2" ,'Seuil');
         $sheet4->setCellValue("E2" ,0.11);
         $sheet4->setCellValue(chr(70+($cptue*2)+1)."2" ,'NJ');
+        $sheet4->setCellValue("D2" ,"Seuil");
+        $Position[]=chr(70+($cptue*2)+1);
 
 
     }
-    for ($cpt=0;$cpt<count($etudiant);$cpt++) {
+    for ($cpt=1;$cpt<count($etudiant);$cpt++) {
+        $Condition_du_ou="";
         for ($cpt2 = 0; $cpt2 < 4; $cpt2++) {
 
             $sheet4->setCellValue(chr(65 + $cpt2) . ($cpt + 2), $etudiant[$cpt][$cpt2]);
         }
+        foreach ($Position as $lettre){
+            if ( $lettre==$Position[count($Position)-1]){
+                $Condition_du_ou=$Condition_du_ou.$lettre.($cpt + 2).">E2";
+            }
+            else {
+                $Condition_du_ou = $Condition_du_ou . $lettre . ($cpt + 2) . ">E2;";
+            }
+
+        }
+        $sheet4->setCellValue(chr(65 + 4) . ($cpt + 2),"=IF(OR(".$Condition_du_ou.");\"ABI\";\" \" )",PHPExcel_Cell_DataType::TYPE_FORMULA);
+
+
     }
     for ($cptautre=0;$cptautre<count($autre);$cptautre++){
         for ($cpt2=0;$cpt2<count($autre[$cptautre]);$cpt2++) {
@@ -202,6 +213,8 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
             $sheet4->setCellValue(chr(65 + $cpt2) . ($cptautre + count($etudiant) + 5),$autre[$cptautre][$cpt2]);
 
         }
+
+
     }
     $nbSheet++;
 
@@ -241,16 +254,19 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
 
     }
 
-    for ($cpt=0;$cpt<count($etudiant);$cpt++) {
+    for ($cpt=1;$cpt<count($etudiant);$cpt++) {
         for ($cpt2 = 0; $cpt2 < 4; $cpt2++) {
 
+            $sheet->setCellValue(chr(65 + 5) . ($cpt + 2), "=RANK (".chr(65 + 4).($cpt + 2).",".chr(65 + 4)."3:".chr(65 + 4).(count($etudiant)+1)." )",PHPExcel_Cell_DataType::TYPE_FORMULA);
             $sheet->setCellValue(chr(65 + $cpt2) . ($cpt + 2), $etudiant[$cpt][$cpt2]);
+
         }
     }
     for ($cptautre=0;$cptautre<count($autre);$cptautre++){
         for ($cpt2=0;$cpt2<count($autre[$cptautre]);$cpt2++) {
 
             $sheet->setCellValue(chr(65 + $cpt2) . ($cptautre + count($etudiant) + 5),$autre[$cptautre][$cpt2]);
+
 
         }
     }
@@ -299,6 +315,7 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
 
             }
         }
+
         $sheet->setCellValue("A". ( count($etudiant)+4+count($autre)),"Resposable");
         $sheet->setCellValue("B". ( count($etudiant)+4+count($autre)),$matieres[$cptMatiere][6]);
         $sheetMatiere->setCellValue("A". ( count($etudiant)+4+count($autre)),"Responsable");
@@ -306,15 +323,17 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
 
 
         $objWriterMatiere = PHPExcel_IOFactory::createWriter($excelMatiere, 'Excel2007');
-        $objWriterMatiere->save($matieres[$cptMatiere][2].'.xls');
+        $objWriterMatiere->save($matieres[$cptMatiere][2]."_".$autre[0][1]."_".$autre[4][1]."_".$annee.'.xls');
 
     }
 
 
 
 
+
+
     $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-    $objWriter->save('bilan.xls');
+    $objWriter->save("Bilan_".$autre[0][1]."_".$autre[4][1]."_".$annee.'.xls');
 
 
 
@@ -324,6 +343,8 @@ function creation($matieresCSV,$etudiant ,$intilueretu,$intiluerMatier){
 
 
 convertCSVtoXLS($inputFileName1,$inputFileName);
+
+
 
 
 

@@ -545,9 +545,9 @@ function trier (intituler) {
             if (TdModifer[j].innerHTML < TdModifer[plus_petit].innerHTML)
                 plus_petit = j;
         }
-        temp = TdModifer[en_cours];
+      /*  temp = TdModifer[en_cours];
         TdModifer[en_cours] = TdModifer[plus_petit];
-        TdModifer[plus_petit] = temp;
+        TdModifer[plus_petit] = temp;*/
 
         lignes[en_cours].style.display = "table";
         temp = lignes[en_cours].innerHTML;
