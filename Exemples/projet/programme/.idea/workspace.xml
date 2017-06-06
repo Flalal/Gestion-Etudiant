@@ -24,18 +24,18 @@
       <file leaf-file-name="csvtoxls.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/csvtoxls.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="302" column="156" selection-start-line="302" selection-start-column="156" selection-end-line="302" selection-end-column="156" />
+            <state relative-caret-position="259">
+              <caret line="315" column="208" selection-start-line="315" selection-start-column="208" selection-end-line="315" selection-end-column="208" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Liste_Matières_Info2_S3_1617.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Liste_Matières_Info2_S3_1617.csv">
+      <file leaf-file-name="Calculation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Calculation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+            <state relative-caret-position="14850">
+              <caret line="2591" column="56" selection-start-line="2591" selection-start-column="56" selection-end-line="2591" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -229,12 +229,12 @@
       <workItem from="1496212490826" duration="10027000" />
       <workItem from="1496384789251" duration="5416000" />
       <workItem from="1496401346505" duration="6201000" />
-      <workItem from="1496679550699" duration="5241000" />
+      <workItem from="1496679550699" duration="11344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85407000" />
+    <option name="totallyTimeSpent" value="91510000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -553,14 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Liste_Matières_Info2_S3_1617.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Writer/Excel2007/DocProps.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -599,9 +591,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Liste_Matières_Info2_S3_1617.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Calculation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
+        <state relative-caret-position="14850">
           <caret line="2591" column="56" selection-start-line="2591" selection-start-column="56" selection-end-line="2591" selection-end-column="56" />
           <folding />
         </state>
@@ -609,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/csvtoxls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="302" column="156" selection-start-line="302" selection-start-column="156" selection-end-line="302" selection-end-column="156" />
+        <state relative-caret-position="259">
+          <caret line="315" column="208" selection-start-line="315" selection-start-column="208" selection-end-line="315" selection-end-column="208" />
           <folding />
         </state>
       </provider>
