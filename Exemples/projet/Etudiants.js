@@ -177,12 +177,13 @@ function compare(a, b) {
 
 
 
-function Etudiant (numero, nom, prenom, dept,dateN,bac) {
+function Etudiant (numero, nom, prenom, dept,groupe,dateN,bac) {
 
-    if (arguments.length < 6) throw new Error("Nombre arguments insuffisants");
+    if (arguments.length < 7) throw new Error("Nombre arguments insuffisants");
     this.nom = nom.toLowerCase();
     this.prenom = prenom.toLowerCase();
     var tmp=false;
+    this.groupe=groupe;
     this.semestres=new Array();
     for (var i in TabDepartement){
         if (dept==TabDepartement[i])
@@ -202,6 +203,10 @@ function Etudiant (numero, nom, prenom, dept,dateN,bac) {
     this.getAvatar=function () {
         return this.avatar;
 
+    };
+
+    this.getGroupe=function () {
+        return this.groupe;
     };
 
     this.getDateNaissance=function () {

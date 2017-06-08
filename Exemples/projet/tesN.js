@@ -96,7 +96,7 @@ function ajouterEtudiant (etudiant) {
     var coef=document.getElementById('titreCoefficient');
     var moyennePromo=document.getElementById('moyennePromo');
 
-    var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac", "ue"];
+    var keys = ["numero", "nom", "prenom", "departement", "dateNaissance", "bac","groupe", "ue"];
     var bac;
     var dateN;
     var dept;
@@ -104,6 +104,7 @@ function ajouterEtudiant (etudiant) {
     var nom;
     var prenom;
     var numero;
+    var groupe;
 
 // creation des ue et du semestre
     var tabUe = new Array();
@@ -115,9 +116,9 @@ function ajouterEtudiant (etudiant) {
 
 
     // intituler du tableau
-    var intituler2 = " <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"numero\")'>Num</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"nom\")' >Nom</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"prenomx\")'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th>";
-    var coef2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
-    var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th>";
+    var intituler2 = " <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"numero\")'>Num</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"nom\")' >Nom</th> <th class='"+CLASSBOOSTRAP+"' onclick='trier(\"prenom\")'>Prénom</th><th class='"+CLASSBOOSTRAP+"'>Clas</th> <th>Groupe</th>";
+    var coef2="<th></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th> <th></th>";
+    var moyPromo2="<th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th><th class='"+CLASSBOOSTRAP+"'></th> <th></th>";
     var moyenne = "";
     var details="";
     var redoubler=false;
@@ -146,11 +147,11 @@ function ajouterEtudiant (etudiant) {
         if (i == 5) {
             bac = eval("etudiant." + keys[i]);
         }
-        //if(i == 7) {avatar=eval("etudiant."+keys[i]);}
+        if(i == 6) {groupe=eval("etudiant."+keys[i]);}
 
         var attribut = "etudiant." + keys[i];
 
-        if (i == 6) {
+        if (i == 7) {
 
             for (var x in UEDEPT) {/// parcours la constant qui reference tout les ue de chaque département;
                 for (var j in eval(attribut)) {// parcours dans les ue
@@ -247,7 +248,7 @@ function ajouterEtudiant (etudiant) {
 
     }
 
-    var test=new Etudiant(numero,nom,prenom,dept,dateN,bac);
+    var test=new Etudiant(numero,nom,prenom,dept,groupe,dateN,bac);
     plusieurs+=tableauSeparer(tabSem[0],tabSem[1],numero,dept);
     plusieurs+=tableauSeparer(tabSem[2],tabSem[3],numero,dept);
     for (var cpt = 0; cpt < 4; cpt++) {
@@ -268,6 +269,8 @@ function ajouterEtudiant (etudiant) {
         + "</td> <td name='nom' class='"+CLASSBOOSTRAP+"' >" + nom
         + "</td><td name='prenom' class='"+CLASSBOOSTRAP+"'>" +prenom + "</td> " +
          "<td id='classementFinal"+numero+"' class='"+CLASSBOOSTRAP+"' >"+"</td>"+
+         "<td  > "+test.getGroupe() +"</td>"+
+
             moyenne+
         "<td ><button class='btn btn-success' data-toggle=\"modal\" data-target='.bs-example-modal-lg"+ index+"'>+</button> </td></tr>";
 
@@ -277,7 +280,7 @@ function ajouterEtudiant (etudiant) {
         "<div class='modal-content'>" +
         "<div class='container'>" +
         "<h1 class='text-center'>" +
-        test.getNom() + " " + test.getPrenom() +
+        test.getNom() + " " + test.getPrenom() +" "+ test.getGroupe()+
         "</h1>" +
         "<img  src='img/"+ test.avatar+"' width='130px' height='130px' style='float: right;' alt='"+test.avatar +"'/>"+
         "<p> infomation complementaire: </p>"+
