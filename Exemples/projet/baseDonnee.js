@@ -1,13 +1,25 @@
 /**
  * Created by Frederic on 07/06/2017.
  */
-/*
- This program reads and parses all lines from csv files countries2.csv into an array (countriesArray) of arrays; each nested array represents a country.
- The initial file read is synchronous. The country records are kept in memory.
- */
+/
+/// base donnée en fonction des etudiant
+
 
 var fs = require('fs');
 var parse = require('csv-parse');
+
+
+
+function etudiant(numero,nom,prenom,dateN,departement,groupe,bac,lycee) {
+    this._id=numero;
+    this.nom=nom;
+    this.prenom=prenom;
+    this.dateNaissance=dateN;
+    this.departatement=departement;
+    this.groupe=groupe;
+    this.bac=bac;
+    this.ancienneEtablisement =lycee;
+}
 var csvData=[];
 var inputFile='programme/INFO2_S3_20162017_Note_detail_S3.csv';
 
@@ -20,11 +32,10 @@ var parser = parse({delimiter: ','}, function (error, data) {
         // create country object out of parsed fields
         csvData.push(line);
 
-
-
     });
 
-    for()
+    return csvData;
+
 
 
 });
@@ -32,7 +43,9 @@ var parser = parse({delimiter: ','}, function (error, data) {
 
 
 // read the inputFile, feed the contents to the parser
-fs.createReadStream(inputFile).pipe(parser);
+var tmp =fs.createReadStream(inputFile).pipe(parser);
+
+console.log(tmp);
 
 
 
