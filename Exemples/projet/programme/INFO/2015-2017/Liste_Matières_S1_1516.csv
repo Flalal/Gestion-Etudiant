@@ -1,0 +1,22 @@
+Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
+M1101;Principes des systèmes d'exploitation ;SE-1;2.5;UE11;S1;Lagniez
+M1102;Basse de donnée ;BD-1;1.5;UE11;S1;Condotta
+M1103;Algorithmique programmation;AP;1.5;UE11;S1;Koriche
+M1104;Struture de programmation ;SD;2.5;UE11;S1;Koriche
+M1201;math ;math;2.5;UE12;S1;EL Rezzi
+M1202;mathématique discret ;MD;1.5;UE12;S1;Fregiez
+M1203;Economie et ecologie ;EE;1.5;UE12;S1;Legros
+M1205;Expression-Communication – Communication professionnelle ;Com-1;1.5;UE12;S1;Membré
+M1206;Collaborer en anglais;Ang-1;2.5;UE12;S1;Prenzier
+M1302;Projet tutoré – Mise en situation professionnelle ;PT-3;2;UE12;S1;Hsu
+M1303;PPP – Préciser son projet ;PPP-1;1;UE12;S1;Membré
+;;;;;;
+;;;;;;
+UE11;Informatique Avancé;12;;;;
+UE12;Culture scientifique, sociale et humaine avancées;12;;;;
+;;;;;;
+Département;INFO;;;;;
+Année;INFO1;;;;;
+Date début;01/09/2015;;;;;
+Date de fin ;31/06/2016;;;;;
+Semestre;S1;;;;;

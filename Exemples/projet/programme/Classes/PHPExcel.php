@@ -31,7 +31,8 @@ if (!defined('PHPEXCEL_ROOT')) {
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    ##VERSION##, ##DATE##
  */
-class PHPExcel{
+class PHPExcel
+{
     /**
      * Unique ID
      *
@@ -136,6 +137,7 @@ class PHPExcel{
     * @var null|array
     */
     private $ribbonBinObjects;
+
     /**
     * The workbook has macros ?
     *
