@@ -29,7 +29,7 @@ function salut($dept,$semestre,$annee,$groupe=null ){
                 echo $dept . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
         }
 
-        
+
 
 
 
