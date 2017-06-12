@@ -2,6 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cff92310-95e4-46cf-aa2a-6f06a62f2154" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/AP_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/AP_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/Ang-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/Ang-1_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/BD-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/BD-1_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/Bilan_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/Bilan_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/Com-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/Com-1_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/EE_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/EE_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/MD_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/MD_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/PPP-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/PPP-1_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/PT-3_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/PT-3_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/SD_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/SD_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/SE-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/SE-1_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/math_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/math_INFO_S1_20152016.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finale.php" afterPath="$PROJECT_DIR$/finale.php" />
     </list>
     <ignored path="programme.iws" />
@@ -36,8 +49,8 @@
       <file leaf-file-name="finale.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/finale.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
               </folding>
@@ -183,20 +196,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="INFO_S1_20152016" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="programme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="programme" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="INFO" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -294,12 +293,12 @@
       <workItem from="1497252885916" duration="182000" />
       <workItem from="1497253127797" duration="2029000" />
       <workItem from="1497255495949" duration="3446000" />
-      <workItem from="1497264631256" duration="6189000" />
+      <workItem from="1497264631256" duration="7332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115799000" />
+    <option name="totallyTimeSpent" value="116942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -708,8 +707,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/finale.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
           </folding>
