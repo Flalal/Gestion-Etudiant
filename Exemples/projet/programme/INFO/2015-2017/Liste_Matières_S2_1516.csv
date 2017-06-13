@@ -1,0 +1,25 @@
+Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
+M3101;Principes des systèmes d'exploitation ;SE-2;2.5;UE21;S2;Tabary
+M3102;Services réseaux ;RX-1;1.5;UE21;S2;Roussel
+M3103;Interface homme et machine;IHM;1.5;UE21;S2;Koriche
+M3104;Programmation orienté objet ;POO;2.5;UE21;S2;Shali
+M3105;Conception orienté objet  ;COO;2.5;UE21;S2;Vanzizac
+M3106;Bases de données avancées ;BD-2;1.5;UE21;S2;Boussemart
+M3201;Probabilités et statistiques ;Proba;2.5;UE32;S3;EL Rezzi
+M3202;Graph et langage ;GL;1.5;UE22;S2;Fregiez
+M3203;Droit ;Droit;1.5;UE22;S2;Legros
+M3204;Gestion de projet ;GPI;2.5;UE22;S2;Lebros
+M3205;Expression-Communication – Communication professionnelle ;Com-2;1.5;UE22;S2;Membré
+M3206;Collaborer en anglais;Ang-2;2.5;UE22;S2;Prenzier
+M3302;Projet tutoré – Mise en situation professionnelle ;PT-2;2;UE22;S2;Koriche
+M3303;PPP – Préciser son projet ;PPP-2;1;UE22;S2;Membré
+;;;;;;
+;;;;;;
+UE21;Informatique Avancé;12;;;;
+UE22;Culture scientifique, sociale et humaine avancées;12;;;;
+;;;;;;
+Département;INFO;;;;;
+Année;INFO2;;;;;
+Date début;01/09/2015;;;;;
+Date de fin ;31/06/2016;;;;;
+Semestre;S2;;;;;

@@ -44,8 +44,8 @@ class PHPExcel_IOFactory
      * @static
      */
     private static $searchLocations = array(
-        array( 'type' => 'IWriter', 'path' => 'PHPExcel/Writer/{0}finale.php', 'class' => 'PHPExcel_Writer_{0}' ),
-        array( 'type' => 'IReader', 'path' => 'PHPExcel/Reader/{0}finale.php', 'class' => 'PHPExcel_Reader_{0}' )
+        array( 'type' => 'IWriter', 'path' => 'PHPExcel/Writer/{0}.php', 'class' => 'PHPExcel_Writer_{0}' ),
+        array( 'type' => 'IReader', 'path' => 'PHPExcel/Reader/{0}.php', 'class' => 'PHPExcel_Reader_{0}' )
     );
 
     /**
@@ -108,7 +108,7 @@ class PHPExcel_IOFactory
      * @static
      * @access    public
      * @param    string $type        Example: IWriter
-     * @param    string $location    Example: PHPExcel/Writer/{0}finale.php
+     * @param    string $location    Example: PHPExcel/Writer/{0}.php
      * @param    string $classname     Example: PHPExcel_Writer_{0}
      */
     public static function addSearchLocation($type = '', $location = '', $classname = '')

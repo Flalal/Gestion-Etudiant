@@ -1,0 +1,23 @@
+Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
+M4101;Administration système et réseau;AdmSR;1.5;UE41;S4;Roussel
+M4102;Programmation répartie ;ProgRep;1.5;UE41;S4;Condotta
+M4103;Programmation Web – client riche;Pweb-2;1.5;UE41;S4;Hsu
+M4104;Conception et développement d’applications mobiles;ProgMobile;1.5;UE41;S4;Hemery
+M4105;Compléments d’informatique en vue d’une insertion immédiate;CompInfo;1.5;UE41;S4;Delacroix
+M4106;Projet tutoré – Compléments;PT-C;2.5;UE41;S4;Hsu
+M4201;Atelier;Atelier;2;UE42;S4;Legros
+M4203;Expression-communication – Communiquer dans les organisations;Com-C;2;UE42;S4;Membré
+M4202;Recherche opérationnelle et aide à la décision;RO;2;UE42;S4;El Rezzi
+M4204;Travailler en anglais;Ang-C;2;UE42;S4;Prensier
+M4301;Stage professionnel;Stage;12;UE43;S4;Salhi
+;;;;;;
+;;;;;;
+UE41;Compléments d'informatique;10;;;;
+UE42;Compléments de culture scientifique sociale et humaine;8;;;;
+UE43;Mise en situation professionnelle;12;;;;
+;;;;;;
+Département;INFO;;;;;
+Année;INFO2;;;;;
+Date début;12/09/2016;;;;;
+Date de fin ;31/06/2017;;;;;
+Semestre;S4;;;;;
