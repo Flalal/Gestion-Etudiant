@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cff92310-95e4-46cf-aa2a-6f06a62f2154" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/AP_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/AP_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/Ang-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/Ang-1_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/BD-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/BD-1_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/Bilan_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/Bilan_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/Com-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/Com-1_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/EE_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/EE_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/MD_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/MD_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/PPP-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/PPP-1_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/PT-3_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/PT-3_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/SD_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/SD_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/SE-1_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/SE-1_INFO_S1_20152016.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFO_S1_20152016/excel/math_INFO_S1_20152016.xls" afterPath="$PROJECT_DIR$/INFO_S1_20152016/excel/math_INFO_S1_20152016.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/INFO_S3_20152016/json/INFO_S3_20152016.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/INFO_S3_20162017/json/INFO_S3_20162017.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/INFO_S4_20162017/json/INFO_S4_20162017.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finale.php" afterPath="$PROJECT_DIR$/finale.php" />
     </list>
@@ -39,18 +30,18 @@
       <file leaf-file-name="csvtoxls.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/csvtoxls.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5626">
+            <state relative-caret-position="15">
               <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="finale.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="finale.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/finale.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state relative-caret-position="202">
+              <caret line="108" column="84" selection-start-line="108" selection-start-column="84" selection-end-line="108" selection-end-column="84" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
               </folding>
@@ -58,47 +49,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Liste_Etudiants_S1_1516.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Etudiants_S1_1516.csv">
+      <file leaf-file-name="INFO_conseille.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/INFO_conseille.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Liste_Matières_S1_1516.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S1_1516.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Autoloader.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Autoloader.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Liste_Matières_S2_1516.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S2_1516.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+              <caret line="0" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="4514" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -125,6 +93,9 @@
         <option value="$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S3_1517.csv" />
         <option value="$PROJECT_DIR$/excelToCsv.php" />
         <option value="$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S1_1516.csv" />
+        <option value="$PROJECT_DIR$/INFO_S4_20162017/json/INFO_S4_20162017.json" />
+        <option value="$PROJECT_DIR$/INFO_S3_20152016/json/tsconfig.json" />
+        <option value="$PROJECT_DIR$/INFO_conseille.json" />
         <option value="$PROJECT_DIR$/finale.php" />
       </list>
     </option>
@@ -196,7 +167,71 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="INFO" />
+              <option name="myItemId" value="INFO_S4_20162017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="INFO_S3_20162017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="INFO_S3_20162017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="INFO_S3_20152016" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="programme" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="INFO_S3_20152016" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -293,12 +328,13 @@
       <workItem from="1497252885916" duration="182000" />
       <workItem from="1497253127797" duration="2029000" />
       <workItem from="1497255495949" duration="3446000" />
-      <workItem from="1497264631256" duration="7332000" />
+      <workItem from="1497264631256" duration="13684000" />
+      <workItem from="1497342461489" duration="2848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116942000" />
+    <option name="totallyTimeSpent" value="126142000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,16 +347,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31502423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31987077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2931507" sideWeight="0.50646204" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2931507" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24109589" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -369,34 +405,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Writer/Excel2007.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4125">
-          <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Calculation/FormulaToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Calculation/LookupRef.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Calculation/MathTrig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/PHPExcel/Calculation/Statistical.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-630">
@@ -535,7 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5683">
           <caret line="887" column="55" selection-start-line="887" selection-start-column="55" selection-end-line="887" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,7 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="4222" column="64" selection-start-line="4222" selection-start-column="64" selection-end-line="4222" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -621,31 +627,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S3_1617.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Etudiants_S3_1617.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S3_1617.csv" />
+    <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Etudiants_S3_1617.csv" />
     <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S3_1516.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,7 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,15 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S2_1516.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -685,7 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,25 +672,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2835">
           <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/INFO/2015-2017/Liste_Matières_S2_1516.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/csvtoxls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5626">
+        <state relative-caret-position="15">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/INFO_S4_20162017/json/INFO_S4_20162017.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-945">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/INFO_S3_20152016/json/INFO_S3_20152016.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="130" column="1" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/INFO_S3_20162017/json/INFO_S3_20162017.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="123" column="4" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/finale.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="202">
+          <caret line="108" column="84" selection-start-line="108" selection-start-column="84" selection-end-line="108" selection-end-column="84" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/INFO_conseille.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="4514" />
+          <folding />
         </state>
       </provider>
     </entry>
