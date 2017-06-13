@@ -61,20 +61,35 @@ function salut($dept,$semestre,$annee,$groupe=null ){
         for ($cptSemestre =2; $cptSemestre > 0; $cptSemestre--) {
           //  echo $dept . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
 
+            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$dept . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
+            if (file_exists($intituleFichier)){
+                // echo $intituleFichier.PHP_EOL;
+                modifcationJson($intituleFichier);
+
+            }
 
         }
     }
     else{
 
         for ($cptSemestre = $semestre[1]; $cptSemestre > 0; $cptSemestre--) {
-            echo $dept . "_S" . $cptSemestre . "_" . $annee . PHP_EOL;
+            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $annee."/json/".$dept . "_S" . $cptSemestre . "_" . $annee.".json";
+            if (file_exists($intituleFichier)) {
+                // echo $intituleFichier.PHP_EOL;
+                modifcationJson($intituleFichier);
+            }
 
         }
         $anneeprecedent=$annee;
         $anneeprecedent[(strlen($annee)/2)-1]=$anneeprecedent[(strlen($annee)/2)-1]-1;
         $anneeprecedent[(strlen($annee))-1]=$anneeprecedent[(strlen($annee))-1]-1;
         for ($cptSemestre = $semestre[1]; $cptSemestre > 0; $cptSemestre--) {
-            echo $dept . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
+            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$dept . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
+            if (file_exists($intituleFichier)){
+                // echo $intituleFichier.PHP_EOL;
+                modifcationJson($intituleFichier);
+
+            }
         }
     }
 
