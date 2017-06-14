@@ -43,6 +43,7 @@ function salut($dept,$semestre,$annee,$groupe=null ){
 
 
         }
+        //// anner -1
         $anneeprecedent=$annee;
         $anneeprecedent[(strlen($annee)/2)-1]=$anneeprecedent[(strlen($annee)/2)-1]-1;
         $anneeprecedent[(strlen($annee))-1]=$anneeprecedent[(strlen($annee))-1]-1;
@@ -55,7 +56,7 @@ function salut($dept,$semestre,$annee,$groupe=null ){
 
             }
         }
-
+        // année -2
         $anneeprecedent[(strlen($annee)/2)-1]=$anneeprecedent[(strlen($annee)/2)-1]-1;
         $anneeprecedent[(strlen($annee))-1]=$anneeprecedent[(strlen($annee))-1]-1;
         for ($cptSemestre =2; $cptSemestre > 0; $cptSemestre--) {
