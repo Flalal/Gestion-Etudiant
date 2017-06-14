@@ -90,6 +90,8 @@ function tri(a,b){
 }
 
 function ajouterEtudiant (etudiant) {
+
+
     var root = document.getElementById("liste_des_étudiants");
     var modal = document.getElementById('listemodal');
     var titre=document.getElementById('titreTableau');
@@ -344,6 +346,8 @@ function somme(chiffre1,chiffre2){
 }
 
 function tableauSeparer(name1,name2,numero){
+    if((name1.getToutUE().length == 0) && (name2.getToutUE().length == 0))
+        return"";
 
     var tmpTab="";
 
@@ -366,6 +370,9 @@ function tableauSeparer(name1,name2,numero){
     var tabResuS=new Array();
     var tabPMU=new Array();
     var tabResuU=new Array();
+    if (name1.getToutUE().length != 0) {
+
+    }
 
     info--;
     if (name1.getToutUE().length != 0) {

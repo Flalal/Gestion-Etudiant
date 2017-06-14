@@ -153,10 +153,12 @@ function Promo() {
 function cleanArray(array) {// permet de surprimmer le doublon
     var i, j, len = array.length, out = [], obj = {};
     for (i = 0; i < len; i++) {
-        if(obj[parseFloat(array[i][1].toFixed(2))]==undefined)
-            obj[parseFloat(array[i][1].toFixed(2))] =array[i][0];
+        var numero=array[i][1];
+        console.log(numero);
+        if(obj[parseFloat(numero.toFixed(2))]==undefined)
+            obj[parseFloat(numero.toFixed(2))] =array[i][0];
         else
-            obj[parseFloat(array[i][1].toFixed(2))] += array[i][0];
+            obj[parseFloat(numero.toFixed(2))] += array[i][0];
     }
     for (j in obj) {
         out.push([obj[j],j]);

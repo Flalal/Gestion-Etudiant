@@ -23,17 +23,17 @@ require_once 'Classes/PHPExcel/IOFactory.php';
 function arrayUnique($array){
 
 	foreach ($array as $k => $v) {
+
 	   //print_r($array[$k]['Nom']."_".$array[$k]['Prénom']."\n");
-		$arrayId=strtolower($array[$k]['Nom']."_".$array[$k]['Prénom']);
+		$arrayId=strtolower($array[$k]['nom']."_".$array[$k]['prnom']);
 		$array[$arrayId]=$array[$k]; 
         foreach ($array as $k2 => $v2) {
-			
-            if (($v2 == $v) && ($k != $k2)) {
+            if (($k != $k2)) {
 				unset($array[$k]);
             }
         }       
     }  
-    return $array;
+	return $array;
 }
 
 //Crée un tableau à partir de deux autres tableaux
@@ -201,11 +201,9 @@ function ajoutNotes($cours,$notes,$semestre,$commentaire){
 
 function fusionner($tab1,$tableau2){
 	$out=array();
-
-
-
+	var_dump($tab1);
 	for($tmp=0;$tmp<count($tab1);$tmp++){
-		if (array_keys($tableau2[$tmp])[0]==$tab1[$tmp]["Numéro"]){
+		if (array_keys($tableau2[$tmp])[0]==$tab1[$tmp]["numro"]){
 			$out[]=array_merge($tab1[$tmp], $tableau2[$tmp][array_keys($tableau2[$tmp])[0]]);
 		}
 
@@ -235,12 +233,17 @@ function csvToJson($fname,$fname2,$fname3,$fname4,$name) {
     $ranger = fgetcsv($fa,"1024",",");
     $commentaire = fgetcsv($fi,"1024",",");
 	$comment = fgetcsv($fi,"1024",",");
-	 
+	$cle=array();
+	foreach($key as $k=>$v){
+		$c=strtolower($v);
+		setlocale(LC_CTYPE, 'fr_FR.UTF-8');
+		array_push($cle ,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $c));
+	} 
     $json = array();// recuperer les donnée dans liste étudiants
     while ($row= fgetcsv($fp,"1024",",")) {
 		for($i=0;$i<1;$i++){
 			if(!empty($row[$i])){
-				$json[]= array_combine2($key, $row);
+				$json[]= array_combine2($cle, $row);
 			}
 		}
     }
@@ -249,12 +252,18 @@ function csvToJson($fname,$fname2,$fname3,$fname4,$name) {
     while($row3=fgetcsv($fa,"1024",",")){
 		$json3[]=$row3;
 	}
-	
+	$index=array();
+	foreach($commentaire as $k=>$v){
+		$c=strtolower($v);
+		setlocale(LC_CTYPE, 'fr_FR.UTF-8');
+		array_push($index,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $c));	
+	}	
+
 	$json4=array();// décision
 	while($row4=fgetcsv($fi,"1024",",")){
 		for($i=0;$i<1;$i++){
 			if(!empty($row4[$i])){
-				$json4[]=array_combine3($commentaire,$comment,$row4);
+				$json4[]=array_combine3($index,$comment,$row4);
 			}
 		}
 	}
@@ -270,9 +279,14 @@ function csvToJson($fname,$fname2,$fname3,$fname4,$name) {
 		}
 	}
 
-	$tab=fusionner($json,$json2);
-    $tableau=$tab;
-    
+	$tab=fusionner($json,$json2);    
+	//~ foreach($tab as $k=>$v){
+		//~ sleep(1);
+		//~ print_r($v);
+		//~ sleep(1);
+	//~ }
+    $tableau=arrayUnique($tab);
+
     fclose($fp);
     fclose($fd);
 
@@ -280,7 +294,7 @@ function csvToJson($fname,$fname2,$fname3,$fname4,$name) {
 	// 1 : on ouvre le fichier
 	$monfichier = fopen($name.'.json', 'w+');
 	// 2 : on met en json et on ecris
-	$ligne = json_encode($tableau);
+	$ligne = json_encode($tab);
 	//$ligne2 = json_encode($json2);
 	fwrite($monfichier,$ligne);
 	// 3 : quand on a fini de l'utiliser, on ferme le fichier

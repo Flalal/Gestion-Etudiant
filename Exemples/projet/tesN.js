@@ -92,6 +92,8 @@ function tri(a,b){
 }
 
 function ajouterEtudiant (etudiant) {
+
+    console.log(etudiant);
     var root = document.getElementById("liste_des_étudiants");
     var modal = document.getElementById('listemodal');
     var titre=document.getElementById('titreTableau');
