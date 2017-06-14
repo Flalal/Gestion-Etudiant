@@ -1,0 +1,24 @@
+Référence,Nom Module,Abréviation,Coefficient,UE,Semestre,Responsable
+M1101,Introduction aux systèmes informatiques,SE-1,3.5,UE11,S1,Coste
+M1102,Introduction à l'algorithmique et à la programmation  ,AP-1,3.5,UE11,S1,Varzinczak
+M1103,Bases de données avancées ,SD-1,2.5,UE11,S1,Lagniez
+M1104,Introduction aux bases de données,BD-1,3.5,UE11,S1,Condotta/Salhi
+M1105,Conception de documents et d’interfaces numériques ,CDIN,2.5,UE11,S1,Chmeiss/Membré
+M1106,Projet tutoré – Découverte,PT-1,1.5,UE11,S1,Hsu/Membré
+M1201,Mathématiques discrètes,MD,2.5,UE21,S1,Frégier
+M1202,Algèbre linéaire,Alg,2.0,UE21,S1,El Rezzi
+M1203,Environnement économique,EE,1.5,UE21,S1,Nemmiche
+M1204,Fonctionnement des organisations,Orga,2.5,UE21,S1,Laurent/Legros
+M1205,Expression-Communication – Fondamentaux de la communication,FCOM,2.0,UE21,S1,Membré
+M1206,Anglais et Informatique,AI,1.5,UE21,S1,Prensier
+M1207,PPP - Connaître le monde professionnel ,PPP-1,1.0,UE21,S1,Lambin/Roger
+,,,,,,
+,,,,,,
+UE11,Bases de l'informatique,17,,,,
+UE21,"Bases de culture scientifique, sociale et humaine",13,,,,
+,,,,,,
+Département,INFO,,,,,
+Année,INFO1,,,,,
+Date début,01/09/2016,,,,,
+Date de fin ,31/06/2017,,,,,
+Semestre,S1,,,,,
