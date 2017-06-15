@@ -7,7 +7,6 @@ Numéro,Nom,Prénom,Groupe,Date,Bac,Lycée/Etablissement
 20160574,BEKKOUCHE,Youssef,groupe 1-C-1,04/03/1999,S (SVT),Lycée Arthur Rimbaud
 20161262,BEMBEN,Nicolas,groupe 1-A-1,09/06/1998,S,Gambetta Carnot
 20160225,BIGOT,Sébastien,groupe 1-C-2,24/02/1999,S,Lycée Carnot
-,BLANCHARD,Tom,groupe 1-C-2,21/01/1997,S,Lycée Voltaire
 20152936,BOUTILLIER,Cyril,groupe 1-C-2,30/10/1995,ES,
 20160172,BOZZO,Alexis,groupe 1-C-1,30/04/1998,S,Lycée Arthur Rimbaud
 20132859,CAFFART,John,groupe 1-A-1,12/05/1995,ST2S,Université D'artois - Site De Lens
@@ -21,8 +20,8 @@ Numéro,Nom,Prénom,Groupe,Date,Bac,Lycée/Etablissement
 20160331,COUTURE,Anthony,groupe 1-C-2,18/08/1998,STI2D,Lycée Carnot
 20150505,CRETON,Guillaume,groupe 1-A-1,20/12/1997,S,Lycée Jean Bart
 20163252,CUVILLIER,Damien,groupe 1-A-1,09/06/1998,S,Lycée Robespierre
-20160981,DANIEL,Samuel,groupe 1-B-2,20/10/1998,STG,Lycée Anatole France
-20163844,D'HEM,Julien,groupe 1-C-1,30/09/1998,S,Lycée Auguste Behal
+20163844,D'HEM,Julien,groupe 1-B-2,30/09/1998,S,Lycée Auguste Behal
+20160981,DANIEL,Samuel,groupe 1-C-1,20/10/1998,STG,Lycée Anatole France
 20161355,DELEHAYE,Alexis,groupe 1-A-2,11/02/1998,S,Lycée Guy Mollet
 20157179,DELIGNE-SIMONIN,Adrien,groupe 1-A-2,09/06/1995,S,Lycée Condorcet
 20160090,DEMORY,Adam,groupe 1-B-2,07/10/1996,S,Ig2i
@@ -66,7 +65,7 @@ Numéro,Nom,Prénom,Groupe,Date,Bac,Lycée/Etablissement
 20164303,PAN,Keming,groupe 1-B-2,22/12/1996,,
 20161776,PERUCHO,Xavier,groupe 1-A-2,18/08/1998,S,Lycée Marie Curie
 20161646,PEUGNET,Colin,groupe 1-A-1,03/05/1998,S,Lycée Robespierre
-20164669,PINHAL,Nicolas,groupe 1-A-2,21/11/1998,S,Lycée Fenelon
+20164669,PINHAL,Nicolas,groupe 1-C-2,21/11/1998,S,Lycée Fenelon
 20160394,PLANCHON,Alexis,groupe 1-A-1,16/11/1998,S,Lycée Robespierre
 20161830,RAMBAUX,Colin,groupe 1-B-2,29/05/1998,STI2D,Lycée Du Hainaut
 20161739,REBOURS,Erwan,groupe 1-C-2,18/09/1997,S,Université Lille 2
@@ -74,9 +73,8 @@ Numéro,Nom,Prénom,Groupe,Date,Bac,Lycée/Etablissement
 20160521,RICHARD,Alexandre,groupe 1-C-1,16/08/1998,STI2D,Lycée Andre Malraux
 20161903,RICHARD,Thibault,groupe 1-C-2,19/03/1998,,Lycée Fenelon
 20157194,ROMANOWSKI,Florent,groupe 1-A-2,06/02/1997,S,Lycée Robespierre
-20161086,SANCTORUM,Hugo,groupe 1-B-2,15/10/1998,S,Lycee Polyvalent D'artois
-20160839,SIBILSKI,Loïc,groupe 1-A-2,27/05/1998,S,Lycée Henri Darras
-20151442,SZKARADEK,Thibaud,groupe 1-B-1,05/05/1998,S,Lycée Fernand Darchicourt
+20161086,SANCTORUM,Hugo,groupe 1-A-2,15/10/1998,S,Lycee Polyvalent D'artois
+20160839,SIBILSKI,Loïc,groupe 1-B-1,27/05/1998,S,Lycée Henri Darras
 20150331,SULANOWSKI,Axel,groupe 1-B-2,26/02/1997,STI2D,Lycée Louis Pasteur
 20160463,THELLIEZ,Flavien,groupe 1-C-1,14/11/1998,S,Lycée Anatole France
 20160385,VAILLANT,Julien,groupe 1-B-1,18/02/1998,S,Lycée Louis Pasteur
