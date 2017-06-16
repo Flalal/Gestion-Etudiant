@@ -6,12 +6,12 @@
  * Time: 14:38
  */
 
-$ToutDepartement=["INFO","MMI","TC","GEA"];
 $JSONEtudiant=null;
 
-function salut($dept,$semestre,$annee,$groupe=null ){
-    global $ToutDepartement;
-    $dept= strtoupper($dept);
+
+$DEPARTEMENT="INFO";
+function salut($semestre,$annee,$groupe=null ){
+    global $DEPARTEMENT;
     global $JSONEtudiant;
     if($semestre[1]>4 || $semestre[1]<0) {
         error_log("erreur de semestre");
@@ -23,18 +23,15 @@ function salut($dept,$semestre,$annee,$groupe=null ){
         exit(1);
 
     }
-    if(in_array($dept,$ToutDepartement)=== false){
-        error_log("erreur sur le département ");
-        exit(1);
-    }
+
 
 
 
 
     if ($semestre[1]>2) {
         for ($cptSemestre = $semestre[1]; $cptSemestre > 2; $cptSemestre--) {
-            //echo $dept . "_S" . $cptSemestre . "_" . $annee . PHP_EOL;
-            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $annee."/json/".$dept . "_S" . $cptSemestre . "_" . $annee.".json";
+            //echo $DEPARTEMENT . "_S" . $cptSemestre . "_" . $annee . PHP_EOL;
+            $intituleFichier=$DEPARTEMENT . "_S" . $cptSemestre . "_" . $annee."/json/".$DEPARTEMENT . "_S" . $cptSemestre . "_" . $annee.".json";
             if (file_exists($intituleFichier)){
                // echo $intituleFichier.PHP_EOL;
                 modifcationJson($intituleFichier);
@@ -48,8 +45,8 @@ function salut($dept,$semestre,$annee,$groupe=null ){
         $anneeprecedent[(strlen($annee)/2)-1]=$anneeprecedent[(strlen($annee)/2)-1]-1;
         $anneeprecedent[(strlen($annee))-1]=$anneeprecedent[(strlen($annee))-1]-1;
         for ($cptSemestre = $semestre[1]; $cptSemestre > 0; $cptSemestre--) {
-            //echo $dept . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
-            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$dept . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
+            //echo $DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
+            $intituleFichier=$DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
             if (file_exists($intituleFichier)){
                 // echo $intituleFichier.PHP_EOL;
                 modifcationJson($intituleFichier);
@@ -60,9 +57,9 @@ function salut($dept,$semestre,$annee,$groupe=null ){
         $anneeprecedent[(strlen($annee)/2)-1]=$anneeprecedent[(strlen($annee)/2)-1]-1;
         $anneeprecedent[(strlen($annee))-1]=$anneeprecedent[(strlen($annee))-1]-1;
         for ($cptSemestre =2; $cptSemestre > 0; $cptSemestre--) {
-          //  echo $dept . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
+          //  echo $DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent . PHP_EOL;
 
-            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$dept . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
+            $intituleFichier=$DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
             if (file_exists($intituleFichier)){
                 // echo $intituleFichier.PHP_EOL;
                 modifcationJson($intituleFichier);
@@ -74,7 +71,7 @@ function salut($dept,$semestre,$annee,$groupe=null ){
     else{
 
         for ($cptSemestre = $semestre[1]; $cptSemestre > 0; $cptSemestre--) {
-            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $annee."/json/".$dept . "_S" . $cptSemestre . "_" . $annee.".json";
+            $intituleFichier=$DEPARTEMENT . "_S" . $cptSemestre . "_" . $annee."/json/".$DEPARTEMENT . "_S" . $cptSemestre . "_" . $annee.".json";
             if (file_exists($intituleFichier)) {
                 // echo $intituleFichier.PHP_EOL;
                 modifcationJson($intituleFichier);
@@ -85,7 +82,7 @@ function salut($dept,$semestre,$annee,$groupe=null ){
         $anneeprecedent[(strlen($annee)/2)-1]=$anneeprecedent[(strlen($annee)/2)-1]-1;
         $anneeprecedent[(strlen($annee))-1]=$anneeprecedent[(strlen($annee))-1]-1;
         for ($cptSemestre = $semestre[1]; $cptSemestre > 0; $cptSemestre--) {
-            $intituleFichier=$dept . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$dept . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
+            $intituleFichier=$DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent."/json/".$DEPARTEMENT . "_S" . $cptSemestre . "_" . $anneeprecedent.".json";
             if (file_exists($intituleFichier)){
                 // echo $intituleFichier.PHP_EOL;
                 modifcationJson($intituleFichier);
@@ -97,7 +94,7 @@ function salut($dept,$semestre,$annee,$groupe=null ){
     $contenu_json=json_encode($JSONEtudiant);
 
 
-    $fichier=fopen($dept."_conseille.json","w+");
+    $fichier=fopen($DEPARTEMENT."_conseille.json","w+");
     fwrite($fichier,$contenu_json);
     fclose($fichier);
 
@@ -137,12 +134,68 @@ function modifcationJson($intituler_Fichier){
     }
 }
 
-
-if ( count($argv)==4){
-    salut($argv[1],$argv[2],$argv[3]);/// 1er argument : Departement , 2eme argument : Semestre , 3 eme argument: année
+function validateDate($date, $format = 'Y-m-d H:i:s')
+{
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
 }
-else
-    salut($argv[1],$argv[2],$argv[3],$argv[4]);// 4 eme argument : le groupe
+
+
+
+function chercherFichier($semestre,$option=null,$option2=null){
+    global $DEPARTEMENT;
+    if ($option===null && $option2===null){
+
+    }
+
+
+
+    elseif ($option!==null && $option2===null){
+        if (validateDate($option,'Y')===false){
+
+
+
+        }
+        else{
+            $d = DateTime::createFromFormat('Y', $option);
+            $date=$d->format("y");
+
+
+        }
+
+    }
+    elseif ($option!==null && $option2!==null){
+        if (validateDate($option,'Y')==false && validateDate($option2,'Y')==true){
+            $d = DateTime::createFromFormat('Y', $option2);
+            $date=$d->format("y");
+
+        }else{
+            error_log("erreur sur les arguments Semestre groupe et Année ");
+        }
+
+    }
+
+
+}
+
+
+
+if( count($argv)<2){
+    error_log("manque l'argument du semestre");
+    exit(1);
+}
+$semestre=$argv[1];//Semestre
+$option=null;
+$date=null;
+if( count($argv)>=3){
+    $option=$argv[2];// groupe si il y a des lite spécifique date passer en paramettre si elle n'existe c'est la date courante
+
+}
+
+
+if( count($argv)>=4){
+    $date=$argv[3];// groupe si il y a des lite spécifique date passer en paramettre si elle n'existe c'est la date courante
+}
 
 
 
