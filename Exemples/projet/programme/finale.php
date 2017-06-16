@@ -13,16 +13,6 @@ $DEPARTEMENT="INFO";
 function salut($semestre,$annee,$groupe=null ){
     global $DEPARTEMENT;
     global $JSONEtudiant;
-    if($semestre[1]>4 || $semestre[1]<0) {
-        error_log("erreur de semestre");
-        exit(1);
-    }
-
-    if(strlen($annee)!=8){
-        error_log("erreur sur l'année ");
-        exit(1);
-
-    }
 
 
 
@@ -145,6 +135,7 @@ function validateDate($date, $format = 'Y-m-d H:i:s')
 function chercherFichier($semestre,$option=null,$option2=null){
     global $DEPARTEMENT;
     if ($option===null && $option2===null){
+        salut($semestre,date('Y'));
 
     }
 
