@@ -93,7 +93,6 @@ function tri(a,b){
 
 function ajouterEtudiant (etudiant) {
 
-    console.log(etudiant);
     var root = document.getElementById("liste_des_étudiants");
     var modal = document.getElementById('listemodal');
     var titre=document.getElementById('titreTableau');
@@ -205,6 +204,7 @@ function ajouterEtudiant (etudiant) {
                 }
             }
 
+
             // permet de afficher correctement le tableau du plus récent
             tabSem.reverse();
             for (var j in tabSem) {
@@ -258,6 +258,7 @@ function ajouterEtudiant (etudiant) {
     for (var cpt = 0; cpt < 4; cpt++) {
        test.ajouterSemestre(tabSem[cpt]);
     }
+    console.log(test);
     promo.ajouterEtudiantCLA(test);
     promo.Promoclassement(42);
 
