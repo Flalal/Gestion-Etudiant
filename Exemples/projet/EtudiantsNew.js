@@ -1,4 +1,7 @@
 /**
+ * Created by Frederic on 20/06/2017.
+ */
+/**
  * Created by Frederic on 10/04/2017.
  */
 
@@ -80,76 +83,6 @@ function Promo() {
     this.getnbEtudiants=function () {
         return this.nbEtudiant;
     };
-
-    this.Promoclassement=function (intituler,numeroEtu) {
-        var dut=new Array;
-                for (var tmpetu in this.etu ){
-            dut[tmpetu]=new Array();
-            var ToutSemestres=this.etu[tmpetu].getToutSemestre();
-            for (var se in ToutSemestres) {
-                if (ToutSemestres[se].getToutUE().length != 0) {
-                    console.log(intituler);
-                        if (ToutSemestres[se].getSemestre() == intituler) {
-                            dut[tmpetu][0]=this.etu[tmpetu].getNumero();
-                            dut[tmpetu][1] = ToutSemestres[se].getMoyenneSem();
-                            break;
-                        }
-
-
-
-                    var ToutUE=ToutSemestres[se].getToutUE();
-                    for (var ue in ToutUE ) {
-                        if (ToutUE[ue].getIdUe()==intituler){
-                            dut[tmpetu][0]=this.etu[tmpetu].getNumero();
-                            dut[tmpetu][1] = ToutUE[ue].getMoyenneUE();
-                            break;
-                        }
-                        var ToutMatiere=ToutUE[ue].getToutMatiere();
-                        for( var matiere in ToutMatiere){
-                            if(ToutMatiere[matiere].getIntitule()+ToutUE[ue].getIdUe()==intituler){
-                                dut[tmpetu][0]=this.etu[tmpetu].getNumero();
-                                dut[tmpetu][1]=ToutMatiere[matiere].getMoyenne();
-
-                            }
-                        }
-
-                    }
-
-                }
-            }
-
-
-        }
-        var trie=cleanArray(dut);
-
-        for(var tmpdut in trie ){
-            for (var tmpdut2=0; tmpdut2<trie.length-1;tmpdut2++){
-                if (dut[tmpdut2][1]<dut[tmpdut2+1][1]){
-                    var tmp=dut[tmpdut2+1];
-                    trie[tmpdut2+1]=dut[tmpdut2];
-                    trie[tmpdut2]=tmp;
-
-                }
-            }
-        }
-
-
-        var classement=0;
-        for ( tmp=0;tmp<trie.length;tmp++){
-            if(trie[tmp][0].indexOf(numeroEtu)!=-1){
-                return 1+classement;
-            }
-            classement+=trie[tmp][0].split("_").length-1;
-        }
-
-    };
-
-
-
-
-
-
-
 
 }
 function cleanArray(array) {// permet de surprimmer le doublon
@@ -271,16 +204,22 @@ function Etudiant (numero, nom, prenom, dept,groupe,dateN,bac) {
 
 
 
-function Semestre(num,annee) {
-    if (arguments.length < 2 ) throw new Error("Nombre arguments insuffisants");
+function Semestre(num,annee,coefficient,moyenne,classement,moyennePromo,min,max) {
+    if (arguments.length < 8 ) throw new Error("Nombre arguments insuffisants");
     if (typeof num !== 'number' && typeof annee !== 'number') throw new Error("Type note invalide");
     this.id=num;
     this.annee=annee;
     this.UE=new Array();
-    this.moyenneSem=0;
-    this.coefficientSem=0;
+    this.coefficientSem=coefficient;
     this.SemestreValde=true;
-    this.cptUeNonR=0;
+    this.classement=classement;
+
+    if (verifierNote(moyennePromo) && verifierNote(moyenne) && verifierNote(min) && verifierNote(max)) {
+        this.moyenneMax=max;
+        this.moyenneMin=min;
+        this.moyenneSem=moyenne;
+        this.moyennePromo = moyennePromo;
+    }
 
     this.getAnnee=function () {
         return this.annee;
@@ -294,15 +233,6 @@ function Semestre(num,annee) {
 
         if (typeof uejenesaispas  !== 'object')throw new Error("Type note invalide");
         this.UE.push(uejenesaispas);
-        if (uejenesaispas.getRedoubler()==false){
-            this.moyenneSem+= uejenesaispas.getMoyenneUE()*uejenesaispas.getCoefficientUE();
-            this.coefficientSem+=uejenesaispas.getCoefficientUE();
-            this.cptUeNonR++;
-        }
-
-        if (! uejenesaispas.ValidationUe()){
-            this.SemestreValde=false;
-        }
     };
 
     this.validationSemestre=function () {
@@ -320,8 +250,18 @@ function Semestre(num,annee) {
                 return this.UE[i];
         }throw Error("Ue que vous aviez demander n'existe pas")
     };
+    this.getMoyennePromoS=function () {
+        return this.moyennePromo;
+
+    };
+    this.getMoyenneMaxS=function () {
+        return this.moyenneMax;
+    };
+    this.getMoyenneMinS=function () {
+        return this.moyenneMin;
+    };
     this.getMoyenneSem=function () {
-        return this.moyenneSem/this.coefficientSem;
+        return this.moyenneSem;
 
     };
     this.getCoefficientSem=function () {
@@ -341,18 +281,25 @@ function Semestre(num,annee) {
 }
 
 
-function ue (identifiant,annee) {
+function ue (identifiant,annee, coefficient,moyenne,classement,moyennePromo,min,max) {
 
     if (arguments.length < 1  ) throw new Error("Nombre arguments insuffisants");
     this.id=identifiant;
     this.matieres=new Array();
-    this.moyenneUE=0;
     this.tauxAbsent=0;
-    this.coefficientUE=0;
+    this.coefficientUE=coefficient;
     this.valideAbs=true;
     this.commentaire="";
     this.annee=annee;
     this.redoubler=false;
+    this.classement=classement;
+
+    if (verifierNote(moyennePromo) && verifierNote(moyenne) && verifierNote(min) && verifierNote(max)) {
+        this.moyenneMax=max;
+        this.moyenneMin=min;
+        this.moyenneUE=moyenne;
+        this.moyennePromo = moyennePromo;
+    }
 
     this.ajouterCommentaire=function(comment){
         if(typeof comment!='string')throw new Error("Type commentaire invalide");
@@ -373,10 +320,6 @@ function ue (identifiant,annee) {
     this.ajouterMatiere=function (matiere) {// function ajouter une matiere et permet de calculer la moyenne de ue et coeff
         if (typeof matiere !== 'object')throw new Error("Type note invalide");
         this.matieres.push(matiere);
-        this.moyenneUE+=matiere.getCoefficient()*matiere.getMoyenne();
-        this.coefficientUE+=matiere.getCoefficient();
-        if(matiere.getTauxAbsent()>=10)
-            this.valideAbs=false;
 
     };
 
@@ -420,32 +363,61 @@ function ue (identifiant,annee) {
         return this.coefficientUE;
 
     };
+    this.getMoyennePromoUE=function () {
+        return this.moyennePromoM;
+
+    };
+    this.getMoyenneMaxUE=function () {
+        return this.moyenneMax;
+    };
+    this.getMoyenneMinUE=function () {
+        return this.moyenneMin;
+    };
 
     this.getMoyenneUE=function () {
-        return this.moyenneUE/this.coefficientUE;
+        return this.moyenneUE;
 
     };
 
 
 }
+function verifierNote(note) {
+    if (typeof note !== 'number') {
+        throw new Error("Type note invalide");
+        return false
+    }
+    if (note  <= 0 || note >= 20 ) {
+        throw new  Error("Valeur note invalide");
+        return false;
+    }
 
+
+    return true
+
+}
 
 /**
  * Created by Frederic on 10/04/2017.
  */
-function Matiere (intitule, abreviation, coefficient,moyenne) {
-    if (arguments.length < 3  ) throw new Error("Nombre arguments insuffisants");
+function Matiere (intitule, abreviation, coefficient,moyenne,classement,moyennePromo,min,max) {
+    if (arguments.length < 6) throw new Error("Nombre arguments insuffisants");
     if (coefficient < 0  ) throw new Error("Coefficient négatif");
+    if (verifierNote(moyennePromo) && verifierNote(moyenne) && verifierNote(min) && verifierNote(max)) {
+        this.moyenneMax=max;
+        this.moyenneMin=min;
+        this.moyenneMatiere=moyenne;
+        this.moyennePromoM = moyennePromo;
+    }
     this.intitule = intitule;
     this.abreviation = abreviation;
     this.coefficient = coefficient;
-    this.listeNotes = new Array();
-    this.somme = 0.0;
     this.tauxAbsent=0;
+    this.classement=classement;
 
     this.getCoefficient = function () {
         return this.coefficient;
     };
+
 
     this.getAbreviation = function () {
         return this.abreviation;
@@ -455,9 +427,7 @@ function Matiere (intitule, abreviation, coefficient,moyenne) {
         return this.intitule;
     };
 
-    this.getNombreNotes = function () {
-        return this.listeNotes.length;
-    };
+
     this.getTauxAbsent=function () {
         return this.tauxAbsent;
     };
@@ -466,30 +436,18 @@ function Matiere (intitule, abreviation, coefficient,moyenne) {
         this.tauxAbsent=taux;
 
     };
+    this.getMoyennePromoM=function () {
+        return this.moyennePromoM;
 
-    this.ajouterNotes = function (note) {
-        if (typeof note !== 'number') throw new Error("Type note invalide");
-        if (note  < 0 || noteEtudiants.js > 20 ) throw new  Error("Valeur note invalide");
-        this.listeNotes.push(note);
-        this.somme += note;
     };
-
-    this.toString = function () {
-        var out = "";
-        out+= this.intitule + " ("+this.abreviation + ":"+this.coefficient +"): ";
-        var first = true;
-        for (var i in this.listeNotes) {
-            if (! first ) {
-                out += ", ";
-            } else first = false;
-            out += this.listeNotes[i];
-        }
-        return out;
+    this.getMoyenneMaxM=function () {
+        return this.moyenneMax;
+    };
+    this.getMoyenneMinM=function () {
+        return this.moyenneMin;
     };
 
     this.getMoyenne = function ()  {
-        var nbNotes = this.listeNotes.length;
-        if (nbNotes <= 0) return 0;
-        return this.somme/nbNotes;
+        return this.moyenneMatiere;
     }
 }
