@@ -206,7 +206,6 @@ function Etudiant (numero, nom, prenom, dept,groupe,dateN,bac) {
 
 function Semestre(num,annee,coefficient,moyenne,classement,moyennePromo,min,max) {
     if (arguments.length < 8 ) throw new Error("Nombre arguments insuffisants");
-    if (typeof num !== 'number' && typeof annee !== 'number') throw new Error("Type note invalide");
     this.id=num;
     this.annee=annee;
     this.UE=new Array();
@@ -267,7 +266,11 @@ function Semestre(num,annee,coefficient,moyenne,classement,moyennePromo,min,max)
     this.getCoefficientSem=function () {
         return this.coefficientSem;
 
-    }
+    };
+    this.getClassementS=function () {
+        return this.classement
+
+    };
 
 
 
@@ -283,7 +286,7 @@ function Semestre(num,annee,coefficient,moyenne,classement,moyennePromo,min,max)
 
 function ue (identifiant,annee, coefficient,moyenne,classement,moyennePromo,min,max) {
 
-    if (arguments.length < 1  ) throw new Error("Nombre arguments insuffisants");
+    if (arguments.length < 8  ) throw new Error("Nombre arguments insuffisants");
     this.id=identifiant;
     this.matieres=new Array();
     this.tauxAbsent=0;
@@ -364,7 +367,11 @@ function ue (identifiant,annee, coefficient,moyenne,classement,moyennePromo,min,
 
     };
     this.getMoyennePromoUE=function () {
-        return this.moyennePromoM;
+        return this.moyennePromo;
+
+    };
+    this.getClassementUE=function () {
+        return this.classement
 
     };
     this.getMoyenneMaxUE=function () {
@@ -414,6 +421,11 @@ function Matiere (intitule, abreviation, coefficient,moyenne,classement,moyenneP
     this.tauxAbsent=0;
     this.classement=classement;
 
+
+    this.getClassementM=function () {
+        return this.classement
+
+    };
     this.getCoefficient = function () {
         return this.coefficient;
     };
