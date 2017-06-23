@@ -1,0 +1,921 @@
+{ "Departement":  "INFO",
+  "Promo":{
+    "Semestre":{
+      "S1": {
+        "moyennnePromo": 12.34,
+        "effectifs": 80,
+        "coefficient": 12,
+        "minimum": 5.12,
+        "maximum": 16.34,
+        "UE": {
+          "UE11": {
+            "coefficient":17,
+            "moyennePromo": 12.32,
+            "minimum": 5.12,
+            "maximum": 16.34,
+            "matieres": {
+              "AP-1": {
+                "intitule": "AP-1",
+                "coefficient": 3.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "SE-1": {
+                "intitule": "SE-1",
+                "coefficient": 3.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "SD-1": {
+                "intitule": "SD-1",
+                "coefficient": 2.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "BD-1": {
+                "intitule": "BD-1",
+                "coefficient": 3.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "CDIN": {
+                "intitule": "CDIN",
+                "coefficient": 2.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "PT-1": {
+                "intitule": "PT-1",
+                "coefficient": 1.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              }
+            }
+          },
+          "UE12": {
+            "coefficient":13,
+            "moyennePromo": 12.32,
+            "minimum": 5.12,
+            "maximum": 16.34,
+            "matieres": {
+              "MD": {
+                "intitule": "MD",
+                "coefficient": 2.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "Alg": {
+                "intitule": "Alg",
+                "coefficient": 2.0,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "EE": {
+                "intitule": "EE",
+                "coefficient": 1.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "ORGA": {
+                "intitule": "ORGA",
+                "coefficient": 2.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "FCOM": {
+                "intitule": "FCOM",
+                "coefficient": 2.0,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "AI": {
+                "coefficient": 1.5,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              },
+              "PPP-1": {
+                "intitule": "PPP-1",
+                "coefficient": 1.0,
+                "moyennePromo": 12.32,
+                "minimum": 5.12,
+                "maximum": 16.34
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Liste" :{
+    "20112": {"numero":"20112",
+      "nom":"c'estqui",
+      "prenom":"personne",
+      "departement":"INFO",
+
+      "informations":{
+        "dateNaissance":"06/03/1998",
+        "Lycee":"je ne sais pas",
+        "bac":"S_2015"
+      },
+      "groupe":"IPI",
+      "avatar":"20112.png",
+      "semestres": {
+        "S1": {
+          "commentaire":"ADM",
+          "annee":"2015-2016",
+          "moyennePromo": 12.34,
+          "moyenne": 11.32,
+          "effectifs": 80,
+          "classement":"1/80",
+          "coefficient": 30,
+          "minimum": 5.12,
+          "maximum": 16.34,
+          "UE": {
+            "UE11": {
+              "commentaire":"ADM",
+              "annee":"2015-2016",
+              "TauxAbsent":0,
+              "coefficient":17,
+              "classement":"1/80",
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "moyenne":11.48,
+              "maximum": 16.34,
+              "matieres":{
+                "AP-1": {
+                  "intitule":"AP-1",
+                  "coefficient":3.5,
+                  "TauxAbsent":0,
+                  "commentaire":"ADM",
+                  "moyennePromo": 12.32,
+                  "moyenne":11.48,
+                  "classement":"1/80",
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "SE-1": {
+                  "coefficient":3.5,
+                  "intitule":"SE-1",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "classement":"1/80",
+                  "moyenne":11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "SD-1": {
+                  "intitule":"SD-1",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "coefficient":2.5,
+                  "classement":"1/80",
+                  "moyenne":11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "BD-1": {
+                  "intitule":"BD-1",
+                  "commentaire":"ADM",
+                  "coefficient":3.5,
+                  "TauxAbsent":0,
+                  "classement":"1/80",
+                  "moyenne":11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "CDIN": {
+                  "intitule":"CDIN",
+                  "classement":"1/80",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "moyenne":11.48,
+                  "coefficient":2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "PT-1": {
+                  "intitule":"PT-1",
+                  "classement":"1/80",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "moyenne":11.48,
+                  "coefficient":1.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            },
+            "UE12": {
+              "annee":"2015-2016",
+              "classement":"1/80",
+              "commentaire":"ADM",
+              "coefficient":13,
+              "TauxAbsent":0,
+              "moyenne":11.48,
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "maximum": 16.34,
+              "matieres": {
+                "MD": {
+                  "intitule": "MD",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Alg": {
+                  "intitule": "Alg",
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 2.0,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "EE": {
+                  "intitule": "EE",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "ORGA": {
+                  "intitule": "ORGA",
+                  "classement": "1/80",
+                  "coefficient": 2.5,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "FCOM": {
+                  "intitule": "FCOM",
+                  "classement": "1/80",
+                  "coefficient": 2.0,
+                  "moyenne": 11.48,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "AI": {
+                  "intitule": "AI",
+                  "classement": "1/80",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "PPP-1": {
+                  "intitule": "PPP-1",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            }
+          }
+        }, "S2": {
+          "commentaire":"ADM",
+          "annee":"2015-2016",
+          "moyennePromo": 14.34,
+          "moyenne": 11.32,
+          "effectifs": 80,
+          "classement":"1/80",
+          "coefficient": 30,
+          "minimum": 5.12,
+          "maximum": 16.34,
+          "UE": {
+            "UE21": {
+              "commentaire":"ADM",
+              "annee":"2015-2016",
+              "TauxAbsent":0,
+              "coefficient":16,
+              "classement":"1/80",
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "moyenne":11.48,
+              "maximum": 16.34,
+              "matieres":{
+                "RX-1": {
+                  "intitule":"RX-1",
+                  "coefficient":1.5,
+                  "TauxAbsent":0,
+                  "commentaire":"ADM",
+                  "moyennePromo": 12.32,
+                  "moyenne":11.48,
+                  "classement":"1/80",
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "SE-2": {
+                  "coefficient":1.5,
+                  "intitule":"SE-2",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "classement":"1/80",
+                  "moyenne":11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "POO-1": {
+                  "intitule":"POO-1",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "coefficient":3.5,
+                  "classement":"1/80",
+                  "moyenne":11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "BD-2": {
+                  "intitule":"BD-2",
+                  "commentaire":"ADM",
+                  "coefficient":2.5,
+                  "TauxAbsent":0,
+                  "classement":"1/80",
+                  "moyenne":11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "COO": {
+                  "intitule":"COO",
+                  "classement":"1/80",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "moyenne":11.48,
+                  "coefficient":2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },"IHM": {
+                  "intitule":"IHM",
+                  "classement":"1/80",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "moyenne":11.48,
+                  "coefficient":2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "PT-2": {
+                  "intitule":"PT-2",
+                  "classement":"1/80",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "moyenne":11.48,
+                  "coefficient":1.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            },
+            "UE22": {
+              "annee":"2015-2016",
+              "classement":"1/80",
+              "commentaire":"ADM",
+              "coefficient":14,
+              "TauxAbsent":0,
+              "moyenne":11.48,
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "maximum": 16.34,
+              "matieres": {
+                "GL": {
+                  "intitule": "MD",
+                  "classement": "11/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "AN": {
+                  "intitule": "AN",
+                  "classement": "12/80",
+                  "moyenne": 11.48,
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 2.0,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "ECFJS": {
+                  "intitule": "ECFJS",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 3.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "GPI": {
+                  "intitule": "GPI",
+                  "classement": "1/80",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "ECIA": {
+                  "intitule": "ECIA",
+                  "classement": "1/80",
+                  "coefficient": 1.5,
+                  "moyenne": 11.48,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Anglais-2": {
+                  "intitule": "Anglais-2",
+                  "classement": "1/80",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "PPP-2": {
+                  "intitule": "PPP-2",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            }
+          }
+        },"S3": {
+          "commentaire":"ADM",
+          "annee":"2015-2016",
+          "moyennePromo": 14.34,
+          "moyenne": 11.32,
+          "effectifs": 80,
+          "classement":"1/80",
+          "coefficient": 30,
+          "minimum": 5.12,
+          "maximum": 16.34,
+          "UE": {
+            "UE31": {
+              "commentaire": "ADM",
+              "annee": "2015-2016",
+              "TauxAbsent": 0,
+              "coefficient": 12,
+              "classement": "5/80",
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "moyenne": 11.48,
+              "maximum": 16.34,
+              "matieres": {
+                "RX-2": {
+                  "intitule": "RX-2",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyennePromo": 12.32,
+                  "moyenne": 11.48,
+                  "classement": "1/80",
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "SE-3": {
+                  "coefficient": 2.5,
+                  "intitule": "SE-3",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "APA": {
+                  "intitule": "APA",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "BDA": {
+                  "intitule": "BDA",
+                  "commentaire": "ADM",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "CPA": {
+                  "intitule": "CPA",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Pweb-1": {
+                  "intitule": "Pweb-1",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+               }
+              },
+            "UE32": {
+              "annee": "2015-2016",
+              "classement": "11/80",
+              "commentaire": "ADM",
+              "coefficient": 14,
+              "TauxAbsent": 0,
+              "moyenne": 11.48,
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "maximum": 16.34,
+              "matieres": {
+                "GL": {
+                  "intitule": "ModMath",
+                  "classement": "11/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Proba": {
+                  "intitule": "Proba",
+                  "classement": "12/80",
+                  "moyenne": 11.48,
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 2.0,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Droit": {
+                  "intitule": "Droit",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 3.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "GSI": {
+                  "intitule": "GSI",
+                  "classement": "1/80",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "FCOM": {
+                  "intitule": "FCOM",
+                  "classement": "1/80",
+                  "coefficient": 1.5,
+                  "moyenne": 11.48,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Ang-3": {
+                  "intitule": "Ang-3",
+                  "classement": "1/80",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            },
+            "UE33":{
+              "annee": "2015-2016",
+              "classement": "11/80",
+              "commentaire": "ADM",
+              "coefficient": 14,
+              "TauxAbsent": 0,
+              "moyenne": 11.48,
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "maximum": 16.34,
+              "matieres": {
+                "PPP-2": {
+                  "intitule": "PPP-2",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },"ProdApp": {
+                  "intitule": "ProdApp",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }, "PT-3": {
+                  "intitule": "PT-2",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 1.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+
+                }
+
+            }
+          }
+        }
+      },
+        "S4": {
+          "commentaire":"ADM",
+          "annee":"2015-2016",
+          "moyennePromo": 14.34,
+          "moyenne": 11.32,
+          "effectifs": 80,
+          "classement":"78/80",
+          "coefficient": 30,
+          "minimum": 5.12,
+          "maximum": 16.34,
+          "UE": {
+            "UE41": {
+              "commentaire": "ADM",
+              "annee": "2015-2016",
+              "TauxAbsent": 0,
+              "coefficient": 12,
+              "classement": "78/80",
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "moyenne": 11.48,
+              "maximum": 16.34,
+              "matieres": {
+                "AdmSR": {
+                  "intitule": "AdmSR",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyennePromo": 12.32,
+                  "moyenne": 11.48,
+                  "classement": "78/80",
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "ProgRep": {
+                  "coefficient": 2.5,
+                  "intitule": "ProgRep",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "CompInfo": {
+                  "intitule": "CompInfo",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "ProgMobile": {
+                  "intitule": "ProgMobile",
+                  "commentaire": "ADM",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "classement": "1/80",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "PT-C": {
+                  "intitule": "PT-C",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Pweb-2": {
+                  "intitule": "Pweb-2",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            },
+            "UE42": {
+              "annee": "2015-2016",
+              "classement": "11/80",
+              "commentaire": "ADM",
+              "coefficient": 14,
+              "TauxAbsent": 0,
+              "moyenne": 11.48,
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "maximum": 16.34,
+              "matieres": {
+                "Atelier": {
+                  "intitule": "Atelier",
+                  "classement": "11/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "moyenne": 11.48,
+                  "coefficient": 2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "RO": {
+                  "intitule": "RO",
+                  "classement": "12/80",
+                  "moyenne": 11.48,
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 2.0,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Droit": {
+                  "intitule": "Droit",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 3.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "GSI": {
+                  "intitule": "GSI",
+                  "classement": "1/80",
+                  "coefficient": 1.5,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "FCOM": {
+                  "intitule": "FCOM",
+                  "classement": "1/80",
+                  "coefficient": 1.5,
+                  "moyenne": 11.48,
+                  "TauxAbsent": 0,
+                  "commentaire": "ADM",
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                },
+                "Ang-3": {
+                  "intitule": "Ang-3",
+                  "classement": "1/80",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.5,
+                  "commentaire": "ADM",
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+              }
+            },
+            "UE43":{
+              "annee": "2015-2016",
+              "classement": "11/80",
+              "commentaire": "ADM",
+              "coefficient": 14,
+              "TauxAbsent": 0,
+              "moyenne": 11.48,
+              "moyennePromo": 12.32,
+              "minimum": 5.12,
+              "maximum": 16.34,
+              "matieres": {
+                "Stage": {
+                  "intitule": "Stage ",
+                  "classement": "1/80",
+                  "commentaire": "ADM",
+                  "TauxAbsent": 0,
+                  "coefficient": 1.0,
+                  "moyenne": 11.48,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
+                }
+
+              }
+            }
+          }
+        }
+    }
+  }}}

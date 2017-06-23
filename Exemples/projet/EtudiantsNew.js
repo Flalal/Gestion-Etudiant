@@ -113,9 +113,9 @@ function compare(a, b) {
 
 
 
-function Etudiant (numero, nom, prenom, dept,groupe,dateN,bac) {
+function Etudiant (numero, nom, prenom, dept,groupe,avatar) {
 
-    if (arguments.length < 7) throw new Error("Nombre arguments insuffisants");
+    if (arguments.length < 5) throw new Error("Nombre arguments insuffisants");
     this.nom = nom.toLowerCase();
     this.prenom = prenom.toLowerCase();
     var tmp=false;
@@ -129,9 +129,7 @@ function Etudiant (numero, nom, prenom, dept,groupe,dateN,bac) {
     if (!tmp)throw  new Error("problement sur nom du département");
     this.departatement=dept;
 
-    this.avatar=this.prenom+"_"+this.nom+".jpg";
-    this.bac=bac;
-    this.dateNaissance=new Date(dateN);
+    this.avatar=avatar;
     this.numero = numero;
 
 

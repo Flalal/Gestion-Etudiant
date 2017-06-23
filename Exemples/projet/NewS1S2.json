@@ -123,11 +123,14 @@
       "nom":"c'estqui",
       "prenom":"personne",
       "departement":"INFO",
-      "dateNaissance":"06/03/1998",
-      "Lycee":"je ne sais pas",
-      "bac":"S_2015",
+
+      "informations":{
+        "dateNaissance":"06/03/1998",
+        "Lycee":"je ne sais pas",
+        "bac":"S_2015"
+      },
       "groupe":"IPI",
-      "avatar":"20150928.png",
+      "avatar":"20112.png",
       "semestres": {
         "S1": {
           "commentaire":"ADM",
@@ -310,11 +313,10 @@
               }
             }
           }
-        },
-        "S2": {
+        }, "S2": {
           "commentaire":"ADM",
           "annee":"2015-2016",
-          "moyennePromo": 12.34,
+          "moyennePromo": 14.34,
           "moyenne": 11.32,
           "effectifs": 80,
           "classement":"1/80",
@@ -326,7 +328,7 @@
               "commentaire":"ADM",
               "annee":"2015-2016",
               "TauxAbsent":0,
-              "coefficient":17,
+              "coefficient":16,
               "classement":"1/80",
               "moyennePromo": 12.32,
               "minimum": 5.12,
@@ -336,16 +338,6 @@
                 "RX-1": {
                   "intitule":"RX-1",
                   "coefficient":1.5,
-                  "TauxAbsent":0,
-                  "commentaire":"ADM",
-                  "moyennePromo": 12.32,
-                  "moyenne":11.48,
-                  "classement":"1/80",
-                  "minimum": 5.12,
-                  "maximum": 16.34
-                },"IHM": {
-                  "intitule":"IHM-1",
-                  "coefficient":2.5,
                   "TauxAbsent":0,
                   "commentaire":"ADM",
                   "moyennePromo": 12.32,
@@ -369,7 +361,7 @@
                   "intitule":"POO-1",
                   "commentaire":"ADM",
                   "TauxAbsent":0,
-                  "coefficient":2.5,
+                  "coefficient":3.5,
                   "classement":"1/80",
                   "moyenne":11.48,
                   "moyennePromo": 12.32,
@@ -397,9 +389,19 @@
                   "moyennePromo": 12.32,
                   "minimum": 5.12,
                   "maximum": 16.34
+                },"IHM": {
+                  "intitule":"IHM",
+                  "classement":"1/80",
+                  "commentaire":"ADM",
+                  "TauxAbsent":0,
+                  "moyenne":11.48,
+                  "coefficient":2.5,
+                  "moyennePromo": 12.32,
+                  "minimum": 5.12,
+                  "maximum": 16.34
                 },
                 "PT-2": {
-                  "intitule":"PT-1",
+                  "intitule":"PT-2",
                   "classement":"1/80",
                   "commentaire":"ADM",
                   "TauxAbsent":0,
@@ -415,7 +417,7 @@
               "annee":"2015-2016",
               "classement":"1/80",
               "commentaire":"ADM",
-              "coefficient":13,
+              "coefficient":14,
               "TauxAbsent":0,
               "moyenne":11.48,
               "moyennePromo": 12.32,
@@ -423,8 +425,8 @@
               "maximum": 16.34,
               "matieres": {
                 "GL": {
-                  "intitule": "GL",
-                  "classement": "1/80",
+                  "intitule": "MD",
+                  "classement": "11/80",
                   "commentaire": "ADM",
                   "TauxAbsent": 0,
                   "moyenne": 11.48,
@@ -435,7 +437,7 @@
                 },
                 "AN": {
                   "intitule": "AN",
-                  "classement": "1/80",
+                  "classement": "12/80",
                   "moyenne": 11.48,
                   "commentaire": "ADM",
                   "TauxAbsent": 0,
@@ -481,7 +483,7 @@
                   "intitule": "Anglais-2",
                   "classement": "1/80",
                   "TauxAbsent": 0,
-                  "coefficient": 2.5,
+                  "coefficient": 1.5,
                   "commentaire": "ADM",
                   "moyenne": 11.48,
                   "moyennePromo": 12.32,
@@ -489,7 +491,7 @@
                   "maximum": 16.34
                 },
                 "PPP-2": {
-                  "intitule": "PPP-1",
+                  "intitule": "PPP-2",
                   "classement": "1/80",
                   "commentaire": "ADM",
                   "TauxAbsent": 0,
