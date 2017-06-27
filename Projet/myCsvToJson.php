@@ -192,6 +192,16 @@ class Semestre {
 
     }
 
+    function ajouterRapportSemestre ($rapport) {
+        $rapSemestre = $rapport["M S3"];
+        $this->minimum = $rapSemestre["minimum"];
+        $this->maximum = $rapSemestre["maximum"];
+        $this->moyennePromo = $rapSemestre["moyennePromo"];
+        $this->listeNotes = array();
+        foreach ($rapSemestre["listeNotes"] as $value) {
+            $this->listeNotes[] = $value+0;
+        }
+    }
     function ajouterMatiereDansUE ($liste) {
         // Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
         // M3101;Principes des systèmes d'exploitation ;SE-3;2.5;UE31;S3;Roussel
@@ -602,7 +612,9 @@ function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
     echo json_encode($semestreEtudiant,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
 
 */
-    extraireRapportSemestre ($fileNotes,$semestre,$promotion);
+    $rapportSemestre = extraireRapportSemestre ($fileNotes,$semestre,$promotion);
+    $semestre->ajouterRapportSemestre ($rapportSemestre);
+    echo json_encode($semestre,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
 }
 
 function getPeriodeUniversitaire () {
