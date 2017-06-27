@@ -31,12 +31,6 @@ function salut($semestre,$annee,$groupe=null ){
     validationFichier($DEPARTEMENT.'/'.($annee-1).'-'.$annee);
 
 
-
-
-
-
-
-
     if ($semestre[1]>2) {
         for ($cptSemestre = $semestre[1]; $cptSemestre > 2; $cptSemestre--) {
             if ($cptSemestre==4){
@@ -100,14 +94,9 @@ function salut($semestre,$annee,$groupe=null ){
 
     $contenu_json=json_encode($JSONEtudiant);
 
-
     $fichier=fopen($DEPARTEMENT."_conseille.json","w+");
     fwrite($fichier,$contenu_json);
     fclose($fichier);
-
-
-
-
 
 }
 
@@ -153,11 +142,10 @@ function chercherFichier($semestre,$option=null,$option2=null){
     global $DEPARTEMENT;
     if ($option===null && $option2===null){
         salut($semestre,date('Y'));
-
     }
 
 
-    elseif ($option!==null && $option2===null){
+    else if ($option!==null && $option2===null){
         if (validateDate($option,'Y')===false){
             salut($semestre,date('Y'),$option);
 
@@ -167,15 +155,11 @@ function chercherFichier($semestre,$option=null,$option2=null){
         else{
             $d = DateTime::createFromFormat('Y', $option);
             $date=$d->format("Y");
-
             salut($semestre,$date);
-
-
-
         }
 
     }
-    elseif ($option!==null && $option2!==null){
+    else if ($option!==null && $option2!==null){
         if (validateDate($option,'Y')==false && validateDate($option2,'Y')==true){
             $d = DateTime::createFromFormat('Y', $option2);
             $date=$d->format("Y");

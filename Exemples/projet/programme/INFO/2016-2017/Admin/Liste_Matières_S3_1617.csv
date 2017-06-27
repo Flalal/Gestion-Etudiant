@@ -15,7 +15,7 @@ M3301;Méthodologie de la production d’applications ;ProdApp;3;UE33;S3;Buchon
 M3302;Projet tutoré – Mise en situation professionnelle ;PT-3;2;UE33;S3;Hsu
 M3303;PPP – Préciser son projet ;PPP-3;1;UE33;S3;Membré
 ;;;;;;
-;;;;;;
+Désignation;Nom;Coefficient;;;;
 UE31;Informatique Avancé;12;;;;
 UE32;Culture scientifique sociale et humaine avancées;12;;;;
 UE33;Méthodologie et Projets;6;;;;
@@ -25,3 +25,4 @@ Année;INFO2;;;;;
 Date de début;01/09/2016;;;;;
 Date de fin ;31/06/2017;;;;;
 Semestre;S3;;;;;
+;;;;;;
