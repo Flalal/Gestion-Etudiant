@@ -498,7 +498,7 @@ function extraireRapportTableau ($tab) {
     return $rapport;
 }
 
-function ajouterNotesAuxEtudiants ($fileNotes,$semestre,$promotion) {
+function  extraireRapportSemestre  ($fileNotes,$semestre,$promotion) {
     if (!file_exists($fileNotes)){
         throw new Exception ("Fichier inexistant : ".$fileNotes);
     }
@@ -528,13 +528,14 @@ function ajouterNotesAuxEtudiants ($fileNotes,$semestre,$promotion) {
     $rapportSemestre = array ();
     foreach ($tabIntitules as $key) {
         if (count($tabValues[$key])>0) {
-            echo $key." ";
+            // echo $key." ";
             $rapportSemestre[$key]= extraireRapportTableau($tabValues[$key]);
         }
     }
 
     // echo json_encode($rapportSemestre["M3303 PPP-3"],JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
     echo count($rapportSemestre);
+    return $rapportSemestre;
 }
 
 function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
@@ -601,7 +602,7 @@ function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
     echo json_encode($semestreEtudiant,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
 
 */
-    ajouterNotesAuxEtudiants ($fileNotes,$semestre,$promotion);
+    extraireRapportSemestre ($fileNotes,$semestre,$promotion);
 }
 
 function getPeriodeUniversitaire () {
