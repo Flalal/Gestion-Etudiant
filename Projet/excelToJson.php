@@ -294,6 +294,9 @@ function convertXLStoCSV($infile)
 {
 	$objPHPExcel = new PHPExcel();
 
+	print_r($infile);
+	return;
+
 	//comme infile est le fichier depart et qu'il est dans un dossier, alors je decoupe les données
 	//$depart est le departement
 	//$dossier par exemple le dossier INFO_S3_20162017
