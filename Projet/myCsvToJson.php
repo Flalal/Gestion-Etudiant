@@ -170,6 +170,7 @@ class Semestre {
     public $anneeDebut;
     public $anneeFin;
     public $UE = "";
+    public $tabNotes;
     function __construct($code,$promo, $departement,$anneeDebut,$anneeFin) {
         $this->code = $code;
         $this->promo = $promo;
@@ -178,6 +179,7 @@ class Semestre {
         $this->anneeFin = $anneeFin;
         $this->note = 0.0;
         $this->UE = array();
+        $this->tabNotes = array();
     }
 
     function setNote ($note) {
@@ -186,6 +188,10 @@ class Semestre {
     function ajouterUE( $ue) {
         $this->UE[$ue->getDesignation()] = $ue;
     }
+    function mettreAJourDonnees($liste) {
+
+    }
+
     function ajouterMatiereDansUE ($liste) {
         // Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
         // M3101;Principes des systèmes d'exploitation ;SE-3;2.5;UE31;S3;Roussel
@@ -474,6 +480,23 @@ function convertXLStoCSV($file, $repDestination, $prefixe) {
 
 }//
 
+function moyenneArray ($tab) {
+  $dimension = count($tab);
+  if ($dimension==0) return 0;
+  return array_sum($tab)/$dimension;
+}
+
+function extraireRapportTableau ($tab) {
+    $rapport = array ();
+    arsort($tab,SORT_NUMERIC);
+    $dimension = count($tab);
+    $rapport["listeNotes"] = array();
+    foreach ($tab as $value)$rapport["listeNotes"][] = $value;
+    $rapport["minimum"]= $rapport["listeNotes"][$dimension-1];
+    $rapport["maximum"] = $rapport["listeNotes"][0];
+    $rapport["moyennePromo"] = moyenneArray($tab);
+    return $rapport;
+}
 
 function ajouterNotesAuxEtudiants ($fileNotes,$semestre,$promotion) {
     if (!file_exists($fileNotes)){
@@ -481,19 +504,37 @@ function ajouterNotesAuxEtudiants ($fileNotes,$semestre,$promotion) {
     }
     $f = fopen($fileNotes, 'r');
     $tabIntitules= fgetcsv($f,"1024",CSV_DELIMITEUR);
+
+    $tabValues = array();
+    foreach ($tabIntitules as $value) {
+        $tabValues[$value]= array();
+    }
+
     $nbIntitules = count($tabIntitules);
     while ($data = fgetcsv($f,"1024",CSV_DELIMITEUR)) {
         //  echo "data=".$data;
         $liste = array();
         $attributColonne1 = $data[0];
         if (strlen(trim($attributColonne1))>0) {
-            if (is_numeric($attributColonne1)) { // dit être numerique
+            if (is_numeric($attributColonne1)) { // doit être numerique
                 for ($i = 0; $i < $nbIntitules; $i++) $liste[$tabIntitules[$i]] = trim($data[$i]);
-                //$semestre->ajouterMatiereDansUE($liste);
+                foreach ($liste as $key => $value) {
+                    if (is_numeric($value))$tabValues[$key][] = $value;
+                }
             }
         }
     }
 
+    $rapportSemestre = array ();
+    foreach ($tabIntitules as $key) {
+        if (count($tabValues[$key])>0) {
+            echo $key." ";
+            $rapportSemestre[$key]= extraireRapportTableau($tabValues[$key]);
+        }
+    }
+
+    // echo json_encode($rapportSemestre["M3303 PPP-3"],JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+    echo count($rapportSemestre);
 }
 
 function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
