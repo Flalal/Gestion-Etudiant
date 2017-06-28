@@ -377,16 +377,15 @@ function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
 
 */
     $rapportSemestre = extraireRapportSemestre ($fileNotes,$semestre,$promotion);
+
+    $semestreModeleEtudiant = clone $semestre;
+
     $semestre->ajouterRapportSemestre ($rapportSemestre);
 
     // echo json_encode($semestre,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+    
 
-    echo PHP_EOL;
 
-    foreach ($rapportSemestre as $key=>$value) {
-        echo "(".$key.")";
-    }
-    echo PHP_EOL;
 }
 
 function getPeriodeUniversitaire () {

@@ -33,9 +33,19 @@ class Semestre {
         $this->UE[$ue->getDesignation()] = $ue;
     }
 
+    function rechercherUE ($matiere) {
+        foreach ($this->UE as $key => $refUE) {
+            if ($refUE->contient($matiere)===true) {
+                echo $matiere." est dans ".$key.PHP_EOL;
+                return $refUE;
+            }
+        }
+        return null;
+    }
+
     function ajouterRapportSemestre ($rapport) {
 
-
+        //  Rapport sur le semestre
         $rapSemestre = $rapport["M S3"];
         $this->minimum = $rapSemestre["minimum"];
         $this->maximum = $rapSemestre["maximum"];
@@ -44,6 +54,8 @@ class Semestre {
         foreach ($rapSemestre["listeNotes"] as $value) {
             $this->listeNotes[] = $value + 0;
         }
+
+        // Rapport sur les UE
         foreach ($rapport as $key => $value){
             $keys = explode(" ", $key);
             if (count($keys)>1) {
@@ -57,6 +69,21 @@ class Semestre {
                 }
             }
         }
+
+        // Rapport sur les matières
+        echo "recherche matiere ...".PHP_EOL;
+        foreach ($rapport as $key => $value){
+            $keys = explode(" ", $key);
+            if (count($keys)>1) {
+                $refMat = $keys[0];
+                // echo $refMat.PHP_EOL;
+                $refUE = $this->rechercherUE($refMat);
+                if ($refUE != null) {
+                   $refUE->ajouterRapportMatiere($refMat, $value);
+                }
+            }
+        }
+
 
     }
 

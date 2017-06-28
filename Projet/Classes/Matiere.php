@@ -32,6 +32,17 @@ class Matiere {
     function ajouterNote($note) {
         $this->note = $note;
     }
+
+    function ajouterRapportMatiere ($rapport) {
+        $this->minimum = $rapport["minimum"];
+        $this->maximum = $rapport["maximum"];
+        $this->moyennePromo = $rapport["moyennePromo"];
+        $this->listeNotes = array();
+        foreach ($rapport["listeNotes"] as $value) {
+            $this->listeNotes[] = $value + 0;
+        }
+    }
+
     function getCoefficient () {
         return $this->coefficient;
     }

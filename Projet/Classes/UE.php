@@ -23,10 +23,35 @@ class UE {
         $this->matieres[$matiere->getReference()] = $matiere;
     }
 
+    function contient ($matiere) {
+        foreach ($this->matieres as $key => $refMat) {
+           // echo "==== Camparer ".$key."==".$matiere.PHP_EOL;
+            if (strcasecmp($key,$matiere)==0) return true;
+        }
+        return false;
+    }
+
+    function rechercherMatiere ($matiere) {
+        foreach ($this->matieres as $key => $refMat) {
+            // echo "==== Camparer ".$key."==".$matiere.PHP_EOL;
+            if (strcasecmp($key,$matiere)==0) return $refMat;
+        }
+        return null;
+    }
+
     function ajouterNotesDansMatiere ($matiere,$note) {
         if (isset($this->matieres[$matiere])) {
             $this->matieres[$matiere]->ajouterNote($note);
         } else throw new Exception ($matiere."n'existe pas");
+    }
+
+    function ajouterRapportMatiere($matiere, $rapport) {
+        // trouver la matière et ajouter le rapport
+        $refMat = $this->rechercherMatiere($matiere);
+        if ($refMat != null){
+            $refMat->ajouterRapportMatiere($rapport);
+        }
+
     }
 
     function ajouterRapportUE ($rapport) {
