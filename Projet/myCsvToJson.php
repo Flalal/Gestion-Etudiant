@@ -8,6 +8,12 @@
 
 require('Classes/PHPExcel.php');
 require ('Classes/PHPExcel/IOFactory.php');
+require ('Classes/Etudiant.php');
+require ('Classes/Matiere.php');
+require ('Classes/UE.php');
+require ('Classes/Semestre.php');
+
+
 define("MARQUEUR","*");
 define("DEPARTEMENT","INFO");
 define("SEMESTRE", "SEMESTRE"); // S1, S2, S3, S4
@@ -17,246 +23,6 @@ define("MATIERES",     "Liste_Matières_SEMESTRE_ANNEE.csv");
 define("BILAN","Bilan_INFO_SEMESTRE_ANNEE.xls");;
 define("LES_SEMESTRES", "S0 S1 S2 S3 S4 S5 S6");
 define("CSV_DELIMITEUR",";");
-
-
-class Etudiant {
-/*
-"20112": {"numero":"20112",
-"nom":"c'estqui",
-"prenom":"personne",
-"departement":"INFO",
-
-"informations":{
-"dateNaissance":"06/03/1998",
-"Lycee":"je ne sais pas",
-"bac":"S_2015"
-},
-"groupe":"IPI",
-"avatar":"20112.png"
-*/
-    public $numero="";
-    public $nom="";
-    public $prenom="";
-    public $departement = "INFO";
-    public $groupe = "";
-    public $avatar="anonyme.jgp";
-    public $informations;
-
-
-    function __construct($liste) {
-        $this->informations = array();
-        foreach ($liste as $key => $value) {
-            if (strcasecmp ($key,"Numéro")==0) {
-                $this->numero = $value;
-                $this->avatar = $value.".png";
-            } else if (strcasecmp($key,"Nom")==0) $this->nom = $value;
-            else if (strcasecmp($key,"Prénom")==0) $this->prenom = $value;
-            else if (strcasecmp($key,"Groupe")==0) $this->groupe = $value;
-            else  $this->informations[$key] =  $value;
-        }
-    }
-    public function __toString() {
-        return $this->numero+":"+$this->nom;
-    }
-}
-class Matiere {
-    // Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
-    public $reference = "";
-    public $nom = "";
-    public $abreviation  = "";
-    public $coefficient = "";
-    public $referenceUE = "";
-    public $referenceSemestre = "";
-    public $responsable="";
-    public $note;
-    function __construct($liste) {
-        if (isset($liste["Référence"]))$this->reference = $liste["Référence"];
-        if (isset($liste["Nom Module"]))$this->nom = $liste["Nom Module"];
-        if (isset($liste["Abréviation"]))$this->abreviation = $liste["Abréviation"];
-        if (isset($liste["Coefficient"]))$this->coefficient = $liste["Coefficient"];
-        if (isset($liste["UE"]))$this->referenceUE = $liste["UE"];
-        if (isset($liste["Semestre"]))$this->referenceSemestre = $liste["Semestre"];
-        if (isset($liste["Responsable"]))$this->responsable = $liste["Responsable"];
-        $this->note = -1;
-    }
-    function getReference () {
-        return $this->reference;
-    }
-    function ajouterNote($note) {
-        $this->note = $note;
-    }
-    function getCoefficient () {
-        return $this->coefficient;
-    }
-    public function __toString() {
-        $res = $this->reference."-";
-        $res .= $this->nom."-";
-        $res .= $this->abreviation."-";
-        $res .= $this->coefficient."-";
-        $res .= $this->referenceUE."-";
-        $res .= $this->referenceSemestre."-";
-        $res .= $this->responsable.PHP_EOL;
-        return $res;
-    }
-}
-
-class UE {
-    public $designation = "";
-    public $nom = "";
-    public $coefficient  = "";
-    public $note = "";
-    public $matieres = "";
-    function __construct($liste) {
-        if (isset($liste["Désignation"]))$this->designation = $liste["Désignation"];
-        if (isset($liste["Nom"]))$this->nom = $liste["Nom"];
-        if (isset($liste["Coefficient"]))$this->coefficient = $liste["Coefficient"];
-        $this->note = 0.0;
-        $this->matieres = array();
-    }
-    function ajouterMatiere($matiere) {
-        $this->matieres[$matiere->getReference()] = $matiere;
-    }
-
-    function ajouterNotesDansMatiere ($matiere,$note) {
-        if (isset($this->matieres[$matiere])) {
-            $this->matieres[$matiere]->ajouterNote($note);
-        } else throw new Exception ($matiere."n'existe pas");
-    }
-
-    function  getDesignation () {
-        return $this->designation;
-    }
-
-    function validerCoefficients () {
-        $sommeCoefficients = 0;
-        foreach ($this->matieres as $key => $matiere) {
-            $sommeCoefficients += $matiere->getCoefficient();
-
-        }
-        if ($sommeCoefficients != $this->coefficient){
-            echo "xxxxx Erreur Coefficients : ".$this->designation."=>".$this->coefficient." à la place de ".$sommeCoefficients.PHP_EOL;
-            return false;
-        }
-        return true;
-    }
-
-    function __clone() {
-        $newMatieres = array();
-        foreach ($this->matieres as $key => $value) {
-            $newMatieres[$key]= clone $value;
-        }
-        $this->matieres = $newMatieres;
-    }
-    public function __toString() {
-        $res = "Désignation : ".$this->designation.PHP_EOL;
-        $res .= "Nom :".$this->nom.PHP_EOL;
-        $res .= "Coefficient :".$this->coefficient.PHP_EOL;
-        if (count($this->matieres) >0) {
-            $res .= "=== Liste des Matières : ".PHP_EOL;
-            foreach ($this->matieres as $key => $value) {
-                $res.=$value;
-            }
-        }
-        if ($this->note > 0) $res .= "Note :".$this->note.PHP_EOL;
-        return $res;
-    }
-}
-
-class Semestre {
-    public $code = "";
-    public $note = "";
-    public $promo = "";
-    public $departement = "";
-    public $anneeDebut;
-    public $anneeFin;
-    public $UE = "";
-    public $tabNotes;
-    function __construct($code,$promo, $departement,$anneeDebut,$anneeFin) {
-        $this->code = $code;
-        $this->promo = $promo;
-        $this->departement =  $departement;
-        $this->anneeDebut = $anneeDebut;
-        $this->anneeFin = $anneeFin;
-        $this->note = 0.0;
-        $this->UE = array();
-        $this->tabNotes = array();
-    }
-
-    function setNote ($note) {
-        $this->note = $note;
-    }
-    function ajouterUE( $ue) {
-        $this->UE[$ue->getDesignation()] = $ue;
-    }
-    function mettreAJourDonnees($liste) {
-
-    }
-
-    function ajouterRapportSemestre ($rapport) {
-        $rapSemestre = $rapport["M S3"];
-        $this->minimum = $rapSemestre["minimum"];
-        $this->maximum = $rapSemestre["maximum"];
-        $this->moyennePromo = $rapSemestre["moyennePromo"];
-        $this->listeNotes = array();
-        foreach ($rapSemestre["listeNotes"] as $value) {
-            $this->listeNotes[] = $value+0;
-        }
-    }
-    function ajouterMatiereDansUE ($liste) {
-        // Référence;Nom Module;Abréviation;Coefficient;UE;Semestre;Responsable
-        // M3101;Principes des systèmes d'exploitation ;SE-3;2.5;UE31;S3;Roussel
-        $designationUE = $liste["UE"];
-        if (isset($this->UE[$designationUE])) {
-            $this->UE[$designationUE]->ajouterMatiere(new Matiere($liste));
-        } else {
-            $liste = "";
-            foreach ($this->UE as $key => $value) $liste.=$key.",";
-            throw  new Exception ("UE ".$designationUE. " n'exsite pas : ". $liste);
-        }
-    }
-
-    function ajouterNotesDansUE($UE,$matiere,$note) {
-        if (isset($this->UE[$UE])) {
-            $this->UE[$UE]->ajouterNotesDansMatiere($matiere, $note);
-        } else new Exception ("UE ".$UE. " n'exsite pas : ");
-    }
-
-    function __clone() {
-      $newUE = array();
-      foreach ($this->UE as $key => $value) $newUE[$key]= clone $value;
-      $this->UE = $newUE;
-    }
-
-    function getUE ($index) {
-        if($index < 0 || $index >= count($this->UE)) return null;
-        return $this->UE[$index];
-    }
-
-    function validerUECoefficient() {
-        $valide = true;
-        foreach ($this->UE as $keys => $ue) {
-            if (! $ue->validerCoefficients()) {
-                $valide = false;
-            }
-        }
-        return $valide;
-    }
-    public function __toString() {
-        $res = "Departement :".$this->departement.PHP_EOL;
-        $res .= "Semestre :".$this->code.PHP_EOL;
-        $res .= "Année :".$this->promo.PHP_EOL;
-        $res .= "Date de début :".$this->anneeDebut.PHP_EOL;
-        $res .= "Date de Fin :".$this->anneeFin.PHP_EOL;
-        if (count($this->UE) >0) {
-            $res .= "=== Liste des UE : ".PHP_EOL;
-            foreach ($this->UE as $key => $value) {
-                $res.=$value.PHP_EOL;
-            }
-        }
-        if ($this->note > 0) $res .= "Note :".$this->note.PHP_EOL;
-        return $res;
-    }
-}
 
 
 function rechercherTag ($f, $tag) {
@@ -347,8 +113,6 @@ function lireInfoSemestre ($file) {
     }
     return new Semestre ($codeSemestre,$promo, $departement,$anneeDebut,$anneeFin);
 }
-
-
 
 function lireListeUE ($file, $semestre) {
     /*
@@ -614,7 +378,15 @@ function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
 */
     $rapportSemestre = extraireRapportSemestre ($fileNotes,$semestre,$promotion);
     $semestre->ajouterRapportSemestre ($rapportSemestre);
-    echo json_encode($semestre,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+
+    // echo json_encode($semestre,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+
+    echo PHP_EOL;
+
+    foreach ($rapportSemestre as $key=>$value) {
+        echo "(".$key.")";
+    }
+    echo PHP_EOL;
 }
 
 function getPeriodeUniversitaire () {
