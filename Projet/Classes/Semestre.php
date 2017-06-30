@@ -43,10 +43,55 @@ class Semestre {
         return null;
     }
 
+    function calculerRang ($note) {
+        $rang = 0;
+        while ($rang<$this->effectifs ){
+            if ($this->listeNotes[$rang]<=$note) return $rang+1;
+            $rang++;
+        }
+        return $rang;
+    }
+    function miseAJourSemestreEtudiant ($tabNotes) {
+        $refSemestre = "M ".$this->code; // A faire : on suppose que c'est toujours "M S2"
+        $this->moyenne = $tabNotes[$refSemestre];
+        $position  = $this->calculerRang ($this->moyenne);
+        $this->classement = $position."/".$this->effectifs;
+
+        // mise à jour note UE
+        foreach ($tabNotes as $key => $value){
+            $keys = explode(" ", $key);
+            if (count($keys)>1) {
+                $refUE = $keys[1];
+                if (stripos($refUE, "UE")!==false) {
+                    if (!isset ($this->UE[$refUE])) {
+                        throw new Exception ($refUE." n'existe pas");
+                    } else {
+                        $this->UE[$refUE]->miseAJourUEEtudiant($value);
+                    }
+                }
+            }
+        }
+        // Mise à jour Note Matière
+        echo "recherche matiere ...".PHP_EOL;
+        foreach ($tabNotes as $key => $value){
+            $keys = explode(" ", $key);
+            if (count($keys)>1) {
+                $refMat = $keys[0];
+                // echo $refMat.PHP_EOL;
+                $refUE = $this->rechercherUE($refMat);
+                if ($refUE != null) {
+                    $refUE->ajouterNotesDansMatiere($refMat, $value);
+                }
+            }
+        }
+
+    }
+
     function ajouterRapportSemestre ($rapport) {
 
         //  Rapport sur le semestre
-        $rapSemestre = $rapport["M S3"];
+        $refSemestre = "M ".$this->code; // A faire : on suppose que c'est toujours "M S2"
+        $rapSemestre = $rapport[$refSemestre];
         $this->minimum = $rapSemestre["minimum"];
         $this->maximum = $rapSemestre["maximum"];
         $this->moyennePromo = $rapSemestre["moyennePromo"];
@@ -54,6 +99,7 @@ class Semestre {
         foreach ($rapSemestre["listeNotes"] as $value) {
             $this->listeNotes[] = $value + 0;
         }
+        $this->effectifs = count($this->listeNotes);
 
         // Rapport sur les UE
         foreach ($rapport as $key => $value){
@@ -111,6 +157,11 @@ class Semestre {
         $newUE = array();
         foreach ($this->UE as $key => $value) $newUE[$key]= clone $value;
         $this->UE = $newUE;
+        /* if (isset($this->listeNotes)) {
+            $liste = array();;
+            foreach ($this->listeNotes as $value) $liste[]= $value;
+            $this->listeNotes = $liste;
+        }*/
     }
 
     function getUE ($index) {

@@ -45,6 +45,22 @@ class UE {
         } else throw new Exception ($matiere."n'existe pas");
     }
 
+    function calculerRang ($note) {
+        $rang = 0;
+        $nbNotes = count($this->listeNotes);
+        while ($rang < $nbNotes ){
+            if ($this->listeNotes[$rang]<=$note) return $rang+1;
+            $rang++;
+        }
+        return $rang;
+    }
+
+    function miseAJourUEEtudiant ($note) {
+        $this->moyenne = $note;
+        $position  = $this->calculerRang ($this->moyenne);
+        $this->classement = $position."/".$this->effectifs;
+    }
+
     function ajouterRapportMatiere($matiere, $rapport) {
         // trouver la matière et ajouter le rapport
         $refMat = $this->rechercherMatiere($matiere);

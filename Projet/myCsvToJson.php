@@ -173,6 +173,35 @@ function initialiserSemestre ($file) {
 }
 
 
+function initialiserBilanNotes ($file) {
+    // Numéro;Nom;Prénom;Groupe;M S3;Rang Eleve;IA UE31;Csseha UE32;MeP UE33;M3101 SE-3;M3102 RX-2;M3103 APA;M3104 Pweb-1;M3105 CPA;M3106 BDA;M3201 Proba;M3202 ModMath;M3203 Droit;M3204 GSI;M3205 Com;M3206 Ang-3;M3301 ProdApp;M3302 PT-3;M3303 PPP-3;Bonus_Sport
+
+    if (!($f = fopen($file, 'r'))) {
+        die("** Probleme d'ouverture Fichier Bilan : ".$file." **");
+    }
+    $tabIntitules= fgetcsv($f,"1024",CSV_DELIMITEUR);
+    $nbIntitules = count($tabIntitules);
+    $bilan = array();
+    while ($data = fgetcsv($f,"1024",CSV_DELIMITEUR)) {
+        //  echo "data=".$data;
+        $liste = array();
+        $attributColonne1 = $data[0];
+        if (strlen(trim($attributColonne1))>0) {
+            if (is_numeric($attributColonne1)) { // doit être numerique
+                for ($i = 0; $i < $nbIntitules; $i++) $liste[$tabIntitules[$i]] = trim($data[$i]);
+                $numeroEtudiant = $attributColonne1;
+                $bilan[$numeroEtudiant] = $liste;
+            }
+        } else {
+            echo "Pas de numero étudiant : ".PHP_EOL;
+        }
+
+    }
+    fclose($f);
+    return $bilan;
+
+}
+
 function convertXLStoCSV($file, $repDestination, $prefixe) {
     $objPHPExcel = new PHPExcel();
 
@@ -259,7 +288,6 @@ function moyenneArray ($tab) {
   if ($dimension==0) return 0;
   return array_sum($tab)/$dimension;
 }
-
 function extraireRapportTableau ($tab) {
     $rapport = array ();
     arsort($tab,SORT_NUMERIC);
@@ -378,13 +406,38 @@ function createCSVToJson($anneeLong, $nomSemestre, $groupe = null) {
 */
     $rapportSemestre = extraireRapportSemestre ($fileNotes,$semestre,$promotion);
 
-    $semestreModeleEtudiant = clone $semestre;
+    // $semestreModeleEtudiant = clone $semestre;
 
     $semestre->ajouterRapportSemestre ($rapportSemestre);
 
-    // echo json_encode($semestre,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
-    
+    // $semestreEtudiant = clone $semestre;
 
+
+
+    // echo json_encode($semestreEtudiant,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+    // return ;
+    // contient les notes obtenues par les étudiants durant le semestre
+    $bilanNotes = initialiserBilanNotes ($fileNotes);
+    // POur chaque étudiant on va lui ajouter le semestre en question
+    $tabSemestre = array();
+    foreach ($bilanNotes as $numEtudiant =>$tabNotes) {
+        if (! isset($promotion[$numEtudiant])) {
+            echo $numEtudiant." n'existe pas ! ".PHP_EOL;
+        } else {
+            $tabSemestre[$numEtudiant] = clone $semestre;
+            $tabSemestre[$numEtudiant]->miseAJourSemestreEtudiant ($tabNotes);
+            // echo $numEtudiant.":".$semestreEtudiant->classement.PHP_EOL;
+        }
+    }
+
+    foreach ($tabSemestre as $key =>$value){
+        echo $key.":".$value->classement.PHP_EOL;
+    }
+   // echo json_encode($tabSemestre,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+    foreach ($tabSemestre as $key =>$value){
+        echo $key.":".$value->classement." UE31:".$value->UE["UE31"]->moyenne;
+        echo " M3101:".$value->UE["UE31"]->matieres["M3101"]->note.PHP_EOL;
+    }
 
 }
 
