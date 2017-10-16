@@ -8,7 +8,7 @@
  * */
 
 //fichier csv
-$feed='FeuilleDeNotes.ods';
+$feed='globale.csv';
 
 $keys = array();
 $newArray = array();
@@ -27,11 +27,13 @@ function csvToArray($file, $delimiter) {
       $i++; 
     } 
     fclose($handle); 
+
   } 
   return $arr; 
 } 
 
-$data = csvToArray($feed, ',');
+$data = csvToArray($feed, ';');
+
 
 //Définis le nombre d'éléments (au moins 1 car je declare la première ligne)
 $count = count($data) - 1;
