@@ -1,0 +1,7 @@
+Test du programme C:\Users\stéphane\Desktop\Projet_tut\GestionEtudiants\Exemples\projet\programme\csvtoxls.php :
+php csvtoxls.php S3 
+
+Le programme utilise les fichiers liste etudiants et liste matieres du semestre passé en paramètre dans le dossier \programme.
+
+--> Ok le programme crée bien les fichiers excels pour chaque matière + le fichier bilan.xls en y ajoutant des moyennes générées automatiquement.
+
