@@ -1,4 +1,8 @@
 <?php
+
+require('Classes/PHPExcel.php');
+require_once 'Classes/PHPExcel/IOFactory.php';
+
 //tableau pour stocker les données des fichiers CSV
 $infoEtu = [];
 $info_person = [];
@@ -33,9 +37,10 @@ function openDirectories($repertoire, $destination)
     // Ouvre un dossier bien connu, et liste tous les fichiers
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) {
-            while (($file = readdir($dh)) !== false) {
+            creationFilesXLS($dir);
+           /* while (($file = readdir($dh)) !== false) {
                 echo "fichier : $file : type : " . filetype($dir . $file) . "\n";
-            }
+            }*/
             closedir($dh);
         }
     } else {
@@ -115,6 +120,26 @@ function readCSVMatieres()
         fclose($handle);
     }
 }
+
+function creationFilesXLS($chemin)
+{
+
+    // création des objets de base et initialisation des informations d'entête
+    $classeur = new PHPExcel;
+    $classeur->getProperties()->setCreator("Bastien Cornu");
+    $classeur->setActiveSheetIndex(0);
+    $feuille = $classeur->getActiveSheet();
+
+    // ajout des données dans la feuille de calcul
+    $feuille->setTitle('Bilan');
+    $feuille->setCellValueByColumnAndRow(0, 1, 'Les colonnes débutent à 0 et les lignes débutent à 1');
+    $feuille->SetCellValue('A2', 'Il est aussi possible d\'utiliser la notation LettreChiffre (ex : A2)');
+
+    $writer = PHPExcel_IOFactory::createWriter($classeur, 'Excel2007');
+    $writer->save($chemin.'Bilan_Info2_S3_1617.xlsx');
+}
+
+
 
 openDirectories($argv[1], "xls");
 $csv = recoveryfileCSV();
