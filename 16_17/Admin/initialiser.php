@@ -37,10 +37,7 @@ function openDirectories($repertoire, $destination)
     // Ouvre un dossier bien connu, et liste tous les fichiers
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) {
-            creationFilesXLS($dir);
-           /* while (($file = readdir($dh)) !== false) {
-                echo "fichier : $file : type : " . filetype($dir . $file) . "\n";
-            }*/
+            browseArrayMatiere($dir);
             closedir($dh);
         }
     } else {
@@ -123,6 +120,7 @@ function readCSVMatieres()
 
 function creationFilesXLS($chemin)
 {
+    $abreviation = explode("/",$chemin);
 
     // création des objets de base et initialisation des informations d'entête
     $classeur = new PHPExcel;
@@ -131,17 +129,27 @@ function creationFilesXLS($chemin)
     $feuille = $classeur->getActiveSheet();
 
     // ajout des données dans la feuille de calcul
-    $feuille->setTitle('Bilan');
+    $feuille->setTitle($abreviation[count($abreviation)-1]);
     $feuille->setCellValueByColumnAndRow(0, 1, 'Les colonnes débutent à 0 et les lignes débutent à 1');
     $feuille->SetCellValue('A2', 'Il est aussi possible d\'utiliser la notation LettreChiffre (ex : A2)');
 
     $writer = PHPExcel_IOFactory::createWriter($classeur, 'Excel2007');
-    $writer->save($chemin.'Bilan_Info2_S3_1617.xlsx');
+    $writer->save($chemin.'_Info2_S3_1617.xlsx');
 }
 
+function browseArrayMatiere($chemin){
+    global $info_matiere;
+    for ($compteur=1 ; $compteur < count($info_matiere) ; $compteur++){
+        creationFilesXLS($chemin.$info_matiere[$compteur]["Abréviation"]);
+    }
+    creationFilesXLS($chemin."Bilan");
+    creationFilesXLS($chemin."Absences");
+}
 
-
-openDirectories($argv[1], "xls");
 $csv = recoveryfileCSV();
 readCSVEtudiant();
 readCSVMatieres();
+openDirectories($argv[1], "xls");
+
+
+
