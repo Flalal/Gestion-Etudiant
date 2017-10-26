@@ -10,6 +10,8 @@ $infoMat = [];
 $info_matiere = [];
 $ue = [];
 $departement = [];
+$semestre = $argv[1];
+
 
 //Si il n'y a pas de paramtre ou plus de 1, on arrête le programme est on déclenche une erreur.
 if ($argc != 2) {
@@ -100,14 +102,14 @@ function readCSVMatieres()
                 if ($compteur == 0) {
                     $infoMat[] = $data[$c];
                 } else {
-                    if($data[0] == ""){
+                    if ($data[0] == "") {
                         $compteur++;
                         break;
-                    } elseif (stripos($data[0],"UE") !== false){
+                    } elseif (stripos($data[0], "UE") !== false) {
                         $ue[$data[0]][] = $data[$c];
-                    } elseif (stripos($data[0],"M3") !== false ) {
+                    } elseif (stripos($data[0], "M3") !== false) {
                         $info_matiere[$compteur][$infoMat[$c]] = $data[$c];
-                    } else{
+                    } else {
                         $departement[$data[0]][] = $data[$c];
                     }
                 }
@@ -120,7 +122,7 @@ function readCSVMatieres()
 
 function creationFilesXLS($chemin)
 {
-    $abreviation = explode("/",$chemin);
+    $abreviation = explode("/", $chemin);
 
     // création des objets de base et initialisation des informations d'entête
     $classeur = new PHPExcel;
@@ -129,24 +131,40 @@ function creationFilesXLS($chemin)
     $feuille = $classeur->getActiveSheet();
 
     // ajout des données dans la feuille de calcul
-    $feuille->setTitle($abreviation[count($abreviation)-1]);
-    $feuille->setCellValueByColumnAndRow(0, 1, 'Les colonnes débutent à 0 et les lignes débutent à 1');
-    $feuille->SetCellValue('A2', 'Il est aussi possible d\'utiliser la notation LettreChiffre (ex : A2)');
-
+    $feuille->setTitle($abreviation[count($abreviation) - 1]);
+    writeInfoPersonFilesXLS($feuille);
     $writer = PHPExcel_IOFactory::createWriter($classeur, 'Excel2007');
-    $writer->save($chemin.'_Info2_S3_1617.xlsx');
+    $writer->save($chemin . '_Info2_S3_1617.xlsx');
 }
 
-function browseArrayMatiere($chemin){
+function browseArrayMatiere($chemin)
+{
     global $info_matiere;
-    for ($compteur=1 ; $compteur < count($info_matiere) ; $compteur++){
-        creationFilesXLS($chemin.$info_matiere[$compteur]["Abréviation"]);
+    for ($compteur = 1; $compteur < count($info_matiere); $compteur++) {
+        creationFilesXLS($chemin . $info_matiere[$compteur]["Abréviation"]);
     }
-    creationFilesXLS($chemin."Bilan");
-    creationFilesXLS($chemin."Absences");
+    creationFilesXLS($chemin . "Bilan");
+    creationFilesXLS($chemin . "Absences");
 }
 
-$csv = recoveryfileCSV();
+function writeInfoPersonFilesXLS($test)
+{
+    global $infoEtu, $info_person;
+    $colonne = 0;
+    for ($attributs = 0; $attributs < 4; $attributs++) {
+        $test->setCellValueByColumnAndRow($colonne++, 1, $infoEtu[$attributs]);
+    }
+    $ligne = 2;
+    for ($compteur = 1; $compteur < count($info_person); $compteur++) {
+        $test->setCellValueByColumnAndRow(0, $ligne, $info_person[$compteur]["Numéro"]);
+        $test->setCellValueByColumnAndRow(1, $ligne, $info_person[$compteur]["Nom"]);
+        $test->setCellValueByColumnAndRow(2, $ligne, $info_person[$compteur]["Prénom"]);
+        $test->setCellValueByColumnAndRow(3, $ligne, $info_person[$compteur]["Groupe"]);
+        $ligne++;
+    }
+}
+
+
 readCSVEtudiant();
 readCSVMatieres();
 openDirectories($argv[1], "xls");
