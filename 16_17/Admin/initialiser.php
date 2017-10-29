@@ -133,6 +133,12 @@ function creationFilesXLS($chemin)
     // ajout des données dans la feuille de calcul
     $feuille->setTitle($abreviation[count($abreviation) - 1]);
     writeInfoPersonFilesXLS($feuille);
+    //A faire !
+
+    if(strcmp($abreviation[count($abreviation) - 1], "Bilan") == 0){
+        echo "TEST";
+        fileBilan($feuille);
+    }
     $writer = PHPExcel_IOFactory::createWriter($classeur, 'Excel2007');
     $writer->save($chemin . '_Info2_S3_1617.xlsx');
 }
@@ -147,19 +153,31 @@ function browseArrayMatiere($chemin)
     creationFilesXLS($chemin . "Absences");
 }
 
-function writeInfoPersonFilesXLS($test)
+//A faire !
+function fileBilan($feuille){
+    echo "Passage dans fileBilan";
+    global $ue;
+    $compteur = 0;
+    foreach ($ue as $value){
+        $feuille->setCellValueByColumnAndRow(6+$compteur , 1 , $value[0]);
+        $feuille->setCellValueByColumnAndRow(6+$compteur , 2 , $value[2]);
+        $compteur++;
+    }
+}
+
+function writeInfoPersonFilesXLS($feuille)
 {
     global $infoEtu, $info_person;
     $colonne = 0;
     for ($attributs = 0; $attributs < 4; $attributs++) {
-        $test->setCellValueByColumnAndRow($colonne++, 1, $infoEtu[$attributs]);
+        $feuille->setCellValueByColumnAndRow($colonne++, 1, $infoEtu[$attributs]);
     }
     $ligne = 2;
     for ($compteur = 1; $compteur < count($info_person); $compteur++) {
-        $test->setCellValueByColumnAndRow(0, $ligne, $info_person[$compteur]["Numéro"]);
-        $test->setCellValueByColumnAndRow(1, $ligne, $info_person[$compteur]["Nom"]);
-        $test->setCellValueByColumnAndRow(2, $ligne, $info_person[$compteur]["Prénom"]);
-        $test->setCellValueByColumnAndRow(3, $ligne, $info_person[$compteur]["Groupe"]);
+        $feuille->setCellValueByColumnAndRow(0, $ligne, $info_person[$compteur]["Numéro"]);
+        $feuille->setCellValueByColumnAndRow(1, $ligne, $info_person[$compteur]["Nom"]);
+        $feuille->setCellValueByColumnAndRow(2, $ligne, $info_person[$compteur]["Prénom"]);
+        $feuille->setCellValueByColumnAndRow(3, $ligne, $info_person[$compteur]["Groupe"]);
         $ligne++;
     }
 }
@@ -168,6 +186,5 @@ function writeInfoPersonFilesXLS($test)
 readCSVEtudiant();
 readCSVMatieres();
 openDirectories($argv[1], "xls");
-
 
 
