@@ -13,6 +13,7 @@ $departement = [];
 $semestre = $argv[1];
 
 
+
 //Si il n'y a pas de paramtre ou plus de 1, on arrête le programme est on déclenche une erreur.
 if ($argc != 2) {
     echo "Erreur paramètre : passer le semestre choisi " . PHP_EOL;
@@ -127,6 +128,7 @@ function readCSVMatieres()
 //Création des fichiers excel.
 function creationFilesXLS($chemin)
 {
+    global $semestre;
     $abreviation = explode("/", $chemin);
 
     // création des objets de base et initialisation des informations d'entête
@@ -146,7 +148,11 @@ function creationFilesXLS($chemin)
         fileBilan($feuille);
     }
     $writer = PHPExcel_IOFactory::createWriter($classeur, 'Excel2007');
-    $writer->save($chemin . '_Info2_S3_1617.xlsx');
+    if(strcmp($semestre,"S1") == 0 || strcmp($semestre,"S2") == 0){
+        //$writer->save($chemin . "_Info_".$semestre."_1617.xlsx");
+    } else{
+        //$writer->save($chemin . "_Info2_".$semestre."_1617.xlsx");
+    }
 }
 
 //Fonction qui va boucler en appelant la fonction qui créer les fichiers excel en lui donnant le nom de chaque abréviation.
@@ -162,7 +168,7 @@ function browseArrayMatiere($chemin)
 
 //Ecriture des informations dans le fichier Bilan...xlsx
 function fileBilan($feuille){
-    global $ue, $info_matiere, $info_person, $departement;
+    global $ue, $info_matiere, $info_person, $departement, $semestre;
 
     $compteur = 0;
     //Les UE dans le fichier Bilan
@@ -180,7 +186,7 @@ function fileBilan($feuille){
 
 
     //La Moyenne dans le fichier Bilan
-    $feuille->setCellValueByColumnAndRow(4 , 1 , "M S3");
+    $feuille->setCellValueByColumnAndRow(4 , 1 , "M ".$semestre);
     $somme = 0;
     foreach ($ue as $value) {
         $somme +=$value[2];
@@ -202,11 +208,7 @@ function fileMatiere($feuille,$abreviation)
 {
     global $info_person, $departement, $info_matiere, $infoEtu;
     $ligne = count($info_person)+1+count($departement)+1;
-
     $compteur = 0;
-
-    echo $abreviation.PHP_EOL;
-
     for($cpt = 0; $cpt < count($info_matiere); $cpt++){
         if(strcmp($info_matiere[$cpt]["Abréviation"],$abreviation) == 0){
             $compteur = $cpt;
@@ -273,6 +275,6 @@ function writeInfoPersonFilesXLS($feuille)
 
 readCSVEtudiant();
 readCSVMatieres();
-openDirectories($argv[1], "xls");
+openDirectories($argv[1], "excel");
 
 
