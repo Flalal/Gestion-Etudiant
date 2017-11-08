@@ -1,0 +1,40 @@
+{
+
+    "name": "projet/gestion-etudiant",
+
+    "description": "Projet tuteuré S5 Licence Pro DIOC IUT Lens",
+
+    "keywords": ["generation", "etudiant", "matières"],
+
+    "license": "IUT Lens",
+
+    "authors": [
+
+        {
+
+            "name": "Florian Flahaut",
+
+            "email": "florian_flahait@ens.univ-artois.fr"
+
+        }
+
+    ],
+
+    "require": {
+
+        "php": ">=5.4.0",
+	"phpoffice/phpexcel": ">=1.8"
+
+    },
+
+    "autoload": {
+
+        "psr-0": {
+
+            "Fk": "src/"
+
+        }
+
+    }
+
+}
